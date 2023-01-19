@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
-import { useModal } from "../context/Modal";
-import { actionCreateSpot } from "../store/spots";
+import { useModal } from "../../context/Modal";
+import { createSpot } from "../../store/spots";
 //css file import here
 // import { useHistory } from "react-router-dom";
 
-const CreateSpotFormModal = ({ spot, formType }) => {
+const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     // const history = useHistory();
 
@@ -23,21 +24,42 @@ const CreateSpotFormModal = ({ spot, formType }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        spot = { ...spot, address, city, state, lat, lng, name, description, price };
-        dispatch(actionCreateSpot(spot))
-        history.push(`/spots/${spot.id}`);
+        // spot = { ...spot, address, city, state, lat, lng, name, description, price };
+        // dispatch(actionCreateSpot(spot))
+        // history.push(`/spots/${spot.id}`);
+
+        return dispatch(createSpot({
+            address,
+            city,
+            state,
+            lat,
+            lng,
+            country,
+            name,
+            description,
+            price
+         }))
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setErrors(data.errors);
+        });
+        return setErrors(['Confirm form fields are filled'])
     };
 
     return (
-
+        <>
+    <h1>My Home's Information</h1>
         <form onSubmit={handleSubmit} >
-          <h2>{formType}</h2>
+          <ul>
+             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
           <label>
             address
             <input
               type="text"
               value={address}
               onChange={e => setAddress(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -45,6 +67,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={city}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -52,6 +75,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={state}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -59,6 +83,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={lat}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -66,6 +91,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={lng}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -73,6 +99,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={country}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -80,6 +107,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={name}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -87,6 +115,7 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={description}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -94,10 +123,12 @@ const CreateSpotFormModal = ({ spot, formType }) => {
             <textarea
               value={price}
               onChange={e => setCity(e.target.value)}
+              required
             />
           </label>
-          <input type="submit" value={formType} />
+          <button type="submit">Submit Home</button>
         </form>
+        </>
       );
     }
 
