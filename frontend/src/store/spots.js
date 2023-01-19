@@ -1,16 +1,25 @@
-const CREATE = '';
-const READ = '';
-const UPDATE = '';
-const DELETE = '';
+const CREATE = 'spots/CREATE_SPOT';
+const READ = 'spots/READ_SPOT';
+const READ_ALL = 'spots/READ_SPOTS';
+const UPDATE = 'spots/UPDATE_SPOT';
+const DELETE = 'spots/DELETE_SPOT';
 
 export const actionCreateSpot = (spot) => ({
     type: CREATE,
     spot
 })
+
+
+export const actionReadSpots = (spots) => ({
+    type: READ_ALL,
+    spots
+})
 export const actionReadSpot = (spot) => ({
     type: READ,
     spot
 })
+
+
 export const actionUpdateSpot = (spot) => ({
     type: UPDATE,
     spot
@@ -21,20 +30,47 @@ export const actionDeleteSpot = (id) => ({
 })
 
 
+export const getSpots = () => async dispatch => {
+    const response = await fetch('/api/spots');
+
+    if (response.ok) {
+        const spots = await response.json();
+        dispatch(actionReadSpots(spots))
+    }
+}
+
+export const getSpot = (spotId) => async dispatch => {
+    const response = await fetch(`/api/spots/${spotId}`);
 
 
-const initialState = {}
+    if (response.ok) {
+        const spot = await response.json();
+        console.log('from get spot thunk', spot)
+        dispatch(actionReadSpot(spot))
+    }
+}
+
+
+
+
+const initialState = { spots: {}, spot: {} }
 
 
 export default function spotReducer(state = initialState, action) {
-    const newState = {...state}
+    const newState = { ...state }
     switch (action.type) {
         case CREATE:
-            newState[action.book.id] = action.book
+            newState[action.spot.id] = action.spot
             return newState
-        // case READ:
+        case READ_ALL:
+            newState.spots = action.spots
+            return newState
+        case READ:
+            newState.spot = action.spot
+            return newState
         case UPDATE:
-            newState[action.book.id] = { ...state[action.book.id],
+            newState[action.spot.id] = {
+                ...state[action.spot.id],
                 address: action.spot.address,
                 city: action.spot.city,
                 state: action.spot.state,
@@ -43,12 +79,13 @@ export default function spotReducer(state = initialState, action) {
                 lng: action.spot.lng,
                 name: action.spot.name,
                 description: action.spot.description,
-                price: action.spot.price}
+                price: action.spot.price
+            }
             return newState
         case DELETE:
             delete newState[action.id]
             return newState
         default:
-             return state;
+            return state;
     }
 }
