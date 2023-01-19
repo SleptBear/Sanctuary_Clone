@@ -8,13 +8,13 @@ const SpotIndexItem = ({ spot }) => {
 
     const deleteSpot = async (e) => {
         e.preventDefault();
-        await dispatch(actionDeleteSpot(spot.id))
+        dispatch(actionDeleteSpot(spot.id))
     }
 
     return (
         <li>
-            <Link>Spot Name and Id</Link>
-            <Link>Update</Link>
+            <Link to={`/spots/${spot.id}`}>Spot #{spot.id}</Link>
+            <button>Update</button>
             <button onClick={deleteSpot}>Delete</button>
         </li>
     )

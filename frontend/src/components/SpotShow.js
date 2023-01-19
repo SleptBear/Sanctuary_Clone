@@ -24,6 +24,7 @@ const SpotShow = () => {
     }, [dispatch])
 
     if(!spot) return null
+    if(!User) return null
 
     return (
         <section>
@@ -34,13 +35,13 @@ const SpotShow = () => {
         City: {spot.city}
         <br/>
         <br/>
-        {/* Property Owner: {User.id} */}
+        Property Owner: {User.id}
         <br/>
         {/* <button onClick={}> */}
 
         {/* </button> */}
-        <br/>
-        <Link to="/">Back Home</Link>
+        {/* <br/> */}
+        {/* <Link to="/">Back Home</Link> */}
       </section>
     )
 }
