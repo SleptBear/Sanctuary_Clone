@@ -695,7 +695,7 @@ router.delete(
         // console.log(spot.ownerId)
         // console.log(spotId)
         // console.log(userId)
-        if (spot.ownerId === userId) {
+        if (userId && spot.ownerId === userId) {
             await spot.destroy()
             return res.json({
                 "message": "Successfully deleted",

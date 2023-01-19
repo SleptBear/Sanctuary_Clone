@@ -39,7 +39,7 @@ const SpotsIndex = () => {
                     ))
                 }
             </ul>
-            {/* <Link>Add Home to Listings</Link> */}
+            <Link to='/spots/new'>Add Home to Listings</Link>
         </section>
         // null
     )

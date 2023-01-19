@@ -5,29 +5,42 @@ import { getSpot } from "../store/spots";
 import SpotsIndex from "./SpotsIndex";
 import SpotIndexItem from "./SpotsIndexItem";
 import { deleteSpot } from '../store/spots';
+import { useHistory } from "react-router-dom";
+import { useModal } from "../context/Modal";
 
 const SpotShow = () => {
     const dispatch = useDispatch();
     let { spotId } = useParams();
+    const spot= useSelector(state => state.spot.spot)
+    const User = spot.Owner
+
+    // let history = useHistory();
     // console.log(typeof spotId)
     // const [id, setId] = useState()
-    const spot= useSelector(state => state.spot.spot)
     // console.log("spots Obj", spot)
     // const spot = Object.values(spotsObj)
     // const spot = useSelector(state => state.spot[+spotId])
     // const spots = Object.values(spot)
     // console.log('object.values', spot)
     // console.log('Owner name', spot.Owner)
-    const User = spot.Owner
 
     useEffect(() => {
         dispatch(getSpot(spotId))
     }, [dispatch])
 
+    const [address, setAddress] = useState(spot.address);
+    const [city, setCity] = useState(spot.city);
+    const [state ,setState] = useState(spot.state);
+    const [country ,setCountry] = useState(spot.country);
+    const [name ,setName] = useState(spot.name);
+    const [description ,setDescription] = useState(spot.description);
+    const [price ,setPrice] = useState(spot.price);
+
+    const [errors, setErrors] = useState([]);
+    const { closeModal } = useModal();
+
     const deleteIndex = async (e) => {
         e.preventDefault();
-        console.log(spot.id)
-        console.log(typeof spotId)
         dispatch(deleteSpot(spotId))
     }
 
@@ -45,7 +58,8 @@ const SpotShow = () => {
         <br/>
         Property Owner: {User.id}
         <br/>
-        <button onClick={deleteIndex}>Delete</button>
+        <button
+        onClick={deleteIndex}>Delete</button>
         {/* <br/> */}
         {/* <Link to="/">Back Home</Link> */}
       </section>
