@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { getSpots } from "../store/spots";
 import SpotDetails from "./SpotDetails";
 import SpotIndexItem from "./SpotsIndexItem";
+import { Link } from "react-router-dom";
 
 
 
@@ -14,10 +15,10 @@ const SpotsIndex = () => {
     const spots = Object.values(spotsObj)
     const spotsArray = spots[0]
     const data = spotsArray.Spots
-    console.log("LOOK", spots)
-    console.log("HERE", spotsArray)
-    console.log("NOW", spotsArray.Spots)
-    console.log("data", data)
+    // console.log("LOOK", spots)
+    // console.log("HERE", spotsArray)
+    // console.log("NOW", spotsArray.Spots)
+    // console.log("data", data)
     // const spotList = data.map((spot) =>
     //         <li>spot</li>
     // )
@@ -26,48 +27,24 @@ const SpotsIndex = () => {
         dispatch(getSpots())
     }, [dispatch])
 
+    if(!data) return null
 
     return (
-        // <div>
-        //     <ul>
-        //         {spotList}
-        //     </ul>
-        // </div>
-    // return React.createElement(
-    //     'div',
-    //     null,
-    //     React.createElement('h1', null, {data})
-    // )
 
-//     )
-// }
-        // <section>
-        //     <ul>
-        //         {
-        //             data.map(spot => (
-        //                 // <SpotDetails
-        //                 // spot={spot}
-        //                 // key={spot.id}
-        //                 // />
-        //             ))
-        //         }
-        //     </ul>
-        // </section>
-
-
-        // <section className="home-page">
-        //     <ul>
-        //         {
-        //             data.map(spot => (
-        //                 <SpotIndexItem
-        //                     spot={spots}
-        //                     key={spot.id}
-        //                 />
-        //             ))
-        //         }
-        //     </ul>
-        // </section>
-        null
+        <section>
+            <ul>
+                {
+                    data.map(spot => (
+                        <SpotIndexItem
+                        spot={spot}
+                        key={spot.id}
+                        />
+                    ))
+                }
+            </ul>
+            {/* <Link>Add Home to Listings</Link> */}
+        </section>
+        // null
     )
 }
 
