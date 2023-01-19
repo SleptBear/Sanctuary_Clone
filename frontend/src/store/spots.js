@@ -32,12 +32,26 @@ export const actionDeleteSpot = (id) => ({
     id
 })
 
+export const deleteSpot = (spotId) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {method: 'DELETE'})
+
+    if(!response.ok) {
+        console.log("cannot delete")
+        return null
+    }
+    if (response.ok) {
+        const resp = await response.json();
+        dispatch(actionDeleteSpot(spotId))
+    }
+}
+
 
 export const getSpots = () => async dispatch => {
-    const response = await csrfFetch('/api/spots');
+    const response = await csrfFetch('/api/spots/');
 
     if (response.ok) {
         const spots = await response.json();
+
         dispatch(actionReadSpots(spots))
     }
 }
