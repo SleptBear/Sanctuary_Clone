@@ -1,6 +1,8 @@
 import { csrfFetch } from "./csrf";
 
 
+
+
 const CREATE = 'spots/CREATE_SPOT';
 const READ = 'spots/READ_SPOT';
 const READ_ALL = 'spots/READ_SPOTS';
@@ -32,12 +34,41 @@ export const actionDeleteSpot = (id) => ({
     id
 })
 
+export const createSpot = (spot) => async dispatch => {
+
+    const response = await csrfFetch('/api/spots', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(spot)
+})
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(createSpot(data))
+    }
+
+}
+
+export const deleteSpot = (spotId) => async dispatch => {
+
+    const response = await csrfFetch(`/api/spots/${spotId}`, {method: 'DELETE'})
+
+        if (response.ok) {
+            const res = await response.json();
+            dispatch(actionDeleteSpot(spotId))
+            return res
+        }
+
+}
+
 
 export const getSpots = () => async dispatch => {
-    const response = await csrfFetch('/api/spots');
+    const response = await csrfFetch('/api/spots/');
 
     if (response.ok) {
         const spots = await response.json();
+
         dispatch(actionReadSpots(spots))
     }
 }

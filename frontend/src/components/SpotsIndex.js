@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getSpots } from "../store/spots";
 import SpotDetails from "./SpotDetails";
-import SpotIndexItem from "./SpotsIndexItem";
+import SpotsIndexItem from "./SpotsIndexItem";
 import { Link } from "react-router-dom";
 
 
@@ -19,9 +19,6 @@ const SpotsIndex = () => {
     // console.log("HERE", spotsArray)
     // console.log("NOW", spotsArray.Spots)
     // console.log("data", data)
-    // const spotList = data.map((spot) =>
-    //         <li>spot</li>
-    // )
 
     useEffect(() => {
         dispatch(getSpots())
@@ -35,14 +32,14 @@ const SpotsIndex = () => {
             <ul>
                 {
                     data.map(spot => (
-                        <SpotIndexItem
+                        <SpotsIndexItem
                         spot={spot}
                         key={spot.id}
                         />
                     ))
                 }
             </ul>
-            {/* <Link>Add Home to Listings</Link> */}
+            <Link to='/spots/new'>Add Home to Listings</Link>
         </section>
         // null
     )

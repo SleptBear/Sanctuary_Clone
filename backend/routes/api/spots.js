@@ -63,10 +63,10 @@ router.get(
         // const spots = await Spot.scope(["itsReview", "itsImage"]).findAll({
         let { page, size } = req.query;
         // let { minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
-        console.log(page, size);
+        // console.log(page, size);
         page = Number(page);
         size = Number(size);
-        console.log(page, size);
+        // console.log(page, size);
         if(isNaN(page)) page = 1;
         if(page>10) page = 10;
         if(isNaN(size)) size = 20;
@@ -667,12 +667,16 @@ router.get(
 
 router.delete(
     '/:spotId',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     async (req, res) => {
-        let spotId = Number(req.params.spotId);
+        let spotId = (req.params.spotId);
+        // let { spotId } = req.params
+        // spotId = Number(spotId)
         let userId = req.user.id
-
+        // console.log("LOOOOOOOOOOK", Number(spotId))
+        // spotId = Number(spotId)
+        // console.log(typeof spotId)
         // let spot = await Spot.findOne({
         //     where: {
         //         id: spotId
@@ -687,16 +691,22 @@ router.delete(
             "statusCode": 404
             })
         }
-        console.log(spot)
-        console.log(spot.ownerId)
-        console.log(spotId)
-        console.log(userId)
-        if (spot.ownerId === userId) {
+        // console.log(spot)
+        // console.log(spot.ownerId)
+        // console.log(spotId)
+        // console.log(userId)
+        if (userId && spot.ownerId === userId) {
             await spot.destroy()
             return res.json({
                 "message": "Successfully deleted",
                 "statusCode": 200
               })
+        } else {
+            res.status(401)
+            return res.json({
+                "message": "Requires Ownership to Complete",
+                "statusCode": "401"
+            })
         }
 
 
