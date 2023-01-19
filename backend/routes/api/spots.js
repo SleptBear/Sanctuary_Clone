@@ -393,17 +393,21 @@ async (req, res) => {
 //get details of spot by Id
 router.get(
     '/:spotId',
-    restoreUser,
+    // restoreUser,
+    // requireAuth,
     async (req, res) => {
 
-        // console.log(req.params.spotId)
-        // console.log(req.user)
-        const owner = await User.findOne({
-            where: {
-                id: req.user.dataValues.id
-            },
-            attributes: ['id', 'firstName', 'lastName']
-        })
+        // console.log("spot id from params", req.user)
+        // console.log("from backend", )
+
+        // const owner = await User.findOne({
+        //     where: {
+        //         id: req.user.dataValues.id
+        //     },
+        //     attributes: ['id', 'firstName', 'lastName']
+        // })
+
+
         const spots = await Spot.findOne({
             where: {
                 id: req.params.spotId
@@ -426,11 +430,14 @@ router.get(
                 {
                     model: SpotImage,
                     // attributes: ['id', 'url', 'preview']
+                },
+                {
+                    model: User,
                 }
 
             ],
          } )
-         console.log("our spot", spots)
+        //  console.log("our spot", spots)
          if (spots === null) {
             res.status(404)
             res.send({
@@ -472,7 +479,16 @@ router.get(
 
             spot.numReviews = spot.Reviews.length
             delete spot.Reviews
-            spot.Owner = owner
+            // spot.Owner = owner
+            console.log("final", Spots)
+            let Owner = Spots[0]
+            Owner = Owner.User
+            let finalData = Spots[0]
+            finalData.Owner = Owner
+            delete finalData.User
+            delete Owner.username
+            console.log("Owner?", Owner)
+            console.log('DATA', finalData)
         })
         return res.json(
             Spots[0]
