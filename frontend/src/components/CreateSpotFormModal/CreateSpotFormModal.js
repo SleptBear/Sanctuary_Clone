@@ -3,27 +3,26 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../context/Modal";
 import { actionCreateSpot } from "../store/spots";
 //css file import here
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
-const SpotForm = ({ spot, formType }) => {
+const CreateSpotFormModal = ({ spot, formType }) => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
-    const [address, setAddress] = useState();
-    const [city, setCity] = useState();
-    const [state ,setState] = useState();
-    const [lat ,setLat] = useState();
-    const [lng ,setLng] = useState();
-    const [country ,setCountry] = useState();
-    const [name ,setName] = useState();
-    const [description ,setDescription] = useState();
-    const [price ,setPrice] = useState();
-
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state ,setState] = useState('');
+    const [lat ,setLat] = useState('');
+    const [lng ,setLng] = useState('');
+    const [country ,setCountry] = useState('');
+    const [name ,setName] = useState('');
+    const [description ,setDescription] = useState('');
+    const [price ,setPrice] = useState('');
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
     const handleSubmit = (e) => {
-        e.preventDefaults();
+        e.preventDefault();
         spot = { ...spot, address, city, state, lat, lng, name, description, price };
         dispatch(actionCreateSpot(spot))
         history.push(`/spots/${spot.id}`);
@@ -102,4 +101,4 @@ const SpotForm = ({ spot, formType }) => {
       );
     }
 
-    export default SpotForm
+    export default CreateSpotFormModal
