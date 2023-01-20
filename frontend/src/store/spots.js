@@ -65,6 +65,18 @@ export const deleteSpot = (spotId) => async dispatch => {
 
 }
 
+export const updateSpot = (spot, spotId) => async dispatch => {
+    const res = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(spot)
+    })
+    if (res.ok) {
+        const data = await res.json()
+        return data
+    }
+}
+
 
 export const getSpots = () => async dispatch => {
     const res = await csrfFetch('/api/spots/');
@@ -105,19 +117,22 @@ export default function spotReducer(state = initialState, action) {
         case READ:
             newState.spot = action.spot
             return newState
+        // case UPDATE:
+        //     newState[action.spot.id] = {
+        //         ...state[action.spot.id],
+        //         address: action.spot.address,
+        //         city: action.spot.city,
+        //         state: action.spot.state,
+        //         country: action.spot.country,
+        //         lat: action.spot.lat,
+        //         lng: action.spot.lng,
+        //         name: action.spot.name,
+        //         description: action.spot.description,
+        //         price: action.spot.price
+        //     }
+        //     return newState
         case UPDATE:
-            newState[action.spot.id] = {
-                ...state[action.spot.id],
-                address: action.spot.address,
-                city: action.spot.city,
-                state: action.spot.state,
-                country: action.spot.country,
-                lat: action.spot.lat,
-                lng: action.spot.lng,
-                name: action.spot.name,
-                description: action.spot.description,
-                price: action.spot.price
-            }
+            newState.spot = action.spot
             return newState
         case DELETE:
             delete newState[action.id]

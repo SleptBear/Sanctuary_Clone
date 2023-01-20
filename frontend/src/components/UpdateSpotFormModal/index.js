@@ -2,37 +2,39 @@ import React, { useState } from "react";
 // import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { createSpot } from "../../store/spots";
-//css file import here
-// import { useHistory } from "react-router-dom";
+import { updateSpot, getSpot } from "../../store/spots";
+import { useParams } from "react-router-dom";
 
-const CreateSpotFormModal = () => {
+
+const UpdateSpotFormModal = () => {
     const dispatch = useDispatch();
-    // const history = useHistory();
-
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state ,setState] = useState('');
-    const [lat ,setLat] = useState('');
-    const [lng ,setLng] = useState('');
-    const [country ,setCountry] = useState('');
-    const [name ,setName] = useState('');
-    const [description ,setDescription] = useState('');
-    const [price ,setPrice] = useState('');
+    let { spotId } = useParams();
+    const [address, setAddress] = useState();
+    const [city, setCity] = useState();
+    const [state ,setState] = useState();
+    const [lat ,setLat] = useState();
+    const [lng ,setLng] = useState();
+    const [country ,setCountry] = useState();
+    const [name ,setName] = useState();
+    const [description ,setDescription] = useState();
+    const [price ,setPrice] = useState();
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
-    const [newSpot, setNewSpot] = useState();
+    const [updatedSpot, setUpdatedSpot] = useState();
+
+
+    //might not need if params has id already:
+
+        // useEffect(() => {
+        //     dispatch(getSpot(spotId))
+        // }, [dispatch, spotId])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         setErrors([]);
-        // spot = { ...spot, address, city, state, lat, lng, name, description, price };
-        // dispatch(actionCreateSpot(spot))
-        // history.push(`/spots/${spot.id}`);
 
-        const newSpotData = {
+        const updatedSpotData = {
           address,
           city,
           state,
@@ -44,33 +46,21 @@ const CreateSpotFormModal = () => {
           price
         };
 
-        dispatch(createSpot(newSpotData))
-        .then((res) => setNewSpot(res))
+        dispatch(updateSpot(updatedSpotData, spotId))
+        .then((res) => setUpdatedSpot(res))
         .then(closeModal())
         .catch(async (res) => {
-          const data = await res.json();
-          console.log("Checking data returning to form", data)
-          if (data && data.errors) setErrors(data.errors)
-        });
+            const data = await res.json();
+            console.log("Checking data returning to form", data)
+            if (data && data.errors) setErrors(data.errors)
+          });
+    }
 
-        console.log("NEW SPOT HERE", newSpot)
-      };
-        // .catch(async (res) => {
-        //   const data = await res.json();
-        //   if (data && data.errors) setErrors(data.errors);
-        // });
-        // return setErrors(['Confirm form fields are filled'])
-
-      // useEffect(() => {
-      //   if (newSpot) {
-      //     history.pushState(`/spots/${newSpot.id}`)
-      //   }
-      // }, [newSpot])
 
     return (
         <>
-    <h1>My Home's Information</h1>
-        <form onSubmit={handleSubmit} className="create-spotform" >
+    <h1>My Home's New Information</h1>
+        <form onSubmit={handleSubmit} className="update-spotform" >
           <ul>
              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
@@ -164,10 +154,10 @@ const CreateSpotFormModal = () => {
               required
             />
           </label>
-          <button type="submit">Submit Home</button>
+          <button type="submit">Update Home</button>
         </form>
         </>
       );
     }
 
-    export default CreateSpotFormModal
+    export default UpdateSpotFormModal
