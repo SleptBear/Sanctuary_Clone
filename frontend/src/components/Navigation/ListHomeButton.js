@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import OpenModalMenuItem from './OpenModalMenuItem';
 import CreateSpotFormModal from "../CreateSpotFormModal";
+import OpenModalButton from "../OpenModalButton";
 
 function ListHomeButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
-    const ulRef = useRef();
+    // const ulRef = useRef();
 
     const openMenu = () => {
         if (showMenu) return;
@@ -17,11 +17,11 @@ function ListHomeButton({ user }) {
       useEffect(() => {
         if (!showMenu) return;
 
-        const closeMenu = (e) => {
-            if (!ulRef.current.contains(e.target)) {
-              setShowMenu(false);
-            }
-          };
+        // const closeMenu = (e) => {
+        //     if (!ulRef.current.contains(e.target)) {
+        //       setShowMenu(false);
+        //     }
+        //   };
 
           document.addEventListener('click', closeMenu);
 
@@ -30,36 +30,17 @@ function ListHomeButton({ user }) {
 
         const closeMenu = () => setShowMenu(false);
 
-const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-console.log(showMenu)
-if (showMenu) {
+// const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+
 return (
     <>
-      <button onClick={openMenu}>addddddddddd
-        <i className="listing-option" />
-      </button>
-      <ul className={ulClassName} ref={ulRef}>
-
-
-        {showMenu ? (
-            <>
-        </>
-        ) : (
-            <>
-            <OpenModalMenuItem
-            itemText="List Home"
-            onItemClick={openMenu}
-            modalComponent={<CreateSpotFormModal />}
-            />
-        </>
-
-        )}
-      </ul>
+      <OpenModalButton
+      buttonText="List Your Home"
+      onButtonClick={openMenu}
+      modalComponent={<CreateSpotFormModal />}
+      ></OpenModalButton>
     </>
-)
+    )
 
 }
-
-}
-
 export default ListHomeButton

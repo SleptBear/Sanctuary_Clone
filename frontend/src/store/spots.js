@@ -35,7 +35,7 @@ export const actionDeleteSpot = (id) => ({
 })
 
 export const createSpot = (spot) => async dispatch => {
-
+console.log(spot)
     const response = await csrfFetch('/api/spots', {
         method: 'POST',
         headers: {

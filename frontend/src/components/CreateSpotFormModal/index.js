@@ -21,14 +21,18 @@ const CreateSpotFormModal = () => {
     const [price ,setPrice] = useState('');
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
+    console.log(city)
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // setErrors([])
         // spot = { ...spot, address, city, state, lat, lng, name, description, price };
         // dispatch(actionCreateSpot(spot))
         // history.push(`/spots/${spot.id}`);
 
-        return dispatch(createSpot({
+        return (
+
+          dispatch(createSpot({
             address,
             city,
             state,
@@ -38,12 +42,12 @@ const CreateSpotFormModal = () => {
             name,
             description,
             price
-         }))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
-        return setErrors(['Confirm form fields are filled'])
+         })))
+        // .catch(async (res) => {
+        //   const data = await res.json();
+        //   if (data && data.errors) setErrors(data.errors);
+        // });
+        // return setErrors(['Confirm form fields are filled'])
     };
 
     return (
@@ -64,65 +68,73 @@ const CreateSpotFormModal = () => {
           </label>
           <label>
             city
-            <textarea
-              value={city}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value1={city}
+              onChange={e => setCity(e.target.value1)}
               required
             />
           </label>
           <label>
             state
-            <textarea
-              value={state}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value2={state}
+              onChange={e => setCity(e.target.value2)}
               required
             />
           </label>
           <label>
             latitude
-            <textarea
-              value={lat}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value3={lat}
+              onChange={e => setCity(e.target.value3)}
               required
             />
           </label>
           <label>
             longitude
-            <textarea
-              value={lng}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value4={lng}
+              onChange={e => setCity(e.target.value4)}
               required
             />
           </label>
           <label>
             country
-            <textarea
-              value={country}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value5={country}
+              onChange={e => setCity(e.target.value5)}
               required
             />
           </label>
           <label>
             name
-            <textarea
-              value={name}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value6={name}
+              onChange={e => setCity(e.target.value6)}
               required
             />
           </label>
           <label>
             description
-            <textarea
-              value={description}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value7={description}
+              onChange={e => setCity(e.target.value7)}
               required
             />
           </label>
           <label>
             price
-            <textarea
-              value={price}
-              onChange={e => setCity(e.target.value)}
+            <input
+              type="text"
+              value8={price}
+              onChange={e => setCity(e.target.value8)}
               required
             />
           </label>
