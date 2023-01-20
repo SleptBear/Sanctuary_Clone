@@ -44,6 +44,8 @@ console.log("LOOOOOOK", JSON.stringify(spot))
     if (res.ok) {
         console.log("New Spot from API", res)
         const data = await res.json()
+        data.Owner = spot.Owner
+        data.spotImages = spot.spotImages
         console.log("DATA", data)
         dispatch(actionCreateSpot(data))
         return data
@@ -107,10 +109,12 @@ const initialState = { spots: {}, spot: {} }
 
 
 export default function spotReducer(state = initialState, action) {
-    const newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+    let newState = { ...state}
     switch (action.type) {
         case CREATE:
             // newState[action.spot.id] = action.spot
+            newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+
             newState.spot = action.spot
             return newState
         case READ_ALL:
@@ -119,8 +123,10 @@ export default function spotReducer(state = initialState, action) {
         case READ:
             newState.spot = action.spot
             return newState
-        // 
+        //
         case UPDATE:
+            newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+
             newState.spot = action.spot
             console.log("UPDATE TEST", newState)
             return newState

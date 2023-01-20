@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
+import { useSelector } from "react-redux";
 //css file import here
 // import { useHistory } from "react-router-dom";
 
 const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     // const history = useHistory();
-
+    let stateSpot = useSelector(state => state.spot.spot)
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state ,setState] = useState('');
@@ -41,7 +42,10 @@ const CreateSpotFormModal = () => {
           country,
           name,
           description,
-          price
+          price,
+          Owner: stateSpot.Owner,
+          spotImages: stateSpot.spotImages
+
         };
 
         dispatch(createSpot(newSpotData))
