@@ -53,7 +53,12 @@ const CreateSpotFormModal = () => {
           if (data && data.errors) setErrors(data.errors)
         });
 
+        setState()
+
         console.log("NEW SPOT HERE", newSpot)
+        //I want to redirect to that spots details page afterwards
+        //find a way to route to it here i think
+        return newSpot
       };
         // .catch(async (res) => {
         //   const data = await res.json();

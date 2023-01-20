@@ -13,8 +13,21 @@ const SpotShow = () => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     let { spotId } = useParams();
-    const spot= useSelector(state => state.spot.spot)
+    console.log("SHOW RENDERED")
+    const spot = useSelector(state => state.spot.spot)
+    // console.log(spot)
     const User = spot.Owner
+
+    useEffect(() => {
+        dispatch(getSpot(spotId))
+    }, [spot, dispatch])
+
+
+    const deleteIndex = async (e) => {
+        e.preventDefault();
+        dispatch(deleteSpot(spotId))
+    }
+
 
     // let history = useHistory();
     // console.log(typeof spotId)
@@ -26,9 +39,6 @@ const SpotShow = () => {
     // console.log('object.values', spot)
     // console.log('Owner name', spot.Owner)
 
-    useEffect(() => {
-        dispatch(getSpot(spotId))
-    }, [spotId, dispatch])
 
     // const [address, setAddress] = useState(spot.address);
     // const [city, setCity] = useState(spot.city);
@@ -41,10 +51,6 @@ const SpotShow = () => {
     // const [errors, setErrors] = useState([]);
     // const { closeModal } = useModal();
 
-    const deleteIndex = async (e) => {
-        e.preventDefault();
-        dispatch(deleteSpot(spotId))
-    }
 
     // const updateIndex = async (e) => {
     //     e.preventDefault();
@@ -61,6 +67,9 @@ const SpotShow = () => {
         Country: {spot.country}
         <br/>
         City: {spot.city}
+        <br/>
+        <br/>
+        Property Owner: {User.id}
         <br/>
         <br/>
         Property Owner: {User.id}
