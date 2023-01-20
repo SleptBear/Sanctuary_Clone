@@ -18,6 +18,17 @@ const SpotShow = () => {
     // console.log(spot)
     const User = spot.Owner
 
+    useEffect(() => {
+        dispatch(getSpot(spotId))
+    }, [spot, dispatch])
+
+
+    const deleteIndex = async (e) => {
+        e.preventDefault();
+        dispatch(deleteSpot(spotId))
+    }
+
+
     // let history = useHistory();
     // console.log(typeof spotId)
     // const [id, setId] = useState()
@@ -28,9 +39,6 @@ const SpotShow = () => {
     // console.log('object.values', spot)
     // console.log('Owner name', spot.Owner)
 
-    useEffect(() => {
-        dispatch(getSpot(spotId))
-    }, [dispatch])
 
     // const [address, setAddress] = useState(spot.address);
     // const [city, setCity] = useState(spot.city);
@@ -43,10 +51,6 @@ const SpotShow = () => {
     // const [errors, setErrors] = useState([]);
     // const { closeModal } = useModal();
 
-    const deleteIndex = async (e) => {
-        e.preventDefault();
-        dispatch(deleteSpot(spotId))
-    }
 
     // const updateIndex = async (e) => {
     //     e.preventDefault();

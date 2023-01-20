@@ -63,6 +63,7 @@ const UpdateSpotFormModal = () => {
           });
           // console.log('does it get here?')
           setState()
+          // getSpot(spotId) try to have action re render show page
 
           return updatedSpot
 
