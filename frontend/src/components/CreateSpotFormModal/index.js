@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 //css file import here
 // import { useHistory } from "react-router-dom";
 
@@ -24,14 +25,12 @@ const CreateSpotFormModal = () => {
     const { closeModal } = useModal();
 
     const [newSpot, setNewSpot] = useState();
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         setErrors([]);
-        // spot = { ...spot, address, city, state, lat, lng, name, description, price };
-        // dispatch(actionCreateSpot(spot))
-        // history.push(`/spots/${spot.id}`);
 
         const newSpotData = {
           address,
@@ -55,9 +54,8 @@ const CreateSpotFormModal = () => {
           const data = await res.json();
           console.log("Checking data returning to form", data)
           if (data && data.errors) setErrors(data.errors)
+          if (data.id) history.push('/spots/${data.id}')
         });
-
-        setState()
 
         console.log("NEW SPOT HERE", newSpot)
         //I want to redirect to that spots details page afterwards

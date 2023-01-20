@@ -32,8 +32,8 @@ export const actionDeleteSpot = (id) => ({
 })
 
 export const createSpot = (spot) => async dispatch => {
-console.log(spot)
-console.log("LOOOOOOK", JSON.stringify(spot))
+// console.log(spot)
+// console.log("LOOOOOOK", JSON.stringify(spot))
     const res = await csrfFetch('/api/spots', {
         method: 'POST',
         headers: {
@@ -42,7 +42,7 @@ console.log("LOOOOOOK", JSON.stringify(spot))
         body: JSON.stringify(spot)
 })
     if (res.ok) {
-        console.log("New Spot from API", res)
+        // console.log("New Spot from API", res)
         const data = await res.json()
         data.Owner = spot.Owner
         data.spotImages = spot.spotImages
@@ -102,11 +102,7 @@ export const getSpot = (spotId) => async dispatch => {
     }
 }
 
-
-
-
 const initialState = { spots: {}, spot: {} }
-
 
 export default function spotReducer(state = initialState, action) {
     let newState = { ...state}
@@ -114,7 +110,6 @@ export default function spotReducer(state = initialState, action) {
         case CREATE:
             // newState[action.spot.id] = action.spot
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
-
             newState.spot = action.spot
             return newState
         case READ_ALL:
@@ -123,19 +118,17 @@ export default function spotReducer(state = initialState, action) {
         case READ:
             newState.spot = action.spot
             return newState
-        //
         case UPDATE:
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
-
             newState.spot = action.spot
-            console.log("UPDATE TEST", newState)
+            // console.log("UPDATE TEST", newState)
             return newState
         case DELETE:
             // delete newState[action.id]
             newState.spot = {}
             // newState.spot = action.spot
             // delete newState.spot
-            console.log("DELETE TEST", newState)
+            // console.log("DELETE TEST", newState)
             return newState
         default:
             return state;
