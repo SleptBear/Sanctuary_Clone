@@ -6,7 +6,7 @@ import { getSpot } from "../store/spots";
 // import SpotsIndex from "./SpotsIndex";
 // import SpotIndexItem from "./SpotsIndexItem";
 import { deleteSpot } from '../store/spots';
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import { useModal } from "../context/Modal";
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
 
@@ -36,7 +36,7 @@ const SpotShow = () => {
     }
 
 
-    // let history = useHistory();
+    let history = useHistory();
     // console.log(typeof spotId)
     // const [id, setId] = useState()
     // console.log("spots Obj", spot)
@@ -63,8 +63,8 @@ const SpotShow = () => {
     //     e.preventDefault();
     //     dispatch(updateSpot(spotId))
     // }
-
-    // if(!spot) return history.push('/')
+console.log("SPOT RN", spot)
+    if(!spot.id) return history.push('/')
     if(!User) return null
 
     return (

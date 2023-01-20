@@ -44,6 +44,8 @@ console.log("LOOOOOOK", JSON.stringify(spot))
     if (res.ok) {
         console.log("New Spot from API", res)
         const data = await res.json()
+        data.Owner = spot.Owner
+        data.spotImages = spot.spotImages
         console.log("DATA", data)
         dispatch(actionCreateSpot(data))
         return data
@@ -70,6 +72,8 @@ export const updateSpot = (spot, spotId) => async dispatch => {
     })
     if (res.ok) {
         const data = await res.json()
+        data.Owner = spot.Owner
+        data.spotImages = spot.spotImages
         dispatch(actionUpdateSpot(data))
 
         return data
@@ -105,10 +109,12 @@ const initialState = { spots: {}, spot: {} }
 
 
 export default function spotReducer(state = initialState, action) {
-    const newState = { ...state }
+    let newState = { ...state}
     switch (action.type) {
         case CREATE:
             // newState[action.spot.id] = action.spot
+            newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+
             newState.spot = action.spot
             return newState
         case READ_ALL:
@@ -117,21 +123,10 @@ export default function spotReducer(state = initialState, action) {
         case READ:
             newState.spot = action.spot
             return newState
-        // case UPDATE:
-        //     newState[action.spot.id] = {
-        //         ...state[action.spot.id],
-        //         address: action.spot.address,
-        //         city: action.spot.city,
-        //         state: action.spot.state,
-        //         country: action.spot.country,
-        //         lat: action.spot.lat,
-        //         lng: action.spot.lng,
-        //         name: action.spot.name,
-        //         description: action.spot.description,
-        //         price: action.spot.price
-        //     }
-        //     return newState
+        //
         case UPDATE:
+            newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+
             newState.spot = action.spot
             console.log("UPDATE TEST", newState)
             return newState

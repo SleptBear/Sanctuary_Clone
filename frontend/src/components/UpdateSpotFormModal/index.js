@@ -51,7 +51,9 @@ const UpdateSpotFormModal = () => {
           country,
           name,
           description,
-          price
+          price,
+          Owner: stateSpot.Owner,
+          spotImages: stateSpot.spotImages
         };
 
         dispatch(updateSpot(updatedSpotData, spotId))
