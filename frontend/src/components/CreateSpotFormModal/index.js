@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
 //css file import here
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
@@ -21,45 +21,61 @@ const CreateSpotFormModal = () => {
     const [price ,setPrice] = useState('');
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
-    console.log(city)
+
+    const [newSpot, setNewSpot] = useState();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // setErrors([])
+
+        setErrors([]);
         // spot = { ...spot, address, city, state, lat, lng, name, description, price };
         // dispatch(actionCreateSpot(spot))
         // history.push(`/spots/${spot.id}`);
 
-        return (
+        const newSpotData = {
+          address,
+          city,
+          state,
+          lat,
+          lng,
+          country,
+          name,
+          description,
+          price
+        };
 
-          dispatch(createSpot({
-            address,
-            city,
-            state,
-            lat,
-            lng,
-            country,
-            name,
-            description,
-            price
-         })))
+        dispatch(createSpot(newSpotData))
+        .then((res) => setNewSpot(res))
+        .then(closeModal())
+        .catch(async (res) => {
+          const data = await res.json();
+          console.log("Checking data returning to form", data)
+          if (data &&data.errors) setErrors(data.errors)
+        });
+      };
         // .catch(async (res) => {
         //   const data = await res.json();
         //   if (data && data.errors) setErrors(data.errors);
         // });
         // return setErrors(['Confirm form fields are filled'])
-    };
+
+      // useEffect(() => {
+      //   if (newSpot) {
+      //     history.pushState(`/spots/${newSpot.id}`)
+      //   }
+      // }, [newSpot])
 
     return (
         <>
     <h1>My Home's Information</h1>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit} className="create-spotform" >
           <ul>
              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label>
             address
             <input
+              className="input-fields"
               type="text"
               value={address}
               onChange={e => setAddress(e.target.value)}
@@ -69,72 +85,80 @@ const CreateSpotFormModal = () => {
           <label>
             city
             <input
+              className="input-fields"
               type="text"
-              value1={city}
-              onChange={e => setCity(e.target.value1)}
+              value={city}
+              onChange={e => setCity(e.target.value)}
               required
             />
           </label>
           <label>
             state
             <input
+              className="input-fields"
               type="text"
-              value2={state}
-              onChange={e => setCity(e.target.value2)}
+              value={state}
+              onChange={e => setState(e.target.value)}
               required
             />
           </label>
           <label>
             latitude
             <input
+              className="input-fields"
               type="text"
-              value3={lat}
-              onChange={e => setCity(e.target.value3)}
+              value={lat}
+              onChange={e => setLat(e.target.value)}
               required
             />
           </label>
           <label>
             longitude
             <input
+              className="input-fields"
               type="text"
-              value4={lng}
-              onChange={e => setCity(e.target.value4)}
+              value={lng}
+              onChange={e => setLng(e.target.value)}
               required
             />
           </label>
           <label>
             country
             <input
+              className="input-fields"
               type="text"
-              value5={country}
-              onChange={e => setCity(e.target.value5)}
+              value={country}
+              onChange={e => setCountry(e.target.value)}
               required
             />
           </label>
           <label>
             name
             <input
+              className="input-fields"
               type="text"
-              value6={name}
-              onChange={e => setCity(e.target.value6)}
+              value={name}
+              onChange={e => setName(e.target.value)}
               required
             />
           </label>
           <label>
             description
             <input
+              className="input-fields"
               type="text"
-              value7={description}
-              onChange={e => setCity(e.target.value7)}
+              value={description}
+              onChange={e => setDescription(e.target.value)}
               required
             />
           </label>
           <label>
             price
             <input
+              className="input-fields"
               type="text"
-              value8={price}
-              onChange={e => setCity(e.target.value8)}
+              value={price}
+              onChange={e => setPrice(e.target.value)}
               required
             />
           </label>
