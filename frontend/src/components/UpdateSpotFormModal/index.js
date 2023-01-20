@@ -1,23 +1,29 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 // import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { updateSpot, getSpot } from "../../store/spots";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 
 const UpdateSpotFormModal = () => {
     const dispatch = useDispatch();
-    let { spotId } = useParams();
-    const [address, setAddress] = useState();
-    const [city, setCity] = useState();
-    const [state ,setState] = useState();
-    const [lat ,setLat] = useState();
-    const [lng ,setLng] = useState();
-    const [country ,setCountry] = useState();
-    const [name ,setName] = useState();
-    const [description ,setDescription] = useState();
-    const [price ,setPrice] = useState();
+    // let { spotId } = useParams();
+    let stateSpot = useSelector(state => state.spot.spot)
+    const spotId = stateSpot.id
+    console.log(stateSpot.id);
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state ,setState] = useState('');
+    const [lat ,setLat] = useState('');
+    const [lng ,setLng] = useState('');
+    const [country ,setCountry] = useState('');
+    const [name ,setName] = useState('');
+    const [description ,setDescription] = useState('');
+    const [price ,setPrice] = useState('');
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
@@ -26,9 +32,10 @@ const UpdateSpotFormModal = () => {
 
     //might not need if params has id already:
 
-        // useEffect(() => {
-        //     dispatch(getSpot(spotId))
-        // }, [dispatch, spotId])
+        useEffect(() => {
+            dispatch(getSpot(spotId))
+            console.log('RENDERED ONCE')
+        }, [dispatch, updateSpot])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -54,6 +61,12 @@ const UpdateSpotFormModal = () => {
             console.log("Checking data returning to form", data)
             if (data && data.errors) setErrors(data.errors)
           });
+          // console.log('does it get here?')
+          setState()
+
+          return updatedSpot
+
+          // history.push(`/spots/${spotId}`)
     }
 
 

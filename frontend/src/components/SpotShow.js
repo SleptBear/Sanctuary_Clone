@@ -13,7 +13,9 @@ const SpotShow = () => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     let { spotId } = useParams();
-    const spot= useSelector(state => state.spot.spot)
+    console.log("SHOW RENDERED")
+    const spot = useSelector(state => state.spot.spot)
+    // console.log(spot)
     const User = spot.Owner
 
     // let history = useHistory();
@@ -28,7 +30,7 @@ const SpotShow = () => {
 
     useEffect(() => {
         dispatch(getSpot(spotId))
-    }, [spotId, dispatch])
+    }, [dispatch])
 
     // const [address, setAddress] = useState(spot.address);
     // const [city, setCity] = useState(spot.city);
@@ -61,6 +63,9 @@ const SpotShow = () => {
         Country: {spot.country}
         <br/>
         City: {spot.city}
+        <br/>
+        <br/>
+        Property Owner: {User.id}
         <br/>
         <br/>
         Property Owner: {User.id}
