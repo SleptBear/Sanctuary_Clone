@@ -1502,10 +1502,10 @@ Return spots filtered by query parameters.
 ```js
 store = {
   session: {},
-  spots: {
+  spot: {
     // Notice there are two slices of state within spots. This is to handle your two different routes for getting a spot.
     // Refer to your API Docs to get more information.
-    allSpots: {
+    spots: {
       [spotId]: {
         spotData,
       },
@@ -1514,7 +1514,7 @@ store = {
       optionalOrderedList: [],
     },
     // Notice singleSpot has more data that the allSpots slice. Review your API Docs for more information.
-    singleSpot: {
+    spot: {
       spotData,
       SpotImages: [imagesData],
       Owner: {

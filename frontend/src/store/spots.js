@@ -1,3 +1,5 @@
+//THINK YOU ONLY NEED NEW REF'S IN MEMORY FOR CREATE AND UPDATE
+//SINCE THEY ARE ACTUALLY GOING TO CHANGE DATA
 import { csrfFetch } from "./csrf";
 
 const CREATE = 'spots/CREATE_SPOT';
@@ -10,8 +12,6 @@ export const actionCreateSpot = (spot) => ({
     type: CREATE,
     spot
 })
-
-
 export const actionReadSpots = (spots) => ({
     type: READ_ALL,
     spots
@@ -20,8 +20,6 @@ export const actionReadSpot = (spot) => ({
     type: READ,
     spot
 })
-
-
 export const actionUpdateSpot = (spot) => ({
     type: UPDATE,
     spot
@@ -32,8 +30,7 @@ export const actionDeleteSpot = (id) => ({
 })
 
 export const createSpot = (spot) => async dispatch => {
-// console.log(spot)
-// console.log("LOOOOOOK", JSON.stringify(spot))
+
     const res = await csrfFetch('/api/spots', {
         method: 'POST',
         headers: {
@@ -42,27 +39,36 @@ export const createSpot = (spot) => async dispatch => {
         body: JSON.stringify(spot)
 })
     if (res.ok) {
-        // console.log("New Spot from API", res)
         const data = await res.json()
         data.Owner = spot.Owner
         data.spotImages = spot.spotImages
         console.log("DATA", data)
         dispatch(actionCreateSpot(data))
+
         return data
     }
 }
 
-export const deleteSpot = (spotId) => async dispatch => {
+export const getSpots = () => async dispatch => {
+    const res = await csrfFetch('/api/spots/');
 
-    const res = await csrfFetch(`/api/spots/${spotId}`, {method: 'DELETE'})
+    if (res.ok) {
+        const spots = await res.json();
+        dispatch(actionReadSpots(spots))
 
-        if (res.ok) {
-            const data = await res.json();
-            dispatch(actionDeleteSpot(spotId))
-            return data
-        }
-
+    }
 }
+
+export const getSpot = (spotId) => async dispatch => {
+    const res = await csrfFetch(`/api/spots/${spotId}`);
+
+    if (res.ok) {
+        const spot = await res.json();
+        console.log('from get spot thunk', spot)
+        dispatch(actionReadSpot(spot))
+    }
+}
+
 
 export const updateSpot = (spot, spotId) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${spotId}`, {
@@ -71,7 +77,7 @@ export const updateSpot = (spot, spotId) => async dispatch => {
         body: JSON.stringify(spot)
     })
     if (res.ok) {
-        const data = await res.json()
+        const data = await res.json();
         data.Owner = spot.Owner
         data.spotImages = spot.spotImages
         dispatch(actionUpdateSpot(data))
@@ -80,26 +86,15 @@ export const updateSpot = (spot, spotId) => async dispatch => {
     }
 }
 
+export const deleteSpot = (spotId) => async dispatch => {
+    const res = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'DELETE'})
 
-export const getSpots = () => async dispatch => {
-    const res = await csrfFetch('/api/spots/');
-
-    if (res.ok) {
-        const spots = await res.json();
-
-        dispatch(actionReadSpots(spots))
-    }
-}
-
-export const getSpot = (spotId) => async dispatch => {
-    const res = await csrfFetch(`/api/spots/${spotId}`);
-
-
-    if (res.ok) {
-        const spot = await res.json();
-        console.log('from get spot thunk', spot)
-        dispatch(actionReadSpot(spot))
-    }
+        if (res.ok) {
+            const data = await res.json();
+            dispatch(actionDeleteSpot(spotId))
+            return data
+        }
 }
 
 const initialState = { spots: {}, spot: {} }
@@ -113,9 +108,12 @@ export default function spotReducer(state = initialState, action) {
             newState.spot = action.spot
             return newState
         case READ_ALL:
+
             newState.spots = action.spots
             return newState
         case READ:
+
+            // newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spot = action.spot
             return newState
         case UPDATE:
@@ -126,9 +124,6 @@ export default function spotReducer(state = initialState, action) {
         case DELETE:
             // delete newState[action.id]
             newState.spot = {}
-            // newState.spot = action.spot
-            // delete newState.spot
-            // console.log("DELETE TEST", newState)
             return newState
         default:
             return state;

@@ -9,9 +9,10 @@ import { deleteSpot } from '../store/spots';
 import { useHistory } from "react-router-dom";
 // import { useModal } from "../context/Modal";
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
+import ReviewsIndex from "./ReviewsIndex";
 
 const SpotShow = () => {
-    const history = useHistory();
+    let history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     let { spotId } = useParams();
@@ -28,11 +29,12 @@ const SpotShow = () => {
         dispatch(deleteSpot(spotId))
     }
 
-
-    if(!spot.id) return history.push('/')
+    //find better way of  returning home after delete
+    // if(!spot.id) return history.push('/')
     if(!User) return null
 
     return (
+<>
         <section>
         ID: {spot.id}
         <br/>
@@ -51,6 +53,11 @@ const SpotShow = () => {
         {/* <br/> */}
         {/* <Link to="/">Back Home</Link> */}
       </section>
+      <br></br>
+      <section>
+            <ReviewsIndex></ReviewsIndex>
+        </section>
+</>
     )
 }
 
