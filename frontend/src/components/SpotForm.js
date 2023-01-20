@@ -1,8 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { actionCreateSpot } from "../store/spots";
 import { useModal } from "../context/Modal";
+import { actionCreateSpot } from "../store/spots";
+//css file import here
+import { useHistory } from "react-router-dom";
 
 const SpotForm = ({ spot, formType }) => {
     const dispatch = useDispatch();

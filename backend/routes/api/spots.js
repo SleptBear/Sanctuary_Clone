@@ -180,7 +180,7 @@ router.get(
 // create and post a spot
 router.post(
     '/',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     validateCreation,
     // User.toSafeObject(),
