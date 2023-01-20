@@ -1,10 +1,10 @@
-// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getSpots } from "../store/spots";
 import SpotDetails from "./SpotDetails";
 import SpotsIndexItem from "./SpotsIndexItem";
 import { Link } from "react-router-dom";
+import ReviewsIndex from "./ReviewsIndex";
 
 
 
@@ -28,7 +28,7 @@ const SpotsIndex = () => {
     if(!data) return null
 
     return (
-
+<>
         <section>
             <ul>
                 {
@@ -37,12 +37,13 @@ const SpotsIndex = () => {
                         spot={spot}
                         key={spot.id}
                         />
-                    ))
-                }
+                        ))
+                    }
             </ul>
 
         </section>
-        // null
+        
+</>
     )
 }
 
