@@ -9,7 +9,7 @@ function Dummy() {
   const dispatch = useDispatch();
   // const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('john.smith@gmail.com');
-  const [password, setPassword] = useState('password');
+  const [password, setPassword] = useState('secret password');
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
