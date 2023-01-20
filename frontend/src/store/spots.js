@@ -136,7 +136,10 @@ export default function spotReducer(state = initialState, action) {
             console.log("UPDATE TEST", newState)
             return newState
         case DELETE:
-            delete newState[action.id]
+            // delete newState[action.id]
+            newState.spot = {}
+            // newState.spot = action.spot
+            // delete newState.spot
             console.log("DELETE TEST", newState)
             return newState
         default:

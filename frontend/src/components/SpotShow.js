@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { getSpot } from "../store/spots";
@@ -17,15 +18,16 @@ const SpotShow = () => {
     const spot = useSelector(state => state.spot.spot)
     // console.log(spot)
     const User = spot.Owner
+    const [spotState, setSpotState] = useState()
 
     useEffect(() => {
         dispatch(getSpot(spotId))
     }, [])
 
 
-    useEffect(() => {
-        // dispatch(getSpot(spotId))
-    }, [dispatch, spot])
+    // useEffect(() => {
+    //     // dispatch(getSpot(spotId))
+    // }, [dispatch, spot])
 
 
     const deleteIndex = async (e) => {
@@ -62,7 +64,7 @@ const SpotShow = () => {
     //     dispatch(updateSpot(spotId))
     // }
 
-    if(!spot) return null
+    // if(!spot) return history.push('/')
     if(!User) return null
 
     return (
