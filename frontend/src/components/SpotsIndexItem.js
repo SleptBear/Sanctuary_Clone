@@ -16,8 +16,8 @@ const SpotsIndexItem = ({ spot }) => {
     return (
         <li>
             <Link to={`/spots/${spot.id}`}>Spot #{spot.id}</Link>
-            <button>Update</button>
             
+
         </li>
     )
 }

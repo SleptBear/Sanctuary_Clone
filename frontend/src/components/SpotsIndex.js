@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 const SpotsIndex = () => {
     const dispatch = useDispatch();
     const spotsObj = useSelector(state => state.spot)
+    const oneSpot = useSelector(state => state.spot.spot)
     const spots = Object.values(spotsObj)
     const spotsArray = spots[0]
     const data = spotsArray.Spots
@@ -22,7 +23,7 @@ const SpotsIndex = () => {
 
     useEffect(() => {
         dispatch(getSpots())
-    }, [dispatch])
+    }, [dispatch, oneSpot])
 
     if(!data) return null
 
@@ -39,7 +40,7 @@ const SpotsIndex = () => {
                     ))
                 }
             </ul>
-            
+
         </section>
         // null
     )

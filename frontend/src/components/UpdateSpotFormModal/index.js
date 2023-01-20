@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 
+
 const UpdateSpotFormModal = () => {
     const dispatch = useDispatch();
     // let { spotId } = useParams();
@@ -62,10 +63,10 @@ const UpdateSpotFormModal = () => {
             if (data && data.errors) setErrors(data.errors)
           });
           // console.log('does it get here?')
-          setState()
+
           // getSpot(spotId) try to have action re render show page
 
-          return updatedSpot
+          // return updatedSpot
 
           // history.push(`/spots/${spotId}`)
     }
