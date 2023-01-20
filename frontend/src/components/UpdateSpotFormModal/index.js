@@ -62,10 +62,10 @@ const UpdateSpotFormModal = () => {
             if (data && data.errors) setErrors(data.errors)
           });
           // console.log('does it get here?')
-          setState()
+
           // getSpot(spotId) try to have action re render show page
 
-          return updatedSpot
+          // return updatedSpot
 
           // history.push(`/spots/${spotId}`)
     }

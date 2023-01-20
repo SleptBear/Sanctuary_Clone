@@ -1,8 +1,5 @@
 import { csrfFetch } from "./csrf";
 
-
-
-
 const CREATE = 'spots/CREATE_SPOT';
 const READ = 'spots/READ_SPOT';
 const READ_ALL = 'spots/READ_SPOTS';
@@ -73,6 +70,8 @@ export const updateSpot = (spot, spotId) => async dispatch => {
     })
     if (res.ok) {
         const data = await res.json()
+        dispatch(actionUpdateSpot(data))
+
         return data
     }
 }
@@ -109,7 +108,8 @@ export default function spotReducer(state = initialState, action) {
     const newState = { ...state }
     switch (action.type) {
         case CREATE:
-            newState[action.spot.id] = action.spot
+            // newState[action.spot.id] = action.spot
+            newState.spot = action.spot
             return newState
         case READ_ALL:
             newState.spots = action.spots
@@ -133,9 +133,11 @@ export default function spotReducer(state = initialState, action) {
         //     return newState
         case UPDATE:
             newState.spot = action.spot
+            console.log("UPDATE TEST", newState)
             return newState
         case DELETE:
             delete newState[action.id]
+            console.log("DELETE TEST", newState)
             return newState
         default:
             return state;

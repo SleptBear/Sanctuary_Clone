@@ -20,7 +20,12 @@ const SpotShow = () => {
 
     useEffect(() => {
         dispatch(getSpot(spotId))
-    }, [spot, dispatch])
+    }, [])
+
+
+    useEffect(() => {
+        // dispatch(getSpot(spotId))
+    }, [dispatch, spot])
 
 
     const deleteIndex = async (e) => {
@@ -71,9 +76,7 @@ const SpotShow = () => {
         <br/>
         Property Owner: {User.id}
         <br/>
-        <br/>
-        Property Owner: {User.id}
-        <br/>
+
         <button
         onClick={deleteIndex}>Delete</button>
         <UpdateSpotFormButton user={sessionUser} />
