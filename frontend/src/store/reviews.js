@@ -3,7 +3,7 @@ import { csrfFetch } from "./csrf";
 const CREATE = 'reviews/CREATE_REVIEW';
 const READ = 'reviews/READ_REVIEWS';
 const READ_USER = 'reviews/READ_USER_REVIEWS';
-const UPDATE = 'reviews/UPDATE_REVIEW';
+// const UPDATE = 'reviews/UPDATE_REVIEW';
 const DELETE = 'reviews/DELETE_REVIEW';
 
 export const actionCreateReview = (review) => ({
@@ -20,10 +20,10 @@ export const actionReadUserReviews = (reviews) => ({
     reviews
 })
 
-export const actionUpdateReview = (review) => ({
-    type: UPDATE,
-    review
-})
+// export const actionUpdateReview = (review) => ({
+//     type: UPDATE,
+//     review
+// })
 export const actionDeleteReview = (id) => ({
     type: DELETE,
     id
@@ -66,20 +66,20 @@ export const getUserReviews = () => async dispatch => {
     }
 }
 
-export const updateReview = (review, reviewId) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(review)
-    })
+// export const updateReview = (review, reviewId) => async dispatch => {
+//     const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+//         method: 'PUT',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(review)
+//     })
 
-    if (res.ok) {
-        const data = await res.json();
-        dispatch(actionUpdateReview(data))
+//     if (res.ok) {
+//         const data = await res.json();
+//         dispatch(actionUpdateReview(data))
 
-        return data
-    }
-}
+//         return data
+//     }
+// }
 
 export const deleteReview = (reviewId) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${reviewId}`, {
@@ -101,6 +101,8 @@ export default function reviewReducer(state = initialState, action) {
     switch(action.type) {
         case CREATE:
             newState = { ...state, spot: {...state.spot}, user: {...state.user} }
+            newState.spot.Reviews.push(action.review)
+            newState.user.Reviews.push(action.review)
             return newState
         case READ_USER:
             newState.user = action.reviews
@@ -108,9 +110,9 @@ export default function reviewReducer(state = initialState, action) {
         case READ:
             newState.spot = action.reviews
             return newState
-        case UPDATE:
-            newState = { ...state, spot: {...state.spot}, user: {...state.user} }
-            return newState
+        // case UPDATE:
+        //     newState = { ...state, spot: {...state.spot}, user: {...state.user} }
+        //     return newState
         case DELETE:
             newState.spot = {}
             return newState

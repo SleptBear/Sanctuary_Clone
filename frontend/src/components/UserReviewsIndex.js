@@ -28,8 +28,7 @@ if (!reviewData) return null
             <h2>USERS REVIEWS</h2>
             <section>
                 {reviewData.map(review => (
-                    review.User.firstName + ' ' + review.User.lastName + ' ' +
-                    review.review + ' ' + review.stars
+                    review.review + "   " + review.stars
                 ))
             }
             </section>

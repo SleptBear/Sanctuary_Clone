@@ -9,6 +9,7 @@ import { deleteSpot } from '../store/spots';
 import { useHistory } from "react-router-dom";
 // import { useModal } from "../context/Modal";
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
+import CreateReviewFormButton from "./CreateReviewFormModal/CreateReviewFormButton"
 import ReviewsIndex from "./ReviewsIndex";
 import UserReviewsIndex from "./UserReviewsIndex";
 
@@ -57,6 +58,11 @@ const SpotShow = () => {
       <section>
             <ReviewsIndex></ReviewsIndex>
         </section>
+        <br></br>
+        <section>
+            <CreateReviewFormButton></CreateReviewFormButton>
+        </section>
+
         <br></br>
       <section>
             <UserReviewsIndex></UserReviewsIndex>
