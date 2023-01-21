@@ -1,38 +1,38 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
-import { getReviews } from "../store/reviews";
+import { getUserReviews } from "../store/reviews";
 
 
-const ReviewsIndex = () => {
+const UserReviewsIndex = () => {
 const dispatch = useDispatch();
 const { spotId }= useParams();
-const reviewsArray = useSelector(state => state.reviews.spot)
-const data = reviewsArray.Reviews
-// const userReviewsArray = useSelector(state => state.reviews.user)
-
-console.log(spotId)
-console.log(reviewsArray)
-console.log(data)
-
-
+// const reviewsArray = useSelector(state => state.reviews.spot)
+// const data = reviewsArray
 useEffect(() => {
-    dispatch(getReviews(spotId))
+    dispatch(getUserReviews())
 }, [])
 
-// if (!{data}) return null
+const userReviewsArray = useSelector(state => state.reviews.user)
+const data = userReviewsArray
+
+// console.log(spotId)
+// console.log(reviewsArray)
+
+
+
     return (
         <>
             <h2>REVIEWS</h2>
-            <section>
+            {/* <section>
                 {data.map(review => (
                     review.User.firstName + ' ' + review.User.lastName + ' ' +
                     review.review + ' ' + review.stars
                 ))
             }
-            </section>
+            </section> */}
         </>
     )
 }
 
-export default ReviewsIndex
+export default UserReviewsIndex

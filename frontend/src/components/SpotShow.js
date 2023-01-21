@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 // import { useModal } from "../context/Modal";
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
 import ReviewsIndex from "./ReviewsIndex";
+import UserReviewsIndex from "./ReviewsIndex";
 
 const SpotShow = () => {
     let history = useHistory();
@@ -57,6 +58,9 @@ const SpotShow = () => {
       <section>
             <ReviewsIndex></ReviewsIndex>
         </section>
+      {/* <section>
+            <UserReviewsIndex></UserReviewsIndex>
+        </section> */}
 </>
     )
 }
