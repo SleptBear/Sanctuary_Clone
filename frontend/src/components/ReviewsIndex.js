@@ -11,16 +11,16 @@ const reviewsArray = useSelector(state => state.reviews.spot)
 const data = reviewsArray.Reviews
 // const userReviewsArray = useSelector(state => state.reviews.user)
 
-console.log(spotId)
-console.log(reviewsArray)
-console.log(data)
+// console.log(spotId)
+console.log("ID FILE", reviewsArray)
+console.log("ID FILE", data)
 
 
 useEffect(() => {
     dispatch(getReviews(spotId))
 }, [])
 
-// if (!{data}) return null
+if (!data) return null
     return (
         <>
             <h2>REVIEWS</h2>

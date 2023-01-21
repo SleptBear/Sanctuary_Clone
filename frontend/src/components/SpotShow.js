@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 // import { useModal } from "../context/Modal";
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
 import ReviewsIndex from "./ReviewsIndex";
-import UserReviewsIndex from "./ReviewsIndex";
+import UserReviewsIndex from "./UserReviewsIndex";
 
 const SpotShow = () => {
     let history = useHistory();
@@ -36,6 +36,7 @@ const SpotShow = () => {
 
     return (
 <>
+
         <section>
         ID: {spot.id}
         <br/>
@@ -51,16 +52,16 @@ const SpotShow = () => {
         onClick={deleteIndex}>Delete</button>
         <UpdateSpotFormButton user={sessionUser} />
 
-        {/* <br/> */}
-        {/* <Link to="/">Back Home</Link> */}
       </section>
       <br></br>
       <section>
             <ReviewsIndex></ReviewsIndex>
         </section>
-      {/* <section>
+        <br></br>
+      <section>
             <UserReviewsIndex></UserReviewsIndex>
-        </section> */}
+        </section>
+
 </>
     )
 }

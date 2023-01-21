@@ -9,28 +9,30 @@ const dispatch = useDispatch();
 const { spotId }= useParams();
 // const reviewsArray = useSelector(state => state.reviews.spot)
 // const data = reviewsArray
+const userReviewsArray = useSelector(state => state.reviews.user)
+const reviewData = userReviewsArray.Reviews
+
+// console.log(spotId)
+console.log("USER FILE", userReviewsArray)
+
 useEffect(() => {
     dispatch(getUserReviews())
 }, [])
 
-const userReviewsArray = useSelector(state => state.reviews.user)
-const data = userReviewsArray
-
-// console.log(spotId)
-// console.log(reviewsArray)
 
 
 
+if (!reviewData) return null
     return (
         <>
-            <h2>REVIEWS</h2>
-            {/* <section>
-                {data.map(review => (
+            <h2>USERS REVIEWS</h2>
+            <section>
+                {reviewData.map(review => (
                     review.User.firstName + ' ' + review.User.lastName + ' ' +
                     review.review + ' ' + review.stars
                 ))
             }
-            </section> */}
+            </section>
         </>
     )
 }
