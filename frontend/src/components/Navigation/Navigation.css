@@ -2,12 +2,24 @@
     display: none;
 }
 
-.fa-user-circle {
-    color: red;
-}
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
 
+li {
+    font-family: inherit;
+    font-size: 20px;
+}
 
 .nav-container {
     display: flex;
-    flex-direction: row;
+    list-style: none;
+}
+
+.prof-button {
+    padding: 9px 25px;
+    border:none;
+    border-radius: 50px;
 }

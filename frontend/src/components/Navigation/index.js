@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
     <section className='nav-container'>
 
     <ul>
-      <div className='logo'>
+      <div>
         <NavLink exact to="/">Home</NavLink>
       </div>
       {isLoaded && (
@@ -20,7 +20,7 @@ function Navigation({ isLoaded }){
           <ProfileButton user={sessionUser} />
         </div>
       )}
-      <div className='listing-option'>
+      <div>
         <ListHomeButton user={sessionUser} />
       </div>
     </ul>
