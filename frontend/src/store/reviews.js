@@ -88,7 +88,7 @@ export const deleteReview = (reviewId) => async dispatch => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(actionDeleteReview(reviewId))
+        dispatch(actionDeleteReview(data))
         return data
     }
 }
@@ -114,7 +114,10 @@ export default function reviewReducer(state = initialState, action) {
         //     newState = { ...state, spot: {...state.spot}, user: {...state.user} }
         //     return newState
         case DELETE:
-            newState.spot = {}
+            const delReview = {
+                ...state
+            }
+            delete delReview.spot[action.reviewId]
             return newState
         default:
             return state

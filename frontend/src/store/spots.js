@@ -42,7 +42,7 @@ export const createSpot = (spot) => async dispatch => {
         const data = await res.json()
         data.Owner = spot.Owner
         data.spotImages = spot.spotImages
-        console.log("DATA", data)
+        // console.log("DATA", data)
         dispatch(actionCreateSpot(data))
 
         return data
@@ -64,7 +64,7 @@ export const getSpot = (spotId) => async dispatch => {
 
     if (res.ok) {
         const spot = await res.json();
-        console.log('from get spot thunk', spot)
+        // console.log('from get spot thunk', spot)
         dispatch(actionReadSpot(spot))
     }
 }

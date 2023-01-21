@@ -1,3 +1,13 @@
 .hidden {
     display: none;
 }
+
+.fa-user-circle {
+    color: red;
+}
+
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+}
