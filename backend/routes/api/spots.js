@@ -646,8 +646,8 @@ router.get(
                 }
             ],
         })
-        console.log(spotReviews)
-        if(spotReviews.length === 0) {
+        // console.log("BACKEND REVIEW CHECK", spotReviews)
+        if(!spotReviews) {
             res.status(404)
             return res.json({
                 'message': "spot couldn't be found",

@@ -103,10 +103,10 @@ export default function reviewReducer(state = initialState, action) {
             newState = { ...state, spot: {...state.spot}, user: {...state.user} }
             return newState
         case READ_USER:
-            newState.user = action.user
+            newState.user = action.reviews
             return newState
         case READ:
-            newState.spot = action.reviews.Reviews
+            newState.spot = action.reviews
             return newState
         case UPDATE:
             newState = { ...state, spot: {...state.spot}, user: {...state.user} }
