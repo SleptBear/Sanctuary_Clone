@@ -30,6 +30,7 @@ const SpotShow = () => {
     const deleteIndex = async (e) => {
         e.preventDefault();
         dispatch(deleteSpot(spotId))
+        history.push('/')
     }
 
     // const deleteReview = DeleteReviewButton

@@ -26,7 +26,7 @@ if (!data) return null
             <h2>REVIEWS</h2>
             <section>
                 {data.map(review => (
-                    review.review + "   " + review.stars
+                    "Details:" + "" + review.review + "   " + " Stars:" + review.stars
                 ))
             }
             </section>
