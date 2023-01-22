@@ -4,9 +4,14 @@ import React, { useState, useEffect} from "react";
 import UpdateSpotFormModal from "./UpdateSpotFormModal";
 import OpenModalButton from "./OpenModalButton";
 
+
 function UpdateSpotFormButton({ user }) {
     // const dispatch = useDispatch();
+    // let stateSpot = useSelector(state => state.spot.spot)
+
     const [showMenu, setShowMenu] = useState(false);
+    // const [address, setAddress] = useState('')
+    // setAddress(state.spot.address)
 
     const openMenu = () => {
         if (showMenu) return;
