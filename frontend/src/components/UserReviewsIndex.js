@@ -25,13 +25,12 @@ useEffect(() => {
 
 const deleteIndex = async (e) => {
     e.preventDefault();
-    dispatch(deleteReview(spotId))
+    dispatch(deleteReview(reviewId))
 }
 if (!reviewData) return null
 // console.log(Object.values(reviewData[0]).includes(spotId))
 
-
-let myReview = []
+let reviewId = ''
 
 const checkIfReview = () => {
     // let checks = false
@@ -45,7 +44,10 @@ const checkIfReview = () => {
     // }
     // console.log(array)
         console.log("did it find one", review)
-        if (review) return review
+        if (review){
+            reviewId = review.id
+            return review
+        }
         return false
 }
 

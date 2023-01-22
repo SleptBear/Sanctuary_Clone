@@ -198,7 +198,7 @@ router.put(
 //removes review by id
 router.delete(
     '/:reviewId',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     async (req, res) => {
         let user = req.user;
