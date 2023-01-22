@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SpotsIndex from "./components/SpotsIndex";
 import SpotShow from "./components/SpotShow";
+import SpotCard from "./components/Card/SpotCard";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,12 +17,15 @@ function App() {
   return (
   <>
       <Navigation isLoaded={isLoaded} />
+      <br></br>
+      <br></br>
       {isLoaded && (
         <Switch>
           <Route exact path='/' component={SpotsIndex}></Route>
           <Route exact path='/spots/:spotId' component={SpotShow}></Route>
         </Switch>
       )}
+      {/* <SpotCard></SpotCard> */}
     </>
   );
 }

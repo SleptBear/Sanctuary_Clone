@@ -2,34 +2,47 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
 import { getReviews } from "../store/reviews";
+// import { deleteReview } from "../store/reviews";
 
 
 const ReviewsIndex = () => {
 const dispatch = useDispatch();
-const { spotId }= useParams();
-const reviewsArray = useSelector(state => state.reviews.spot)
-const data = reviewsArray.Reviews
+let { spotId }= useParams();
+// spotId = Number(spotId)
+const reviewsObj = useSelector(state => state.reviews.spot)
+const reviewsArray = Object.values(reviewsObj)
+// const data = reviewsObj.spotId
 // const userReviewsArray = useSelector(state => state.reviews.user)
 
 // console.log(spotId)
-console.log("ID FILE", reviewsArray)
-console.log("ID FILE", data)
+// console.log("OBJECT", reviewsObj)
+// console.log("OBJECT ENTRIES", reviewsArray)
+// console.log("ID FILE", data)
 
 
 useEffect(() => {
     dispatch(getReviews(spotId))
 }, [])
 
-if (!data) return null
+// const deleteIndex = async (e) => {
+//     e.preventDefault();
+//     dispatch(deleteReview(spotId))
+// }
+
+// if (!data) return null
     return (
         <>
             <h2>REVIEWS</h2>
+            <div>
+                {/* {reviewsObj} */}
+            </div>
             <section>
-                {data.map(review => (
-                    review.review + "   " + review.stars
+                {reviewsArray.map(review => (
+                    "Details:" + "" + review.review + "   " + " Stars:" + review.stars
                 ))
             }
             </section>
+
         </>
     )
 }

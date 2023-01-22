@@ -4,6 +4,7 @@ import { updateReview } from "../../store/reviews";
 import { useModal } from "../../context/Modal";
 import { createReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
+import { getUserReviews } from "../../store/reviews";
 
 
 const CreateReviewFormModal = () => {
@@ -35,11 +36,12 @@ const handleSubmit = (e) => {
       console.log("Checking data returning to form", data)
       if (data && data.errors) setErrors(data.errors)
     });
+    getUserReviews();
 }
 
     return (
     <>
-    <h1>Submit Your Review</h1>
+    <h1>Leave Your Thoughts</h1>
         <form onSubmit={handleSubmit} className="create-reviewform" >
           <ul>
              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -65,7 +67,7 @@ const handleSubmit = (e) => {
             />
           </label>
 
-          <button type="submit">Update Home</button>
+          <button type="submit">Send Review</button>
         </form>
         </>
       );

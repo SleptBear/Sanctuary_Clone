@@ -5,11 +5,13 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import Dummy from "../SampleUserButton/SampleUserButton";
+// import { useModal } from "../../context/Modal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  // const { closeModal } = useModal();
 
   const openMenu = () => {
     if (showMenu) return;
@@ -42,6 +44,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
+    {/* <div> */}
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
@@ -52,6 +55,7 @@ function ProfileButton({ user }) {
             <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
             <li>
+
               <button onClick={logout}>Log Out</button>
             </li>
           </>
@@ -61,21 +65,22 @@ function ProfileButton({ user }) {
               itemText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
-            />
+              />
             <OpenModalMenuItem
               itemText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
-            />
+              />
             <OpenModalMenuItem
               itemText="Dummy User"
               onItemClick={closeMenu}
               modalComponent={<Dummy />}
-            />
+              />
 
           </>
         )}
       </ul>
+        {/* </div> */}
     </>
   );
 }
