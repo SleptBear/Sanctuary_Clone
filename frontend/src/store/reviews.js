@@ -72,8 +72,8 @@ export const getUserReviews = () => async dispatch => {
     const res = await csrfFetch('/api/reviews/current')
 
     if (res.ok) {
-        const reviews = await res.json();
-        dispatch(actionReadUserReviews(reviews))
+        const review = await res.json();
+        dispatch(actionReadUserReviews(review))
     }
 }
 
@@ -100,16 +100,26 @@ export default function reviewReducer(state = initialState, action) {
     let newState = { ...state}
     const normalizedReviews = {}
     switch(action.type) {
-        case CREATE:
-            newState = { ...state, spot: {...state.spot}, user: {...state.user} }
-            newState.spot.Reviews.push(action.review)
-            newState.user.Reviews.push(action.review)
+        case READ_SPOT:
+            console.log(action)
+            action.reviews.Reviews.forEach(
+                (review) => (normalizedReviews[review.id] = review)
+            );
+            newState.spot = normalizedReviews;
+
             return newState
         case READ_USER:
-            newState.user = action.reviews
+            action.reviews.Reviews.forEach(
+                (review) => (normalizedReviews[review.id] = review)
+            );
+            newState.user = normalizedReviews
             return newState
-        case READ_SPOT:
-            newState.spot = action.reviews
+        case CREATE:
+            newState = { ...state, spot: {...state.spot}, user: {...state.user} }
+            // newState.spot.Reviews.push(action.review)
+            // newState.user.Reviews.push(action.review)
+            newState.user = {...state.user}
+            newState.spot = {...state.spot, [action.review.id]: action.review}
             return newState
         // case UPDATE:
         //     newState = { ...state, spot: {...state.spot}, user: {...state.user} }
@@ -123,6 +133,10 @@ export default function reviewReducer(state = initialState, action) {
             // delete newState.user.Reviews[action.id]
             // newState.spot.Reviews.find(obj => obj.id == action.id)
             // newState.user.Reviews.find(obj => obj.id == action.id)
+            // newState.spot = {...state.spot}
+            // newState.user = {...state.user}
+            // delete newState.spot[action.reviewId]
+            // delete newState.user[action.reviewId]
             newState.spot = {...state.spot}
             newState.user = {...state.user}
             delete newState.spot[action.reviewId]

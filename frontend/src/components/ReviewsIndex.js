@@ -7,14 +7,17 @@ import { getReviews } from "../store/reviews";
 
 const ReviewsIndex = () => {
 const dispatch = useDispatch();
-const { spotId }= useParams();
-const reviewsArray = useSelector(state => state.reviews.spot)
-const data = reviewsArray.Reviews
+let { spotId }= useParams();
+// spotId = Number(spotId)
+const reviewsObj = useSelector(state => state.reviews.spot)
+const reviewsArray = Object.values(reviewsObj)
+// const data = reviewsObj.spotId
 // const userReviewsArray = useSelector(state => state.reviews.user)
 
 // console.log(spotId)
-console.log("ID FILE", reviewsArray)
-console.log("ID FILE", data)
+// console.log("OBJECT", reviewsObj)
+// console.log("OBJECT ENTRIES", reviewsArray)
+// console.log("ID FILE", data)
 
 
 useEffect(() => {
@@ -26,12 +29,15 @@ useEffect(() => {
 //     dispatch(deleteReview(spotId))
 // }
 
-if (!data) return null
+// if (!data) return null
     return (
         <>
             <h2>REVIEWS</h2>
+            <div>
+                {/* {reviewsObj} */}
+            </div>
             <section>
-                {data.map(review => (
+                {reviewsArray.map(review => (
                     "Details:" + "" + review.review + "   " + " Stars:" + review.stars
                 ))
             }
