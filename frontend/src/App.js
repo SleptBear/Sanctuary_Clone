@@ -25,7 +25,7 @@ function App() {
           <Route exact path='/spots/:spotId' component={SpotShow}></Route>
         </Switch>
       )}
-      <SpotCard></SpotCard>
+      {/* <SpotCard></SpotCard> */}
     </>
   );
 }

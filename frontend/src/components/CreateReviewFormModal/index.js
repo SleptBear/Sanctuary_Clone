@@ -4,6 +4,7 @@ import { updateReview } from "../../store/reviews";
 import { useModal } from "../../context/Modal";
 import { createReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
+import { getUserReviews } from "../../store/reviews";
 
 
 const CreateReviewFormModal = () => {
@@ -35,6 +36,7 @@ const handleSubmit = (e) => {
       console.log("Checking data returning to form", data)
       if (data && data.errors) setErrors(data.errors)
     });
+    getUserReviews();
 }
 
     return (

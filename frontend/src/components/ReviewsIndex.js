@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
 import { getReviews } from "../store/reviews";
+// import { deleteReview } from "../store/reviews";
 
 
 const ReviewsIndex = () => {
@@ -20,6 +21,11 @@ useEffect(() => {
     dispatch(getReviews(spotId))
 }, [])
 
+// const deleteIndex = async (e) => {
+//     e.preventDefault();
+//     dispatch(deleteReview(spotId))
+// }
+
 if (!data) return null
     return (
         <>
@@ -30,6 +36,7 @@ if (!data) return null
                 ))
             }
             </section>
+
         </>
     )
 }
