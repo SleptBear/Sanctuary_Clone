@@ -14,11 +14,11 @@ const SpotsIndexItem = ({ spot }) => {
     // }
 
     return (
-        <li>
+        <div className='card-container'>
             <Link to={`/spots/${spot.id}`}>Spot #{spot.id}</Link>
-            
 
-        </li>
+
+        </div>
     )
 }
 

@@ -1,1 +1,30 @@
 /* TODO Add site wide styles */
+
+.body-container {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    flex-wrap: wrap;
+    /* width: fit-content; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    background-color: red;
+
+
+}
+
+.body-container.items {
+    display: flex;
+    gap: 2rem;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.outside {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: min-content;
+}
