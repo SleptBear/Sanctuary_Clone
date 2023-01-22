@@ -41,7 +41,7 @@ const handleSubmit = (e) => {
 
     return (
     <>
-    <h1>Submit Your Review</h1>
+    <h1>Leave Your Thoughts</h1>
         <form onSubmit={handleSubmit} className="create-reviewform" >
           <ul>
              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -67,7 +67,7 @@ const handleSubmit = (e) => {
             />
           </label>
 
-          <button type="submit">Update Home</button>
+          <button type="submit">Send Review</button>
         </form>
         </>
       );
