@@ -5,21 +5,23 @@
     flex-direction: row;
     flex-flow: wrap;
     flex-wrap: wrap;
+    background-color: blue;
+    padding-top: 1rem;
     /* width: fit-content; */
     /* flex-direction: row; */
     /* justify-content: center; */
-    background-color: red;
-    border: 100px black;
+    /* background-color: red; */
+    /* border: 100px black; */
 }
 
 .body-container-items {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    border: 100px solid firebrick;
-    align-items: center;
+    border: 50px solid firebrick;
     align-content: center;
+
+    justify-content: center;
     margin: 0;
-    padding: 0;
-    list-style: none;
+    padding: 5rem;
 }
