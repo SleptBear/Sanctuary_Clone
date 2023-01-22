@@ -12,6 +12,7 @@ import UpdateSpotFormButton from "./UpdateSpotFormButton";
 import CreateReviewFormButton from "./CreateReviewFormModal/CreateReviewFormButton"
 import ReviewsIndex from "./ReviewsIndex";
 import UserReviewsIndex from "./UserReviewsIndex";
+// import SpotCard from "./Card/SpotCard";
 
 const SpotShow = () => {
     let history = useHistory();
@@ -67,6 +68,10 @@ const SpotShow = () => {
       <section>
             <UserReviewsIndex></UserReviewsIndex>
         </section>
+
+        {/* <section>
+            <SpotCard></SpotCard>
+        </section> */}
 
 </>
     )
