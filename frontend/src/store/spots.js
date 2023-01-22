@@ -3,7 +3,7 @@
 import { csrfFetch } from "./csrf";
 
 const CREATE = 'spots/CREATE_SPOT';
-const READ = 'spots/READ_SPOT';
+const READ_ONE = 'spots/READ_ONE_SPOT';
 const READ_ALL = 'spots/READ_SPOTS';
 const UPDATE = 'spots/UPDATE_SPOT';
 const DELETE = 'spots/DELETE_SPOT';
@@ -17,7 +17,7 @@ export const actionReadSpots = (spots) => ({
     spots
 })
 export const actionReadSpot = (spot) => ({
-    type: READ,
+    type: READ_ONE,
     spot
 })
 export const actionUpdateSpot = (spot) => ({
@@ -54,6 +54,7 @@ export const getSpots = () => async dispatch => {
 
     if (res.ok) {
         const spots = await res.json();
+        console.log('from get spots thunk', spots)
         dispatch(actionReadSpots(spots))
 
     }
@@ -64,7 +65,7 @@ export const getSpot = (spotId) => async dispatch => {
 
     if (res.ok) {
         const spot = await res.json();
-        // console.log('from get spot thunk', spot)
+        console.log('from get spot thunk', spot)
         dispatch(actionReadSpot(spot))
     }
 }
@@ -101,6 +102,7 @@ const initialState = { spots: {}, spot: {} }
 
 export default function spotReducer(state = initialState, action) {
     let newState = { ...state}
+    const normalizedSpots = {}
     switch (action.type) {
         case CREATE:
             // newState[action.spot.id] = action.spot
@@ -108,12 +110,14 @@ export default function spotReducer(state = initialState, action) {
             newState.spot = action.spot
             return newState
         case READ_ALL:
-
-            newState.spots = action.spots
+            action.spots.Spots.forEach(spot => {
+                normalizedSpots[spot.id] = spot
+            });
+            newState.spots = normalizedSpots
             return newState
-        case READ:
+        case READ_ONE:
 
-            // newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+            newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spot = action.spot
             return newState
         case UPDATE:
