@@ -5,26 +5,23 @@
     flex-direction: row;
     flex-flow: wrap;
     flex-wrap: wrap;
+    background-color: blue;
+    padding-top: 1rem;
     /* width: fit-content; */
     /* flex-direction: row; */
     /* justify-content: center; */
-    background-color: red;
-
-
+    /* background-color: red; */
+    /* border: 100px black; */
 }
 
-.body-container.items {
+.body-container-items {
     display: flex;
-    gap: 2rem;
-
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.outside {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: min-content;
+    gap: 2rem;
+    border: 50px solid firebrick;
+    align-content: center;
+
+    justify-content: center;
+    margin: 0;
+    padding: 5rem;
 }
