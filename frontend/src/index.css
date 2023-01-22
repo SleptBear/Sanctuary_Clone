@@ -9,22 +9,17 @@
     /* flex-direction: row; */
     /* justify-content: center; */
     background-color: red;
-
-
+    border: 100px black;
 }
 
-.body-container.items {
+.body-container-items {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-
+    border: 100px solid firebrick;
+    align-items: center;
+    align-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.outside {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: min-content;
 }
