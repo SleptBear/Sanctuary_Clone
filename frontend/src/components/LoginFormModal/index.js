@@ -2,8 +2,8 @@ import React, { useState, useSelector } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-// import { Redirect } from 'react-router-dom';
-import './LoginForm.css';
+
+
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -20,39 +20,52 @@ function LoginFormModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
-      .catch(async (res) => {
+    dispatch(sessionActions.login({ credential, password }))
+    // .then(closeModal())
+    .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data && data.errors) {
+          setErrors(data.errors);
+        } else {
+         closeModal()
+
+        }
       });
-      
+
+      // return setErrors(['User Data not found'])
+
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
+    <>
+    <h1>Welcome to Santuary</h1>
+    <form onSubmit={handleSubmit} className='login-spotform'>
+      <label className="input-box">
         <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
+        className='input-fields'
+        type="text"
+        value={credential}
+        placeholder="Username or Email"
+        onChange={(e) => setCredential(e.target.value)}
+        required
         />
       </label>
-      <label>
-        Password
+      <label className="input-box">
         <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+        className='input-fields'
+        type="password"
+        value={password}
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        required
         />
       </label>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
       <button type="submit">Log In</button>
     </form>
+        </>
   );
 }
 

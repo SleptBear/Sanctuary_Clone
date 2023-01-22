@@ -76,101 +76,109 @@ const UpdateSpotFormModal = () => {
 
     return (
         <>
-    <h1>My Home's New Information</h1>
+    <h1>Home's New Information</h1>
         <form onSubmit={handleSubmit} className="update-spotform" >
-          <ul>
-             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <label>
-            address
+          <label className="input-box">
+
             <input
               className="input-fields"
               type="text"
               value={address}
+              placeholder="address"
               onChange={e => setAddress(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            city
+          <label className="input-box">
             <input
               className="input-fields"
               type="text"
               value={city}
+              placeholder="city"
               onChange={e => setCity(e.target.value)}
               required
-            />
+              />
+
+
           </label>
-          <label>
-            state
+          <label className="input-box">
+
             <input
               className="input-fields"
               type="text"
               value={state}
+              placeholder="state"
               onChange={e => setState(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            latitude
+          <label className="input-box">
+
             <input
               className="input-fields"
               type="text"
               value={lat}
+              placeholder="latitude"
               onChange={e => setLat(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            longitude
+          <label className="input-box">
+
             <input
               className="input-fields"
               type="text"
               value={lng}
+              placeholder="longitude"
               onChange={e => setLng(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            country
+          <label className="input-box">
+
             <input
               className="input-fields"
               type="text"
               value={country}
+              placeholder="country"
               onChange={e => setCountry(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            name
+          <label className="input-box">
+
             <input
               className="input-fields"
               type="text"
               value={name}
+              placeholder="name"
               onChange={e => setName(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            description
+          <label className="input-box">
             <input
               className="input-fields"
               type="text"
+              placeholder="description"
               value={description}
               onChange={e => setDescription(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            price
+          <label className="input-box">
             <input
               className="input-fields"
               type="text"
+              placeholder="price"
               value={price}
               onChange={e => setPrice(e.target.value)}
               required
-            />
+              />
           </label>
+              <ul>
+                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+              </ul>
           <button type="submit">Update Home</button>
         </form>
         </>
