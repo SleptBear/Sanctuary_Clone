@@ -16,9 +16,9 @@ const SpotsIndex = () => {
     const spots = Object.values(spotsObj)
     // const spotsArray = spots[0]
     // const data = spotsArray.Spots
-    console.log("LOOK", spotsObj)
-    console.log("HERE", spots)
-    console.log("NOW")
+    // console.log("LOOK", spotsObj)
+    // console.log("HERE", spots)
+    // console.log("NOW")
     // console.log("data", data)
 
     useEffect(() => {
@@ -29,8 +29,10 @@ const SpotsIndex = () => {
 
     return (
 <>
-        <section>
-            <ul>
+<div className="outside">
+
+        <section className="body-container">
+            <div className="body-container-items">
                 {
                     spots.map(spot => (
                         <SpotsIndexItem
@@ -39,9 +41,10 @@ const SpotsIndex = () => {
                         />
                         ))
                     }
-            </ul>
+            </div>
 
         </section>
+                    </div>
 
 </>
     )

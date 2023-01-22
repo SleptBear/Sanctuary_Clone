@@ -1,10 +1,12 @@
 .card-container {
-    width: 250px;
-    height: 300px;
-    overflow:hidden;
+    display: flex;
+    width: 15rem;
+    height: 20rem;
+    overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
     transition: 0.5s;
     border-radius: 10px;
+    background-color: white;
 }
 
 .card-container:hover {
@@ -27,4 +29,8 @@ h3,p{
 }
 .card-location{
     margin-bottom: 0.5rem;
+}
+
+.body-container-items {
+    display: flex;
 }
