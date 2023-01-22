@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
-import { getUserReviews } from "../store/reviews";
-import { deleteReview } from "../store/reviews";
+import { getUserReviews } from "../../store/reviews";
+import { deleteReview } from "../../store/reviews";
 import { useHistory } from "react-router-dom";
 
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from "react";
 // import { useDispatch } from 'react-redux';
 // import * as sessionActions from '../store/session';
-import UpdateSpotFormModal from "./UpdateSpotFormModal";
-import OpenModalButton from "./OpenModalButton";
+import UpdateSpotFormModal from "../UpdateSpotFormModal";
+import OpenModalButton from "../OpenModalButton";
 
 
 function UpdateSpotFormButton({ user }) {

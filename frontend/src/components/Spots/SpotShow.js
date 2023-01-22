@@ -2,16 +2,16 @@ import { useEffect } from "react";
 // import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { getSpot } from "../store/spots";
+import { getSpot } from "../../store/spots";
 // import SpotsIndex from "./SpotsIndex";
 // import SpotIndexItem from "./SpotsIndexItem";
-import { deleteSpot } from '../store/spots';
+import { deleteSpot } from '../../store/spots';
 import { useHistory } from "react-router-dom";
 // import { useModal } from "../context/Modal";
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
-import CreateReviewFormButton from "./CreateReviewFormModal/CreateReviewFormButton"
-import ReviewsIndex from "./ReviewsIndex";
-import UserReviewsIndex from "./UserReviewsIndex";
+import CreateReviewFormButton from "../CreateReviewFormModal/CreateReviewFormButton"
+import ReviewsIndex from "../Reviews/ReviewsIndex";
+import UserReviewsIndex from "../Reviews/UserReviewsIndex";
 // import SpotCard from "./Card/SpotCard";
 
 const SpotShow = () => {

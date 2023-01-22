@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useModal } from "../context/Modal";
-import { actionCreateSpot } from "../store/spots";
+import { useModal } from "../../context/Modal";
+import { actionCreateSpot } from "../../store/spots";
 //css file import here
 import { useHistory } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getSpot } from "../store/spots";
+import { getSpot } from "../../store/spots";
 
 const SpotDetails = ({ spot }) => {
     const dispatch = useDispatch();

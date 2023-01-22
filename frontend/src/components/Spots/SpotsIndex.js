@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import { getSpots } from "../store/spots";
+import { getSpots } from "../../store/spots";
 import SpotDetails from "./SpotDetails";
 import SpotsIndexItem from "./SpotsIndexItem";
 import { Link } from "react-router-dom";
-import ReviewsIndex from "./ReviewsIndex";
+import ReviewsIndex from "../Reviews/ReviewsIndex";
 
 
 
