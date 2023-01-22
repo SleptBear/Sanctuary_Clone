@@ -1,6 +1,11 @@
+/* .profile-dropdown {
+    display: flex;
+    flex-direction: column;
+} */
 .hidden {
     display: none;
 }
+
 
 * {
     box-sizing: border-box;
