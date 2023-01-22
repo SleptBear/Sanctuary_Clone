@@ -15,16 +15,16 @@ const UpdateSpotFormModal = () => {
     // let { spotId } = useParams();
     let stateSpot = useSelector(state => state.spot.spot)
     const spotId = stateSpot.id
-    console.log(stateSpot.id);
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state ,setState] = useState('');
-    const [lat ,setLat] = useState('');
-    const [lng ,setLng] = useState('');
-    const [country ,setCountry] = useState('');
-    const [name ,setName] = useState('');
-    const [description ,setDescription] = useState('');
-    const [price ,setPrice] = useState('');
+    // console.log(stateSpot.id);
+    const [address, setAddress] = useState(stateSpot.address);
+    const [city, setCity] = useState(stateSpot.city);
+    const [state ,setState] = useState(stateSpot.state);
+    const [lat ,setLat] = useState(stateSpot.lat);
+    const [lng ,setLng] = useState(stateSpot.lng);
+    const [country ,setCountry] = useState(stateSpot.country);
+    const [name ,setName] = useState(stateSpot.name);
+    const [description ,setDescription] = useState(stateSpot.description);
+    const [price ,setPrice] = useState(stateSpot.price);
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
