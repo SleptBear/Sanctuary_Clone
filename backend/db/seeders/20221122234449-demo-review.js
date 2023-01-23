@@ -13,27 +13,45 @@ module.exports = {
      {
       spotId: 1,
       userId: 1,
-      review: "bad",
+      review: "Do not go here.",
       stars: 1
      },
      {
       spotId: 1,
       userId: 3,
-      review: "amazing",
+      review: "amazing just amazing.",
       stars: 5
      },
      {
       spotId: 2,
       userId: 3,
-      review: "mid",
+      review: "mid tier place.",
       stars: 3
      },
      {
       spotId: 3,
       userId: 3,
-      review: "great",
+      review: "great, on all accounts.",
       stars: 5
-     }
+     },
+     {
+      spotId: 4,
+      userId: 3,
+      review: "Who wouldn't stay here.",
+      stars: 5
+     },
+     {
+      spotId: 5,
+      userId: 3,
+      review: "Do not trust host, get out.",
+      stars: 1
+     },
+     {
+      spotId: 6,
+      userId: 3,
+      review: "Got what I paid for.",
+      stars: 4
+     },
     ], {});
    },
 
