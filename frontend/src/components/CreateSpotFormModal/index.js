@@ -45,11 +45,16 @@ const CreateSpotFormModal = () => {
           price,
           Owner: stateSpot.Owner,
           // spotImages: [stateSpot.spotImages]
-          spotImages: [imgUrl]
+          SpotImages: [imgUrl]
 
         };
 
-        dispatch(createSpot(newSpotData))
+        const updatedImgData = {
+          url: imgUrl,
+          preview: true
+        }
+
+        dispatch(createSpot(newSpotData, updatedImgData))
         .then((res) => setNewSpot(res))
         // console.log("FROM API", res.json())
         .then(closeModal())

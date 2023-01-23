@@ -29,7 +29,7 @@ export const actionDeleteSpot = (id) => ({
     id
 })
 
-export const createSpot = (spot) => async dispatch => {
+export const createSpot = (spot, imgData) => async dispatch => {
 
     const res = await csrfFetch('/api/spots', {
         method: 'POST',
@@ -39,19 +39,24 @@ export const createSpot = (spot) => async dispatch => {
         body: JSON.stringify(spot)
 })
 
+const data = await res.json()
 if (res.ok) {
+    data.Owner = spot.Owner
+    // data.SpotImages = spot.SpotImages
 
-    // const res2 = await csrfFetch('/api/spots/${spot.', {
-    //     method: 'POST',
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(spot)
-    // })
+    const res2 = await csrfFetch(`/api/spots/${data.id}/images`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(imgData)
+    })
+    if(res2.ok) {
+        const data2 = await res2.json();
+        data.SpotImages = [data2]
 
-    const data = await res.json()
-        data.Owner = spot.Owner
-        data.spotImages = spot.spotImages
+    }
+
         console.log("DATA", data)
         dispatch(actionCreateSpot(data))
 
