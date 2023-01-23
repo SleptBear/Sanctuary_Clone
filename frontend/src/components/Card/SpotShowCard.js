@@ -6,12 +6,12 @@ import './Card.css'
 
 
 // function SpotCard({title, imageUrl, body}) {
-function SpotCard({spot}) {
+function SpotShowCard({spot}) {
 
     return (
-       <div className="card-container">
-            <div className="image-container">
-                <img src={spot.previewImage} alt='NOT FOUND'></img>
+       <div className="large-card-container">
+            <div className="large-image-container">
+                <img src={spot.SpotImages[0].url} alt='NOT FOUND'></img>
             </div>
             <br></br>
             <div className="card-title">
@@ -26,4 +26,4 @@ function SpotCard({spot}) {
 }
 
 
-export default SpotCard
+export default SpotShowCard

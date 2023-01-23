@@ -19,7 +19,7 @@ const SpotsIndex = () => {
     // const spotsArray = spots[0]
     // const data = spotsArray.Spots
     // console.log("LOOK", spotsObj)
-    console.log("HERE", spots)
+    // console.log("HERE", spots)
     // console.log("NOW")
     // console.log("data", data)
 

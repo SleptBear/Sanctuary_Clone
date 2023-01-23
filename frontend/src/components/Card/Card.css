@@ -11,6 +11,12 @@
     /* padding-top: 1rem; */
 }
 
+.large-card-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .card-container:hover {
     transform: scale(1.1);
 }
@@ -18,6 +24,10 @@
 .image-container img {
     overflow: hidden;
     height: 200px;
+}
+
+.large-image-container {
+    overflow: hidden;
 }
 
 .card-content {

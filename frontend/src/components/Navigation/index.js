@@ -9,7 +9,7 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
   return (
-          <body>
+          <div className='navStart'>
     <nav className='navbar'>
 
       <div className='logo'>
@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
       </div>
     </div>
           </nav>
-      </body>
+      </div>
   );
 }
 
