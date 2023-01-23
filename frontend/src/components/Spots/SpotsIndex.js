@@ -38,10 +38,10 @@ const SpotsIndex = () => {
 
                 {
                     spots.map(spot => (
-                        <Link to={`/spots/${spot.id}`}>
+                        <Link key={spot.id.toString()} to={`/spots/${spot.id}`}>
                         <SpotCard
                         spot={spot}
-                        key={spot.id}
+                        // key={spot.id}
                         />
                     </Link>
                         ))

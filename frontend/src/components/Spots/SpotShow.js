@@ -18,19 +18,31 @@ const SpotShow = () => {
     let history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
+    let { spotId } = useParams();
     const [targetSpot, setTargetSpot] = useState('')
+    const [spotImg, setSpotImg] = useState('')
+    const [user, setUser] = useState('')
     useEffect(() => {
         dispatch(getSpot(spotId))
         .then((res) => {
             setTargetSpot(res)
+            console.log(spotId)
+            setUser(spot.Owner)
+
         })
     }, [])
-    console.log("SPOT FROM USESTATE", targetSpot)
-    let { spotId } = useParams();
-    console.log(spotId)
+
+    
     const spot = useSelector(state => state.spot.spot)
-    console.log(spot)
-    const User = spot.Owner
+    console.log("FROM SPOT UseSelector", spot)
+    console.log("FROM USER UseSelector", user)
+    console.log("FROM TARGET UseSelector", targetSpot)
+    console.log("SPOT FROM USESTATE", targetSpot)
+
+
+
+    // const User = spot.Owner
+    //key into spotImg array breaks code
     // const spotImg = spot.SpotImages[0]
     // const imgUrl = spotImg.url
 
@@ -46,7 +58,7 @@ const SpotShow = () => {
 
     //find better way of  returning home after delete
     // if(!spot.id) return history.push('/')
-    if(!User) return null
+    if(!user || !targetSpot.id || !spot) return null
     // if(!spotImg) return null
 
     return (
@@ -66,7 +78,7 @@ const SpotShow = () => {
         City: {spot.city}
         <br/>
         <br/>
-        Property Owner: {User.id}
+        Property Owner: {user.id}
         <br/>
 
         <button
@@ -84,9 +96,9 @@ const SpotShow = () => {
         </section>
 
         <br></br>
-      <section>
+      {/* <section>
             <UserReviewsIndex></UserReviewsIndex>
-        </section>
+        </section> */}
 
         {/* <section>
             <SpotCard></SpotCard>

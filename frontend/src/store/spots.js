@@ -68,22 +68,24 @@ if (res.ok) {
 export const getSpots = () => async dispatch => {
     const res = await csrfFetch('/api/spots/');
 
+    const spots = await res.json();
     if (res.ok) {
-        const spots = await res.json();
-        console.log('from get spots thunk', spots)
+        // console.log('from get spots thunk', spots)
         dispatch(actionReadSpots(spots))
 
     }
+    return spots
 }
 
 export const getSpot = (spotId) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${spotId}`);
 
+    const spot = await res.json();
     if (res.ok) {
-        const spot = await res.json();
-        console.log('from get spot thunk', spot)
+        // console.log('from get spot thunk', spot)
         dispatch(actionReadSpot(spot))
     }
+    return spot
 }
 
 
