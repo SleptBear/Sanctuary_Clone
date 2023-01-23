@@ -87,6 +87,13 @@ const SpotShow = () => {
 <>
 <section className="spotDetailsContainer">
 
+        <div className="name">{spot.name}</div>
+        <br></br>
+        <div className="rating">
+        Avg Rating {spot.avgStarRating} Stars with {spot.numReviews} Review(s)
+        <UpdateSpotFormButton user={sessionUser} />
+        </div>
+        <br></br>
         <SpotShowCard spot={spot}></SpotShowCard>
 
 <div >
@@ -95,10 +102,9 @@ const SpotShow = () => {
         <CreateReviewFormButton></CreateReviewFormButton>
 
         <ReviewsIndex></ReviewsIndex>
+<br></br>
+        <button onClick={deleteIndex}>Delete Spot</button>
 
-        <button onClick={deleteIndex}>Delete</button>
-
-        <UpdateSpotFormButton user={sessionUser} />
 </div>
 
 </section>

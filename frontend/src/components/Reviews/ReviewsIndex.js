@@ -11,6 +11,7 @@ let { spotId }= useParams();
 // spotId = Number(spotId)
 const reviewsObj = useSelector(state => state.reviews.spot)
 const reviewsArray = Object.values(reviewsObj)
+
 // const data = reviewsObj.spotId
 // const userReviewsArray = useSelector(state => state.reviews.user)
 
@@ -38,7 +39,7 @@ useEffect(() => {
             </div>
             <section>
                 {reviewsArray.map(review => (
-                    "Details:" + "" + review.review + "   " + " Stars:" + review.stars
+                    review.User.firstName + ' ' + review.User.lastName + ": " + review.review
                 ))
             }
             </section>

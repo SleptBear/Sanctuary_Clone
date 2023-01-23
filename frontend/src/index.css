@@ -173,3 +173,29 @@ form > button {
     align-items: center;
     border-radius: 20px;
 }
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    width: 50rem;
+    font-weight:bolder
+
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    width: 50rem;
+    font-weight:bolder;
+    font-size:xx-large
+}
+
+.update-button {
+    display: flex;
+    width: 50rem;
+    justify-content: flex-end;
+
+
+}

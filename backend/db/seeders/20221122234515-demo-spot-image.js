@@ -24,6 +24,21 @@ module.exports = {
       spotId: 3,
       url: 'https://travel.home.sndimg.com/content/dam/images/travel/stock/2018/5/2/iStock_Moorea_budget-beaches.jpg.rend.hgtvcom.616.462.suffix/1525279728795.jpeg',
       preview: true
+     },
+     {
+      spotId: 4,
+      url: 'https://pacific-homes.com/wp-content/uploads/2015/06/The-Bubble-House2.jpg',
+      preview: true
+     },
+     {
+      spotId: 5,
+      url: 'https://cdn.architecturendesign.net/wp-content/uploads/2014/06/AD-Two-Modern-Mansions-Sunset-Plaza-Drive-Ameen-Ayoub-Design-Studio-CoverImage.jpg',
+      preview: true
+     },
+     {
+      spotId: 6,
+      url: 'https://inhabitat.com/wp-content/blogs.dir/1/files/2017/10/PlansMatter4.jpg',
+      preview: true
      }
     ], {});
    },
