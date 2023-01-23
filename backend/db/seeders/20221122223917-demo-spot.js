@@ -48,10 +48,10 @@ module.exports = {
       price: 123
     },
     {
-      ownerId: 4,
-      address: "ccc123 Disney Lane",
-      city: "San Francisco",
-      state: "California",
+      ownerId: 3,
+      address: "123 Pyro Street",
+      city: "Dallas",
+      state: "Texas",
       country: "United States of America",
       lat: 37.7645358,
       lng: -122.4730327,
@@ -60,9 +60,9 @@ module.exports = {
       price: 321
     },
     {
-      ownerId: 5,
-      address: "ccc123 Disney Lane",
-      city: "San Francisco",
+      ownerId: 3,
+      address: "578 Combustion Ave",
+      city: "Los Angeles",
       state: "California",
       country: "United States of America",
       lat: 37.7645358,
@@ -72,14 +72,14 @@ module.exports = {
       price: 90
     },
     {
-      ownerId: 6,
-      address: "ccc123 Disney Lane",
-      city: "San Francisco",
-      state: "California",
+      ownerId: 3,
+      address: "246 Budding Street",
+      city: "Boulder",
+      state: "Colorado",
       country: "United States of America",
       lat: 37.7645358,
       lng: -122.4730327,
-      name: "App Academy",
+      name: "The Pit Stop",
       description: "Place where web developers are created",
       price: 129
     },
@@ -90,7 +90,7 @@ module.exports = {
     options.tableName = 'Spots';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      address: { [Op.in]: ["aaa123 Disney Lane", "bbb123 Disney Lane", "ccc123 Disney Lane"] }
+      address: { [Op.in]: ["aaa123 Disney Lane", "bbb123 Disney Lane", "ccc123 Disney Lane","123 Pyro Street", "578 Combustion Ave", "246 Budding Street"] }
     }, {});
     /**
      * Add commands to revert seed here.

@@ -33,11 +33,14 @@ function UpdateSpotFormButton({ user }) {
 
       return (
         <>
+        <div className="update-button">
+
           <OpenModalButton
           buttonText="Update Your Home"
           onButtonClick={openMenu}
           modalComponent={<UpdateSpotFormModal />}
           ></OpenModalButton>
+          </div>
         </>
         )
 }

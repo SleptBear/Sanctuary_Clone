@@ -17,7 +17,7 @@ function SpotShowCard({spot}) {
 
             <div className="spot-body">
                     <h2>{spot.description}</h2>
-                    <h2>${spot.price}/night</h2>
+                    <h2>${spot.price} night</h2>
             </div>
        </div>
     )
