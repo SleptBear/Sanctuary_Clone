@@ -5,20 +5,23 @@ import { useDispatch } from "react-redux";
 import './Card.css'
 
 
-function SpotCard({title, imageUrl, body}) {
+// function SpotCard({title, imageUrl, body}) {
+function SpotCard({spot}) {
 
 
 
     return (
        <div className="card-container">
             <div className="image-container">
-                <img src={imageUrl} alt=''></img>
+                <img src={spot.previewImage} alt='NOT FOUND'></img>
             </div>
+            <br></br>
             <div className="card-title">
-                <h3>{title}</h3>
+                <h3>{spot.state}</h3>
             </div>
+            <br></br>
             <div className="card-body">
-                <p>{body}</p>
+                <h3>{spot.price}</h3>
             </div>
        </div>
     )

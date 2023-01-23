@@ -5,6 +5,7 @@ import SpotDetails from "./SpotDetails";
 import SpotsIndexItem from "./SpotsIndexItem";
 import { Link, useHistory } from "react-router-dom";
 import ReviewsIndex from "../Reviews/ReviewsIndex";
+import SpotCard from "../Card/SpotCard";
 
 
 
@@ -18,7 +19,7 @@ const SpotsIndex = () => {
     // const spotsArray = spots[0]
     // const data = spotsArray.Spots
     // console.log("LOOK", spotsObj)
-    // console.log("HERE", spots)
+    console.log("HERE", spots)
     // console.log("NOW")
     // console.log("data", data)
 
@@ -36,13 +37,23 @@ const SpotsIndex = () => {
             <div className="body-container-items">
                 {
                     spots.map(spot => (
-                        <SpotsIndexItem
+                        <SpotCard
                         spot={spot}
                         key={spot.id}
                         />
                         ))
                     }
             </div>
+            {/* <div className="body-container-items">
+                {
+                    spots.map(spot => (
+                        <SpotsIndexItem
+                        spot={spot}
+                        key={spot.id}
+                        />
+                        ))
+                    }
+            </div> */}
 
         </section>
                     </div>
