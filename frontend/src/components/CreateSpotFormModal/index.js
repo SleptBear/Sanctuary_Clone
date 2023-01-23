@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import '../../index.css'
 //css file import here
-// import { useHistory } from "react-router-dom";
 
 const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
@@ -22,6 +21,7 @@ const CreateSpotFormModal = () => {
     const [name ,setName] = useState('');
     const [description ,setDescription] = useState('');
     const [price ,setPrice] = useState('');
+    const [imgUrl ,setImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
@@ -44,21 +44,24 @@ const CreateSpotFormModal = () => {
           description,
           price,
           Owner: stateSpot.Owner,
-          spotImages: stateSpot.spotImages
+          // spotImages: [stateSpot.spotImages]
+          spotImages: [imgUrl]
 
         };
 
         dispatch(createSpot(newSpotData))
         .then((res) => setNewSpot(res))
+        // console.log("FROM API", res.json())
         .then(closeModal())
         .catch(async (res) => {
           const data = await res.json();
-          console.log("Checking data returning to form", data)
+          // console.log(data);
+          console.log("Checking data sent to form", newSpotData)
           if (data && data.errors) setErrors(data.errors)
-          if (data.id) history.push('/spots/${data.id}')
+          // if (data.id) history.push('/spots/${data.id}')
+          console.log("NEW SPOT HERE", newSpot)
         });
 
-        console.log("NEW SPOT HERE", newSpot)
         //I want to redirect to that spots details page afterwards
         //find a way to route to it here i think
         return newSpot
@@ -175,6 +178,16 @@ const CreateSpotFormModal = () => {
               value={price}
               placeholder='price'
               onChange={e => setPrice(e.target.value)}
+              required
+              />
+          </label>
+          <label className='input-box'>
+            <input
+              className="input-fields"
+              type="url"
+              value={imgUrl}
+              placeholder='Preview Image'
+              onChange={e => setImgUrl(e.target.value)}
               required
               />
           </label>
