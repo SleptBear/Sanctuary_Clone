@@ -15,8 +15,11 @@ function Navigation({ isLoaded }){
       <div className='logo'>
       <NavLink exact to="/">Home</NavLink>
       </div>
-    <div className='nav-modals'>
+      {/* <div> */}
+      {/* <img src={spot.previewImage} alt='NOT FOUND'></img> */}
+      {/* </div> */}
 
+    <div className='nav-modals'>
       <div>
         {/* <li className='logo'>
           <NavLink exact to="/">Home</NavLink></li> */}

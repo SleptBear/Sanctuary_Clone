@@ -3,10 +3,12 @@
 .body-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-flow: wrap;
     flex-wrap: wrap;
-    background-color: blue;
-    padding-top: 1rem;
+    /* background-color: blue; */
+    /* padding-top: 1rem; */
 
 }
 
@@ -14,12 +16,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    border: 50px solid firebrick;
+    /* border: 50px solid firebrick; */
     align-content: center;
 
     justify-content: center;
     margin: 0;
-    padding: 5rem;
+    /* padding-top: 5rem; */
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
 }
 
 
@@ -101,7 +105,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     border-width: thin thin thin 1em;
-    
+
 }
 
 .input-fields {
@@ -114,12 +118,8 @@
     padding: 1rem;
     width: 100%;
     box-sizing: border-box;
-
-
-
     /* margin: 1rem; */
     border-radius: 0.5rem;
-
 }
 
 form button {
@@ -132,3 +132,8 @@ form button {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+/* .card-container {
+    display: flex;
+    flex-direction: column;
+} */

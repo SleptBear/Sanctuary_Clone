@@ -12,17 +12,17 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
      {
       spotId: 1,
-      url: 'image.png',
+      url: 'https://www.busytourist.com/wp-content/uploads/2019/06/Bora-Bora-French-Polynesia.jpg.webp',
       preview: true
      },
      {
       spotId: 2,
-      url: 'image.png',
+      url: 'https://i.ytimg.com/vi/hxeITyt_XfU/maxresdefault.jpg',
       preview: true
      },
      {
       spotId: 3,
-      url: 'image.png',
+      url: 'https://travel.home.sndimg.com/content/dam/images/travel/stock/2018/5/2/iStock_Moorea_budget-beaches.jpg.rend.hgtvcom.616.462.suffix/1525279728795.jpeg',
       preview: true
      }
     ], {});

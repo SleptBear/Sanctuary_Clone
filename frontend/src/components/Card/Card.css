@@ -1,5 +1,6 @@
 .card-container {
     display: flex;
+    flex-direction: column;
     width: 15rem;
     height: 20rem;
     overflow: hidden;
@@ -7,7 +8,7 @@
     transition: 0.5s;
     border-radius: 10px;
     background-color: white;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
 }
 
 .card-container:hover {
