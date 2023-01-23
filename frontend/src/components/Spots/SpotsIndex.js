@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getSpots } from "../../store/spots";
 import SpotDetails from "./SpotDetails";
 import SpotsIndexItem from "./SpotsIndexItem";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ReviewsIndex from "../Reviews/ReviewsIndex";
 
 
@@ -11,6 +11,7 @@ import ReviewsIndex from "../Reviews/ReviewsIndex";
 
 const SpotsIndex = () => {
     const dispatch = useDispatch();
+    const [updatedSpot, setUpdatedSpot] = useState()
     const spotsObj = useSelector(state => state.spot.spots)
     const oneSpot = useSelector(state => state.spot.spot)
     const spots = Object.values(spotsObj)
@@ -23,7 +24,7 @@ const SpotsIndex = () => {
 
     useEffect(() => {
         dispatch(getSpots())
-    }, [dispatch])
+    }, [setUpdatedSpot, useHistory])
 
     if(!spots[0]) return null
 

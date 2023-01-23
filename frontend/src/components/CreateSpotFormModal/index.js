@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 // import '../../index.css'
 //css file import here
 
@@ -28,12 +29,8 @@ const CreateSpotFormModal = () => {
     const [newSpot, setNewSpot] = useState();
     const history = useHistory()
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
-        setErrors([]);
-
-        const newSpotData = {
+    const newSpotData = {
           address,
           city,
           state,
@@ -54,37 +51,33 @@ const CreateSpotFormModal = () => {
           preview: true
         }
 
-        dispatch(createSpot(newSpotData, updatedImgData))
-        .then((res) => setNewSpot(res))
-        // console.log("FROM API", res.json())
-        .then(closeModal())
-        .catch(async (res) => {
-          const data = await res.json();
-          // console.log(data);
-          console.log("Checking data sent to form", newSpotData)
-          if (data && data.errors) setErrors(data.errors)
-          // if (data.id) history.push('/spots/${data.id}')
-          console.log("NEW SPOT HERE", newSpot)
-        });
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            setErrors([]);
 
-        //I want to redirect to that spots details page afterwards
-        //find a way to route to it here i think
-        return newSpot
-      };
-        // .catch(async (res) => {
-        //   const data = await res.json();
-        //   if (data && data.errors) setErrors(data.errors);
-        // });
-        // return setErrors(['Confirm form fields are filled'])
 
-      // useEffect(() => {
-      //   if (newSpot) {
-      //     history.pushState(`/spots/${newSpot.id}`)
-      //   }
-      // }, [newSpot])
 
-    return (
-        <>
+            dispatch(createSpot(newSpotData, updatedImgData))
+            .then(async (res) => {
+              console.log("Success")
+              // const data = await res.json();
+              // const data = useSelector(state => state.spot.spot)
+              // console.log(data)
+              closeModal()
+              history.push(`/`)
+            })
+            .catch(async (res) => {
+              const data = await res.json();
+              console.log(data)
+              if (data && data.errors) setErrors(data.errors)
+              console.log('ERRORS', errors)
+            });
+            return
+          };
+
+
+        return (
+          <>
     <h1>My Home's Information</h1>
         <form onSubmit={handleSubmit} className="create-spotform" >
           <label className='input-box'>

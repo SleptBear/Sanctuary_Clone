@@ -62,6 +62,7 @@ if (res.ok) {
 
 
     }
+    return data
 }
 
 export const getSpots = () => async dispatch => {
@@ -138,6 +139,7 @@ export default function spotReducer(state = initialState, action) {
         case CREATE:
             // newState[action.spot.id] = action.spot
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+            newState.spots[action.spot.id] = action.spot
             newState.spot = action.spot
             return newState
         case READ_ALL:
