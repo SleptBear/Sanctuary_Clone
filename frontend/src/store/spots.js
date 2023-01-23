@@ -29,7 +29,7 @@ export const actionDeleteSpot = (id) => ({
     id
 })
 
-export const createSpot = (spot) => async dispatch => {
+export const createSpot = (spot, imgData) => async dispatch => {
 
     const res = await csrfFetch('/api/spots', {
         method: 'POST',
@@ -38,15 +38,31 @@ export const createSpot = (spot) => async dispatch => {
         },
         body: JSON.stringify(spot)
 })
-    if (res.ok) {
-        const data = await res.json()
-        data.Owner = spot.Owner
-        data.spotImages = spot.spotImages
-        // console.log("DATA", data)
+
+const data = await res.json()
+if (res.ok) {
+    data.Owner = spot.Owner
+    // data.SpotImages = spot.SpotImages
+
+    const res2 = await csrfFetch(`/api/spots/${data.id}/images`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(imgData)
+    })
+    if(res2.ok) {
+        const data2 = await res2.json();
+        data.SpotImages = [data2]
+
+    }
+
+        console.log("DATA", data)
         dispatch(actionCreateSpot(data))
 
-        return data
+
     }
+    return data
 }
 
 export const getSpots = () => async dispatch => {
@@ -71,20 +87,36 @@ export const getSpot = (spotId) => async dispatch => {
 }
 
 
-export const updateSpot = (spot, spotId) => async dispatch => {
+export const updateSpot = (spot, spotId, imgData) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${spotId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spot)
     })
+
+    const data = await res.json();
     if (res.ok) {
-        const data = await res.json();
         data.Owner = spot.Owner
-        data.spotImages = spot.spotImages
+        data.SpotImages = spot.SpotImages
+
+        const res2 = await csrfFetch(`/api/spots/${spotId}/images`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(imgData)
+        })
+
+        if(res2.ok) {
+            const data2 = await res2.json();
+            data.SpotImages.push(data2)
+
+        }
         dispatch(actionUpdateSpot(data))
 
-        return data
     }
+
+    console.log("DATA AFTER IMAGE ADDED", data)
+    console.log('does it reach here')
+    return data
 }
 
 export const deleteSpot = (spotId) => async dispatch => {
@@ -107,6 +139,7 @@ export default function spotReducer(state = initialState, action) {
         case CREATE:
             // newState[action.spot.id] = action.spot
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
+            newState.spots[action.spot.id] = action.spot
             newState.spot = action.spot
             return newState
         case READ_ALL:

@@ -25,6 +25,7 @@ const UpdateSpotFormModal = () => {
     const [name ,setName] = useState(stateSpot.name);
     const [description ,setDescription] = useState(stateSpot.description);
     const [price ,setPrice] = useState(stateSpot.price);
+    const [imgUrl ,setImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
@@ -53,10 +54,15 @@ const UpdateSpotFormModal = () => {
           description,
           price,
           Owner: stateSpot.Owner,
-          spotImages: stateSpot.spotImages
+          SpotImages: stateSpot.SpotImages
         };
 
-        dispatch(updateSpot(updatedSpotData, spotId))
+        const updatedImgData = {
+          url: imgUrl,
+          preview: true
+        }
+
+        dispatch(updateSpot(updatedSpotData, spotId, updatedImgData))
         .then((res) => setUpdatedSpot(res))
         .then(closeModal())
         .catch(async (res) => {
@@ -173,6 +179,16 @@ const UpdateSpotFormModal = () => {
               placeholder="price"
               value={price}
               onChange={e => setPrice(e.target.value)}
+              required
+              />
+          </label>
+          <label className="input-box">
+            <input
+              className="input-fields"
+              type="url"
+              placeholder="Add Preview Image"
+              value={imgUrl}
+              onChange={e => setImgUrl(e.target.value)}
               required
               />
           </label>
