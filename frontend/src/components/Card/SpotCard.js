@@ -8,8 +8,6 @@ import './Card.css'
 // function SpotCard({title, imageUrl, body}) {
 function SpotCard({spot}) {
 
-
-
     return (
        <div className="card-container">
             <div className="image-container">

@@ -19,7 +19,7 @@ const SpotsIndex = () => {
     // const spotsArray = spots[0]
     // const data = spotsArray.Spots
     // console.log("LOOK", spotsObj)
-    console.log("HERE", spots)
+    // console.log("HERE", spots)
     // console.log("NOW")
     // console.log("data", data)
 
@@ -38,10 +38,10 @@ const SpotsIndex = () => {
 
                 {
                     spots.map(spot => (
-                        <Link to={`/spots/${spot.id}`}>
+                        <Link key={spot.id.toString()} to={`/spots/${spot.id}`}>
                         <SpotCard
                         spot={spot}
-                        key={spot.id}
+                        // key={spot.id}
                         />
                     </Link>
                         ))

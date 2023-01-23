@@ -11,6 +11,23 @@
     /* padding-top: 1rem; */
 }
 
+.large-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.large-image-container img {
+    overflow: hidden;
+    border: 5px black;
+    height: 30rem;
+    width: 50rem;
+    border-radius: 1rem;
+
+}
 .card-container:hover {
     transform: scale(1.1);
 }
@@ -20,17 +37,20 @@
     height: 200px;
 }
 
+
 .card-content {
     margin: 1rem;
     margin-top: 0.5rem;
 }
 
-h3,p{
+h3, p{
     margin: 0;
     padding: 0;
 }
-.card-location{
-    margin-bottom: 0.5rem;
+.spot-body{
+    display: flex;
+    justify-content: space-between;
+    
 }
 
 .body-container-items {
