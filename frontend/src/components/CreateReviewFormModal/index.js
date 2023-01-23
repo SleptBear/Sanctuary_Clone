@@ -43,29 +43,31 @@ const handleSubmit = (e) => {
     <>
     <h1>Leave Your Thoughts</h1>
         <form onSubmit={handleSubmit} className="create-reviewform" >
-          <ul>
-             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <label>
-            REVIEW
+          <label className="input-box">
             <input
               className="input-fields"
               type="text"
               value={review}
+              placeholder='What did you think?'
               onChange={e => setReview(e.target.value)}
               required
-            />
+              />
           </label>
-          <label>
-            STARS
+          <label className="input-box">
             <input
               className="input-fields"
               type="number"
               value={stars}
+              placeholder='Star Rating'
+              min={1}
+              max={5}
               onChange={e => setStars(e.target.value)}
               required
-            />
+              />
           </label>
+              <ul>
+                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+              </ul>
 
           <button type="submit">Send Review</button>
         </form>

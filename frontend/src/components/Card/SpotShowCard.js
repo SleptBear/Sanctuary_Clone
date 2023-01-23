@@ -13,15 +13,11 @@ function SpotShowCard({spot}) {
             <div className="large-image-container">
                 <img src={spot.SpotImages[0].url} alt='NOT FOUND'></img>
             </div>
-            <br></br>
+
 
             <div className="spot-body">
-                <div className="card-location">
                     <h2>{spot.description}</h2>
-                </div>
-                <div className="card-price">
                     <h2>${spot.price}/night</h2>
-                </div>
             </div>
        </div>
     )

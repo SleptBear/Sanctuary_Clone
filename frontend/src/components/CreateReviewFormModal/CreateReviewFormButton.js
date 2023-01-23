@@ -29,7 +29,7 @@ function CreateReviewFormButton({ user }) {
       return (
         <>
           <OpenModalButton
-          buttonText="Create a Review"
+          buttonText="Leave a Review"
           onButtonClick={openMenu}
           modalComponent={<CreateReviewFormModal />}
           ></OpenModalButton>

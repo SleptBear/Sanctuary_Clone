@@ -15,7 +15,7 @@ function SpotCard({spot}) {
             </div>
             <br></br>
             <div className="card-title">
-                <h3>{spot.state}</h3>
+                <h3>{spot.city}, {spot.state}</h3>
             </div>
             <br></br>
             <div className="card-body">

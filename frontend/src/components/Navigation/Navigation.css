@@ -7,9 +7,9 @@
 }
 
 
-* {
+/* * {
     box-sizing: border-box;
-}
+} */
 
 body {
     margin: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 .logo {
-    padding-left: 20px;
+    padding-left: 6rem;
 }
 
 /* .navStart {
@@ -34,19 +34,22 @@ body {
 .navbar {
     display: flex;
     /* flex-direction: row; */
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     /* background-color: black; */
+    padding-right: 10rem;
+    padding-left: 10rem;
     color: white;
     height: 100px;
     border: solid;
     border-bottom: 2px solid rgba(128, 128, 128, 0.408);
     /* margin-bottom: 1rem; */
+    
 }
 
 .nav-modals div{
     display: flex;
-    padding: 20px;
+    padding: 4rem;
     flex-direction: row-reverse;
     justify-content: space-between;
 

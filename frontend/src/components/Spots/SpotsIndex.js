@@ -48,19 +48,9 @@ const SpotsIndex = () => {
                     }
 
             </div>
-            {/* <div className="body-container-items">
-                {
-                    spots.map(spot => (
-                        <SpotsIndexItem
-                        spot={spot}
-                        key={spot.id}
-                        />
-                        ))
-                    }
-            </div> */}
 
         </section>
-                    </div>
+ </div>
 
 </>
     )
