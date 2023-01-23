@@ -35,14 +35,18 @@ const SpotsIndex = () => {
 
         <section className="body-container">
             <div className="body-container-items">
+
                 {
                     spots.map(spot => (
+                        <Link to={`/spots/${spot.id}`}>
                         <SpotCard
                         spot={spot}
                         key={spot.id}
                         />
+                    </Link>
                         ))
                     }
+
             </div>
             {/* <div className="body-container-items">
                 {

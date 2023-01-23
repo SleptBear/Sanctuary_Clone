@@ -7,8 +7,8 @@
     align-items: center;
     flex-flow: wrap;
     flex-wrap: wrap;
-    background-color: blue;
-    padding-top: 1rem;
+    /* background-color: blue; */
+    /* padding-top: 1rem; */
 
 }
 
@@ -118,12 +118,8 @@
     padding: 1rem;
     width: 100%;
     box-sizing: border-box;
-
-
-
     /* margin: 1rem; */
     border-radius: 0.5rem;
-
 }
 
 form button {
@@ -137,7 +133,7 @@ form button {
     padding-right: 1rem;
 }
 
-.card-container {
+/* .card-container {
     display: flex;
     flex-direction: column;
-}
+} */
