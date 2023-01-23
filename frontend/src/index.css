@@ -137,3 +137,17 @@ form button {
     display: flex;
     flex-direction: column;
 } */
+
+.spotDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
@@ -18,13 +18,22 @@ const SpotShow = () => {
     let history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
-    let { spotId } = useParams();
-    const spot = useSelector(state => state.spot.spot)
-    const User = spot.Owner
-
+    const [targetSpot, setTargetSpot] = useState('')
     useEffect(() => {
         dispatch(getSpot(spotId))
+        .then((res) => {
+            setTargetSpot(res)
+        })
     }, [])
+    console.log("SPOT FROM USESTATE", targetSpot)
+    let { spotId } = useParams();
+    console.log(spotId)
+    const spot = useSelector(state => state.spot.spot)
+    console.log(spot)
+    const User = spot.Owner
+    // const spotImg = spot.SpotImages[0]
+    // const imgUrl = spotImg.url
+
 
     //maybe refactor to have delete comonent imported from its own file
     const deleteIndex = async (e) => {
@@ -33,14 +42,21 @@ const SpotShow = () => {
         history.push('/')
     }
 
-    // const deleteReview = DeleteReviewButton
+
 
     //find better way of  returning home after delete
     // if(!spot.id) return history.push('/')
     if(!User) return null
+    // if(!spotImg) return null
 
     return (
 <>
+<section className="spotDetailsContainer">
+
+{/* <section className="detailsImage">
+    <img src={imgUrl} alt='NOT FOUND'></img>
+
+</section> */}
 
         <section>
         ID: {spot.id}
@@ -76,6 +92,7 @@ const SpotShow = () => {
             <SpotCard></SpotCard>
         </section> */}
 
+        </section>
 </>
     )
 }
