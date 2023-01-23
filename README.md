@@ -6,3 +6,6 @@ The main technologies utiilized for this project are React and Redux for front e
 
 ## Current Home Page
 ![Alt text](frontend/images/Sanctuary_Progress.png)
+
+## Current Spot Details Page
+![Alt text](frontend/images/SpotDetailsPage.png)
