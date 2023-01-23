@@ -15,9 +15,6 @@ function Navigation({ isLoaded }){
       <div className='logo'>
       <NavLink exact to="/">Home</NavLink>
       </div>
-      {/* <div> */}
-      {/* <img src={spot.previewImage} alt='NOT FOUND'></img> */}
-      {/* </div> */}
 
     <div className='nav-modals'>
       <div>
@@ -26,7 +23,11 @@ function Navigation({ isLoaded }){
         {isLoaded && (
           <div><ProfileButton user={sessionUser} /></div>
           )}
+      <div>
+
         <div><ListHomeButton user={sessionUser} /></div>
+      </div>
+
       </div>
     </div>
           </nav>

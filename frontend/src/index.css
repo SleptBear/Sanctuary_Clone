@@ -144,7 +144,7 @@
     border-radius: 0.5rem;
 }
 
-form button {
+form > button {
     width: 100%;
     color: white;
     background-color: rgb(227, 38, 69);
@@ -173,4 +173,3 @@ form button {
     align-items: center;
     border-radius: 20px;
 }
-
