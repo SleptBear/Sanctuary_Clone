@@ -92,39 +92,20 @@ const SpotShow = () => {
 
 </section> */}
 
-        <section>
-        ID: {spot.id}
-        <br/>
-        Country: {spot.country}
-        <br/>
-        City: {spot.city}
-        <br/>
-        <br/>
-        Property Owner: {Owner.id}
-        <br/>
-
-        <button
-        onClick={deleteIndex}>Delete</button>
-        <UpdateSpotFormButton user={sessionUser} />
-
-      </section>
-      <br></br>
-      <section>
-            <ReviewsIndex></ReviewsIndex>
-        </section>
-        <br></br>
-        <section>
-            <CreateReviewFormButton></CreateReviewFormButton>
-        </section>
-
-        <br></br>
-      {/* <section>
-            <UserReviewsIndex></UserReviewsIndex>
-        </section> */}
+    
 
         <section>
             <SpotShowCard spot={spot}></SpotShowCard>
         </section>
+        <section>
+        <section>
+            <CreateReviewFormButton></CreateReviewFormButton>
+        </section>
+              <ReviewsIndex></ReviewsIndex>
+          </section>
+        <button
+        onClick={deleteIndex}>Delete</button>
+        <UpdateSpotFormButton user={sessionUser} />
 
         </section>
 </>
