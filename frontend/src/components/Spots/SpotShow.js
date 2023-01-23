@@ -87,27 +87,21 @@ const SpotShow = () => {
 <>
 <section className="spotDetailsContainer">
 
-{/* <section className="detailsImage">
-    <img src={imgUrl} alt='NOT FOUND'></img>
+        <SpotShowCard spot={spot}></SpotShowCard>
 
-</section> */}
+<div >
+    <hr></hr>
 
-    
+        <CreateReviewFormButton></CreateReviewFormButton>
 
-        <section>
-            <SpotShowCard spot={spot}></SpotShowCard>
-        </section>
-        <section>
-        <section>
-            <CreateReviewFormButton></CreateReviewFormButton>
-        </section>
-              <ReviewsIndex></ReviewsIndex>
-          </section>
-        <button
-        onClick={deleteIndex}>Delete</button>
+        <ReviewsIndex></ReviewsIndex>
+
+        <button onClick={deleteIndex}>Delete</button>
+
         <UpdateSpotFormButton user={sessionUser} />
+</div>
 
-        </section>
+</section>
 </>
     )
 }

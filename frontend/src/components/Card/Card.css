@@ -1,8 +1,8 @@
 .card-container {
     display: flex;
     flex-direction: column;
-    width: 15rem;
-    height: 20rem;
+    width: 16rem;
+    height: 22rem;
     overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
     transition: 0.5s;
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+
 
 
 }
@@ -28,13 +28,23 @@
     border-radius: 1rem;
 
 }
+
+.spotDetailsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .card-container:hover {
     transform: scale(1.1);
 }
 
 .image-container img {
+    display: flex;
     overflow: hidden;
     height: 200px;
+
 }
 
 
@@ -43,16 +53,18 @@
     margin-top: 0.5rem;
 }
 
-h3, p{
-    margin: 0;
-    padding: 0;
-}
+
 .spot-body{
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 .body-container-items {
     display: flex;
+}
+
+hr {
+    display: flex;
+    width: 50rem
 }
