@@ -17,12 +17,11 @@ function Navigation({ isLoaded }){
       </div>
 
     <div className='nav-modals'>
-      <div>
-        {/* <li className='logo'>
-          <NavLink exact to="/">Home</NavLink></li> */}
+
         {isLoaded && (
           <div><ProfileButton user={sessionUser} /></div>
           )}
+      <div>
       <div>
 
         <div><ListHomeButton user={sessionUser} /></div>
