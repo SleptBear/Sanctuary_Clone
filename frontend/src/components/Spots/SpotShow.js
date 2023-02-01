@@ -12,6 +12,7 @@ import ReviewsIndex from "../Reviews/ReviewsIndex";
 import UserReviewsIndex from "../Reviews/UserReviewsIndex";
 import SpotShowCard from "../Card/SpotShowCard";
 import SpotCard from "../Card/SpotCard";
+import DeleteReviewButton from "../DeleteReviewButton";
 
 const SpotShow = () => {
     let history = useHistory();
@@ -102,6 +103,8 @@ const SpotShow = () => {
         <CreateReviewFormButton></CreateReviewFormButton>
 
         <ReviewsIndex></ReviewsIndex>
+
+        <DeleteReviewButton></DeleteReviewButton>
 <br></br>
         <button onClick={deleteIndex}>Delete Spot</button>
 
