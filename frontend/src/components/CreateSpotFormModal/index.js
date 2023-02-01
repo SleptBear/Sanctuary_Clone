@@ -64,7 +64,7 @@ const CreateSpotFormModal = () => {
               // const data = useSelector(state => state.spot.spot)
               // console.log(data)
               closeModal()
-              history.push(`/spots/${stateSpot.id}`)
+              // history.push(`/spots/${stateSpot.id}`)
             })
             .catch(async (res) => {
               const data = await res.json();
