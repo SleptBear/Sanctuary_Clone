@@ -69,8 +69,12 @@ const SpotShow = () => {
     //maybe refactor to have delete comonent imported from its own file
     const deleteIndex = async (e) => {
         e.preventDefault();
-        dispatch(deleteSpot(spotId))
-        history.push('/')
+        console.log(Owner.id)
+        console.log(sessionUser.id)
+        if(Owner.id === sessionUser.id) {
+            dispatch(deleteSpot(spotId))
+            history.push('/')
+        }
     }
 
 
