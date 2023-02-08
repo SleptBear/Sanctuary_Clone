@@ -15,9 +15,9 @@ import SpotCard from "../Card/SpotCard";
 import DeleteReviewButton from "../DeleteReviewButton";
 
 const SpotShow = () => {
+    const dispatch = useDispatch();
     let history = useHistory();
     let { spotId } = useParams();
-    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spot.spot)
 
@@ -25,7 +25,7 @@ const SpotShow = () => {
     const [spotImg, setSpotImg] = useState('')
     const [user, setUser] = useState('')
 
-    // const handleLoad= () => {
+    // const handleLoad = () => {
     //     dispatch(getSpot(spotId))
     //     .then((res) => {
     //      setTargetSpot(res)

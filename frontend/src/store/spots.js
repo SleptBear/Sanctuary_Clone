@@ -149,6 +149,7 @@ export default function spotReducer(state = initialState, action) {
                 normalizedSpots[spot.id] = spot
             });
             newState.spots = normalizedSpots
+            newState.spot = {}
             return newState
         case READ_ONE:
 
