@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 
 const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     let stateSpot = useSelector(state => state.spot.spot)
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -23,11 +23,13 @@ const CreateSpotFormModal = () => {
     const [description ,setDescription] = useState('');
     const [price ,setPrice] = useState('');
     const [imgUrl ,setImgUrl] = useState('');
+
     const [errors, setErrors] = useState([]);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
 
     const [newSpot, setNewSpot] = useState();
-    const history = useHistory()
+
 
 
     const newSpotData = {
@@ -54,8 +56,7 @@ const CreateSpotFormModal = () => {
         const handleSubmit = (e) => {
             e.preventDefault();
             setErrors([]);
-
-
+            setHasSubmitted(true);
 
             dispatch(createSpot(newSpotData, updatedImgData))
             .then(async (res) => {
@@ -68,7 +69,7 @@ const CreateSpotFormModal = () => {
             })
             .catch(async (res) => {
               const data = await res.json();
-              console.log(data)
+              console.log("data from api", data)
               if (data && data.errors) setErrors(data.errors)
               console.log('ERRORS', errors)
             });
@@ -189,9 +190,12 @@ const CreateSpotFormModal = () => {
               required
               />
           </label>
-              <ul>
-                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-              </ul>
+        {hasSubmitted && errors.length > 0 && (
+        <ul>
+           {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+           {errors.map((error) => <li key={error}>{error}</li>)}
+        </ul>
+        )}
           <button type="submit">Submit Home</button>
         </form>
         </>

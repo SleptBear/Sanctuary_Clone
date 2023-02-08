@@ -4,7 +4,7 @@ import { ModalProvider, Modal } from './context/Modal';
 import './index.css';
 
 import ReactDOM from 'react-dom';
-import { Provider as Redux } from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { restoreCSRF, csrfFetch } from './store/csrf';
@@ -25,12 +25,12 @@ if (process.env.NODE_ENV !== 'production') {
 function Root() {
   return (
     <ModalProvider>
-      <Redux store={store}>
+      <ReduxProvider store={store}>
         <BrowserRouter>
           <App />
           <Modal />
         </BrowserRouter>
-      </Redux>
+      </ReduxProvider>
     </ModalProvider>
   );
 }
