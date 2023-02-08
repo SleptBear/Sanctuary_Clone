@@ -155,6 +155,7 @@ export default function spotReducer(state = initialState, action) {
 
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spot = action.spot
+            newState.spots = {}
             return newState
         case UPDATE:
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }

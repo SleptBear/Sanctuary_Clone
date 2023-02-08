@@ -20,76 +20,40 @@ const SpotShow = () => {
     let { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spot.spot)
-
-    const [targetSpot, setTargetSpot] = useState('')
+    const [targetSpot, setTargetSpot] = useState({})
     const [spotImg, setSpotImg] = useState('')
-    const [user, setUser] = useState('')
-
-    // const handleLoad = () => {
-    //     dispatch(getSpot(spotId))
-    //     .then((res) => {
-    //      setTargetSpot(res)
-    //      console.log(res)
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     window.addEventListener('loadSpot', handleLoad)
-
-    //     return () => {
-    //         window.removeEventListener('loadSpot', handleLoad)
-    //     }
-    // }, [])
+    let owner = spot.Owner
 
     useEffect(() => {
-        console.log(spotId);
-        setUser(spot.Owner);
         dispatch(getSpot(spotId))
         .then((res) => {
             setTargetSpot(res)
-
         })
-    }, [])
+    }, [dispatch])
 
+    // console.log("OWNER FROM SPOT", Owner)
+    // console.log("FROM SPOT UseSelector", spot)
+    // console.log("LOGGED IN USER FROM UseSelector", sessionUser)
+    // console.log("SPOT FROM USESTATE", targetSpot)
 
-    console.log("FROM SPOT UseSelector", spot)
-    console.log("LOGGED IN USER FROM UseSelector", sessionUser)
-    // console.log("FROM TARGET UseSelector", targetSpot)
-    console.log("SPOT FROM USESTATE", targetSpot)
-
-
-
-    let Owner = spot.Owner
-    console.log("OWNER FROM SPOT", Owner)
     //key into spotImg array breaks code
     // const spotImg = spot.SpotImages[0]
     // const imgUrl = spotImg.url
 
-
     //maybe refactor to have delete comonent imported from its own file
     const deleteIndex = async (e) => {
         e.preventDefault();
-        console.log(Owner.id)
+        console.log(owner.id)
         console.log(sessionUser.id)
-        if(Owner.id === sessionUser.id) {
+        if(owner.id === sessionUser.id) {
             dispatch(deleteSpot(spotId))
             history.push('/')
         }
     }
 
-
-
-    //find better way of  returning home after delete
-    // if(!spot.id) return history.push('/')
-
-    // if(!user || !targetSpot.id || !spot) return null
-    if(!Owner) return null
-    // if(!spotImg) return null
-
-
-
+    if(!owner) return null
     return (
-<>
+        <>
 <section className="spotDetailsContainer">
 
         <div className="name">{spot.name}</div>
@@ -119,6 +83,20 @@ const SpotShow = () => {
     )
 }
 
-
-
 export default SpotShow;
+
+// const handleLoad = () => {
+//     dispatch(getSpot(spotId))
+//     .then((res) => {
+//      setTargetSpot(res)
+//      console.log(res)
+//     })
+// }
+
+// useEffect(() => {
+//     window.addEventListener('loadSpot', handleLoad)
+
+//     return () => {
+//         window.removeEventListener('loadSpot', handleLoad)
+//     }
+// }, [])
