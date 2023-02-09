@@ -2,21 +2,13 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-// import { Redirect } from 'react-router-dom';
-// import './LoginForm.css';
 
 function Dummy() {
   const dispatch = useDispatch();
-  // const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('john.smith@gmail.com');
   const [password, setPassword] = useState('secret password');
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
-  const [user, setUser] = useState()
-
-  // if (sessionUser) return (
-  //   <Redirect to="/" />
-  // );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,11 +20,7 @@ function Dummy() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
-
-
-
   }
-
   return (
     <>
     <h1>Try this profile</h1>
