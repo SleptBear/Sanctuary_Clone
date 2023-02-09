@@ -29,6 +29,21 @@ export const actionDeleteSpot = (id) => ({
     id
 })
 
+export const getSpots = () => async dispatch => {
+    const res = await csrfFetch('/api/spots/');
+
+    if (res.ok) {
+    const spots = await res.json();
+    let normalizedSpots = {}
+    let spotsArray = spots.Spots
+
+        spotsArray.forEach(spot => {
+            normalizedSpots[spot.id] = spot
+        });
+        dispatch(actionReadSpots(normalizedSpots))
+    }
+
+}
 export const createSpot = (spot, imgData) => async dispatch => {
 
     const res = await csrfFetch('/api/spots', {
@@ -38,12 +53,11 @@ export const createSpot = (spot, imgData) => async dispatch => {
         },
         body: JSON.stringify(spot)
 })
+// console.log("RES", res)
+// console.log("DATA Before Change", data)
 
-const data = await res.json()
 if (res.ok) {
-    data.Owner = spot.Owner
-    // data.SpotImages = spot.SpotImages
-
+    const data = await res.json()
     const res2 = await csrfFetch(`/api/spots/${data.id}/images`, {
         method: 'POST',
         headers: {
@@ -53,29 +67,14 @@ if (res.ok) {
     })
     if(res2.ok) {
         const data2 = await res2.json();
-        data.SpotImages = [data2]
-
+        // console.log("data2", data2)
+        data.previewImage = data2.url
+        // console.log("DATA After Change", data)
     }
-
-        console.log("DATA", data)
         dispatch(actionCreateSpot(data))
-
-
     }
-    return data
 }
 
-export const getSpots = () => async dispatch => {
-    const res = await csrfFetch('/api/spots/');
-
-    const spots = await res.json();
-    if (res.ok) {
-        // console.log('from get spots thunk', spots)
-        dispatch(actionReadSpots(spots))
-
-    }
-    return spots
-}
 
 export const getSpot = (spotId) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${spotId}`);
@@ -136,7 +135,6 @@ const initialState = { spots: {}, spot: {} }
 
 export default function spotReducer(state = initialState, action) {
     let newState = { ...state}
-    const normalizedSpots = {}
     switch (action.type) {
         case CREATE:
             // newState[action.spot.id] = action.spot
@@ -144,28 +142,29 @@ export default function spotReducer(state = initialState, action) {
             newState.spots[action.spot.id] = action.spot
             newState.spot = action.spot
             return newState
+
         case READ_ALL:
-            action.spots.Spots.forEach(spot => {
-                normalizedSpots[spot.id] = spot
-            });
-            newState.spots = normalizedSpots
+            newState.spots = {...action.spots}
             newState.spot = {}
             return newState
-        case READ_ONE:
 
+        case READ_ONE:
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spot = action.spot
             newState.spots = {}
             return newState
+
         case UPDATE:
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spot = action.spot
             // console.log("UPDATE TEST", newState)
             return newState
+
         case DELETE:
             // delete newState[action.id]
             newState.spot = {}
             return newState
+
         default:
             return state;
     }
