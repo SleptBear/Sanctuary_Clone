@@ -15,49 +15,33 @@ const SpotShow = () => {
     const dispatch = useDispatch();
     let history = useHistory();
     let { spotId } = useParams();
+
+
     const sessionUser = useSelector(state => state.session.user);
-    // const spotStore = useSelector(state => state.spot)
-    // let spot = spotStore.spot
-    // let spots = spotStore.spots
     const spot = useSelector(state => state.spot.spot)
-    // const spots = useSelector(state => state.spot.spots)
-
     let owner = spot.Owner
-    console.log("History", history)
 
-    useEffect(() => {
-        // console.log("LOOOOOK", spots[spotId])
-        // if (!spots[spotId]) dispatch(getSpots())
-        //only want this to run if spots store state falsey..key into {}
-        // dispatch(getSpot(spotId))
-        // .then((res) => {
-        //     setTargetSpot(res)
-        // })
-        // console.log("TARGET SPOT", targetSpot)
-    }, [dispatch])
 
     useEffect(() => {
         dispatch(getSpot(spotId))
-
     }, [dispatch])
 
-    // console.log("OWNER FROM SPOT", Owner)
-    // console.log("FROM SPOT UseSelector", spot)
-    // console.log("LOGGED IN USER FROM UseSelector", sessionUser)
-    // console.log("SPOT FROM USESTATE", targetSpot)
 
     //TODO refactor to have delete component imported from its own file
     const deleteIndex = async (e) => {
         e.preventDefault();
-        console.log(owner.id)
-        console.log(sessionUser.id)
         if(owner.id === sessionUser.id) {
             dispatch(deleteSpot(spotId))
             history.push('/')
         }
     }
+
+    //if spot does not exist return null
     if(!owner) return null
-    console.log("SPOT SHOW", spot)
+    //if parameters id does not match store id then do not render  jsx
+    if (+spotId !== spot.id) return null
+
+
     return (
         <>
 <section className="spotDetailsContainer">

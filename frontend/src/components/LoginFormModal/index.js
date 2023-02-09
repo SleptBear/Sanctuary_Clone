@@ -1,4 +1,4 @@
-import React, { useState, useSelector } from 'react';
+import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
@@ -7,32 +7,26 @@ import { useModal } from '../../context/Modal';
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  // const sessionUser = useSelector(state => state.session.user);
+
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
+
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
-  // if (sessionUser) return (
-  //   <Redirect to="/" />
-  // );
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
+    // setErrors already set to array in useState
     dispatch(sessionActions.login({ credential, password }))
-    // .then(closeModal())
-    .catch(async (res) => {
+    .then(async (res) => {
+      closeModal()
+    })
+      .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) {
-          setErrors(data.errors);
-        } else {
-         closeModal()
+        if (data && data.errors) setErrors(data.errors);
 
-        }
       });
 
-      // return setErrors(['User Data not found'])
 
   }
 

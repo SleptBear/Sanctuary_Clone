@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
-// import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getSpot } from "../../store/spots";
 
-// import '../../index.css'
-//css file import here
+import { useHistory } from "react-router-dom";
+
 
 const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    let stateSpot = useSelector(state => state.spot.spot)
-    let allSpots = useSelector(state => state.spot.spots)
-    let keys = Object.keys(allSpots)
+
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state ,setState] = useState('');
@@ -47,12 +41,6 @@ const CreateSpotFormModal = () => {
       preview: true
     }
 
-    //todo create another solution to 52-55
-    // let newId
-    // newId = Object.keys(allSpots)
-    // newId = newId[newId.length - 1]
-    // newId = +newId + 1
-
         const handleSubmit = (e) => {
           e.preventDefault();
           setErrors([]);
@@ -60,13 +48,9 @@ const CreateSpotFormModal = () => {
 
           dispatch(createSpot(newSpotData, updatedImgData))
           .then(async (res) => {
-            console.log("res", res)
-            // const data = await res.json();
 
             history.push(`/spots/${res.id}`)
               closeModal()
-              //i want more store state spot to dispatch getSpot after creatinga spot so redirect hold correct state data for singular spot slice
-
           })
             .catch(async (res) => {
               const data = await res.json();
@@ -74,12 +58,8 @@ const CreateSpotFormModal = () => {
               if (data && data.errors) setErrors(data.errors)
               console.log('ERRORS', errors)
             });
-
-            // dispatch(getSpot(newId))
-
           return
         };
-
 
         return (
           <>

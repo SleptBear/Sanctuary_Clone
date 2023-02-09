@@ -1,36 +1,36 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-// import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import './SignupForm.css';
 
 function SignupFormModal() {
   const dispatch = useDispatch();
-  // const sessionUser = useSelector((state) => state.session.user);
+
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
-  // if (sessionUser) return <Redirect to="/" />;
-
+  //TODO go back and add custom validators to throw custom message as error in backend
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      setErrors([]);
       dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
-      .then(closeModal())
+      .then(async (res) => {
+        closeModal()
+      })
       .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
+    } else {
+      setErrors(['Passwords must match']);
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
   return (
@@ -88,6 +88,7 @@ function SignupFormModal() {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
           required
+          // minLength={6}
           />
       </label>
       <label className='input-box'>
@@ -99,6 +100,7 @@ function SignupFormModal() {
           placeholder='Confirm Password'
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          // minLength={6}
           />
       </label>
           <ul>
