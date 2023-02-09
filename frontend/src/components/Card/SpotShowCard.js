@@ -7,7 +7,7 @@ import './Card.css'
 
 // function SpotCard({title, imageUrl, body}) {
 function SpotShowCard({spot}) {
-console.log(spot)
+console.log("SPOT SHOW CARD", spot)
     return (
        <div className="large-card-container">
             <div className="large-image-container">

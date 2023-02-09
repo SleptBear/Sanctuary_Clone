@@ -71,10 +71,15 @@ if (res.ok) {
         data.previewImage = data2.url
         // console.log("DATA After Change", data)
     }
+    
+    dispatch(getSpot(data.id))
+
         dispatch(actionCreateSpot(data))
+
+        return data
     }
     //todo  send data with data 2 attached?
-    
+
 }
 
 

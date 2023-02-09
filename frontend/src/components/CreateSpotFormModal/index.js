@@ -16,17 +16,16 @@ const CreateSpotFormModal = () => {
     let stateSpot = useSelector(state => state.spot.spot)
     let allSpots = useSelector(state => state.spot.spots)
     let keys = Object.keys(allSpots)
-    const [address, setAddress] = useState('ddd');
-    const [city, setCity] = useState('ddd');
-    const [state ,setState] = useState('ddd');
-    const [lat ,setLat] = useState('3.3');
-    const [lng ,setLng] = useState('3.3');
-    const [country ,setCountry] = useState('ddd');
-    const [name ,setName] = useState('ddd');
-    const [description ,setDescription] = useState('ddd');
-    const [price ,setPrice] = useState('999');
-    const [imgUrl ,setImgUrl] = useState('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1pyrNOCmc9iKeJ3TJI-O1TtEV_HPbST7Lu9ql3nouw&s');
-
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state ,setState] = useState('');
+    const [lat ,setLat] = useState('');
+    const [lng ,setLng] = useState('');
+    const [country ,setCountry] = useState('');
+    const [name ,setName] = useState('');
+    const [description ,setDescription] = useState('');
+    const [price ,setPrice] = useState('');
+    const [imgUrl ,setImgUrl] = useState('')
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
@@ -49,10 +48,10 @@ const CreateSpotFormModal = () => {
     }
 
     //todo create another solution to 52-55
-    let newId
-    newId = Object.keys(allSpots)
-    newId = newId[newId.length - 1]
-    newId = +newId + 1
+    // let newId
+    // newId = Object.keys(allSpots)
+    // newId = newId[newId.length - 1]
+    // newId = +newId + 1
 
         const handleSubmit = (e) => {
           e.preventDefault();
@@ -61,12 +60,13 @@ const CreateSpotFormModal = () => {
 
           dispatch(createSpot(newSpotData, updatedImgData))
           .then(async (res) => {
-            // console.log("Success")
+            console.log("res", res)
             // const data = await res.json();
+
+            history.push(`/spots/${res.id}`)
               closeModal()
               //i want more store state spot to dispatch getSpot after creatinga spot so redirect hold correct state data for singular spot slice
 
-              history.push(`/spots/${newId}`)
           })
             .catch(async (res) => {
               const data = await res.json();
