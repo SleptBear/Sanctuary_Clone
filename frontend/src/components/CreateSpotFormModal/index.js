@@ -13,6 +13,8 @@ const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let stateSpot = useSelector(state => state.spot.spot)
+    let allSpots = useSelector(state => state.spot.spots)
+    let keys = Object.keys(allSpots)
     const [address, setAddress] = useState('ddd');
     const [city, setCity] = useState('ddd');
     const [state ,setState] = useState('ddd');
@@ -28,49 +30,49 @@ const CreateSpotFormModal = () => {
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
 
-    const [newSpot, setNewSpot] = useState();
-
-
-
     const newSpotData = {
-          address,
-          city,
-          state,
-          lat,
-          lng,
-          country,
-          name,
-          description,
-          price,
-        };
+      address,
+      city,
+      state,
+      lat,
+      lng,
+      country,
+      name,
+      description,
+      price,
+    };
 
-        const updatedImgData = {
-          url: imgUrl,
-          preview: true
-        }
+    const updatedImgData = {
+      url: imgUrl,
+      preview: true
+    }
+
+    let newId
+    newId = Object.keys(allSpots)
+    newId = newId[newId.length - 1]
+    newId = +newId + 1
 
         const handleSubmit = (e) => {
-            e.preventDefault();
-            setErrors([]);
-            setHasSubmitted(true);
+          e.preventDefault();
+          setErrors([]);
+          setHasSubmitted(true);
 
-            dispatch(createSpot(newSpotData, updatedImgData))
-            .then(async (res) => {
-              console.log("Success")
-              // const data = await res.json();
-              // const data = useSelector(state => state.spot.spot)
-              // console.log(data)
+          dispatch(createSpot(newSpotData, updatedImgData))
+          .then(async (res) => {
+            // console.log("Success")
+            // const data = await res.json();
               closeModal()
-              // history.push(`/spots/${stateSpot.id}`)
-            })
+              history.push(`/spots/${newId}`)
+          })
             .catch(async (res) => {
               const data = await res.json();
               console.log("data from api", data)
               if (data && data.errors) setErrors(data.errors)
               console.log('ERRORS', errors)
             });
-            return
-          };
+            
+          return
+        };
 
 
         return (
