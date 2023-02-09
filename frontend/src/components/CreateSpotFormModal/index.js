@@ -5,6 +5,7 @@ import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getSpot } from "../../store/spots";
 
 // import '../../index.css'
 //css file import here
@@ -47,6 +48,7 @@ const CreateSpotFormModal = () => {
       preview: true
     }
 
+    //todo create another solution to 52-55
     let newId
     newId = Object.keys(allSpots)
     newId = newId[newId.length - 1]
@@ -62,6 +64,8 @@ const CreateSpotFormModal = () => {
             // console.log("Success")
             // const data = await res.json();
               closeModal()
+              //i want more store state spot to dispatch getSpot after creatinga spot so redirect hold correct state data for singular spot slice
+
               history.push(`/spots/${newId}`)
           })
             .catch(async (res) => {
@@ -70,7 +74,9 @@ const CreateSpotFormModal = () => {
               if (data && data.errors) setErrors(data.errors)
               console.log('ERRORS', errors)
             });
-            
+
+            // dispatch(getSpot(newId))
+
           return
         };
 

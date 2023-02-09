@@ -16,23 +16,30 @@ const SpotShow = () => {
     let history = useHistory();
     let { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
+    // const spotStore = useSelector(state => state.spot)
+    // let spot = spotStore.spot
+    // let spots = spotStore.spots
     const spot = useSelector(state => state.spot.spot)
     const spots = useSelector(state => state.spot.spots)
-
-    const [targetSpot, setTargetSpot] = useState({})
-    const [spotImg, setSpotImg] = useState('')
+    // const [targetSpot, setTargetSpot] = useState({})
+    // const [spotImg, setSpotImg] = useState('')
     let owner = spot.Owner
-    console.log(history)
+    console.log("History", history)
 
     useEffect(() => {
-        console.log("LOOOOOK", spots[spotId])
+        // console.log("LOOOOOK", spots[spotId])
         if (!spots[spotId]) dispatch(getSpots())
-        //only want this to run if spots store state is undefined...
+        //only want this to run if spots store state falsey..key into {}
+        // dispatch(getSpot(spotId))
+        // .then((res) => {
+        //     setTargetSpot(res)
+        // })
+        // console.log("TARGET SPOT", targetSpot)
+    }, [dispatch])
 
+    useEffect(() => {
         dispatch(getSpot(spotId))
-        .then((res) => {
-            setTargetSpot(res)
-        })
+        
     }, [dispatch])
 
     // console.log("OWNER FROM SPOT", Owner)
@@ -40,11 +47,7 @@ const SpotShow = () => {
     // console.log("LOGGED IN USER FROM UseSelector", sessionUser)
     // console.log("SPOT FROM USESTATE", targetSpot)
 
-    //key into spotImg array breaks code
-    // const spotImg = spot.SpotImages[0]
-    // const imgUrl = spotImg.url
-
-    //maybe refactor to have delete comonent imported from its own file
+    //TODO refactor to have delete component imported from its own file
     const deleteIndex = async (e) => {
         e.preventDefault();
         console.log(owner.id)
@@ -54,8 +57,6 @@ const SpotShow = () => {
             history.push('/')
         }
     }
-    // console.log(spots.spotId)
-    // if(spot.spotId === undefined) dispatch(getSpots())
     if(!owner) return null
     return (
         <>

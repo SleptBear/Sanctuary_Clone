@@ -141,11 +141,13 @@ export default function spotReducer(state = initialState, action) {
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spots[action.spot.id] = action.spot
             // newState.spot = action.spot
+            //todo go back to normalizing data here in reducer to account for differing state shapes of spot and spots
+            
             return newState
 
         case READ_ALL:
             newState.spots = {...action.spots}
-            newState.spot = {}
+            // newState.spot = {}
             return newState
 
         case READ_ONE:
@@ -162,6 +164,7 @@ export default function spotReducer(state = initialState, action) {
 
         case DELETE:
             // delete newState[action.id]
+            //TODO might want to add in empty replacement for spots
             newState.spot = {}
             return newState
 
