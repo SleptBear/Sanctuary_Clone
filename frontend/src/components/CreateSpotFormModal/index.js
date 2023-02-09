@@ -10,16 +10,16 @@ const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state ,setState] = useState('');
-    const [lat ,setLat] = useState('');
-    const [lng ,setLng] = useState('');
-    const [country ,setCountry] = useState('');
-    const [name ,setName] = useState('');
-    const [description ,setDescription] = useState('');
-    const [price ,setPrice] = useState('');
-    const [imgUrl ,setImgUrl] = useState('')
+    const [address, setAddress] = useState('honeyLane');
+    const [city, setCity] = useState('Marcos');
+    const [state ,setState] = useState('CA');
+    const [lat ,setLat] = useState(null);
+    const [lng ,setLng] = useState(null);
+    const [country ,setCountry] = useState('USA');
+    const [name ,setName] = useState('HoneyPlace');
+    const [description ,setDescription] = useState('To die for');
+    const [price ,setPrice] = useState('555');
+    const [imgUrl ,setImgUrl] = useState('https://www.cnet.com/a/img/resize/e1099c9949ed3f107c63f05149b8fe494a4f03ad/hub/2016/02/19/8fd43938-1f49-49b0-818b-284b68645490/2016-the-legend-of-zelda.jpg?auto=webp&width=1200')
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
@@ -28,8 +28,8 @@ const CreateSpotFormModal = () => {
       address,
       city,
       state,
-      lat,
-      lng,
+      // lat,
+      // lng,
       country,
       name,
       description,
@@ -98,7 +98,7 @@ const CreateSpotFormModal = () => {
               required
               />
           </label>
-          <label className='input-box'>
+          {/* <label className='input-box'>
 
             <input
               className="input-fields"
@@ -106,7 +106,7 @@ const CreateSpotFormModal = () => {
               value={lat}
               placeholder='latitude'
               onChange={e => setLat(e.target.value)}
-              required
+              // required
               />
           </label>
           <label className='input-box'>
@@ -117,9 +117,9 @@ const CreateSpotFormModal = () => {
               value={lng}
               placeholder='longitude'
               onChange={e => setLng(e.target.value)}
-              required
+              // required
               />
-          </label>
+          </label> */}
           <label className='input-box'>
 
             <input

@@ -40,12 +40,12 @@ const validateCreation = [
     //         return Promise.reject('Name must be less than 50 characters')
     //     }
     //   }),
-    check('lng')
-      .exists({ checkFalsy: true })
-      .withMessage('Longitude is not valid'),
-    check('lat')
-      .exists({ checkFalsy: true })
-      .withMessage('Latitude is not valid'),
+    // check('lng')
+    //   .exists({ checkFalsy: true })
+    //   .withMessage('Longitude is not valid'),
+    // check('lat')
+    //   .exists({ checkFalsy: true })
+    //   .withMessage('Latitude is not valid'),
     check('description')
         .exists({ checkFalsy: true })
         .withMessage('Description is required'),
@@ -195,8 +195,11 @@ router.post(
         // console.log(ownerId)
         // console.log(typeof ownerId)
 
-        const { address, city, state, country, lat, lng, name, description, price } = req.body;
-
+        let { address, city, state, country, lat, lng, name, description, price } = req.body;
+        // console.log("FIELDS", lat, lng)
+        // if(!lat) lat = null;
+        // if(!lng) lng = null;
+        // console.log("FIELDS", lat, lng)
     const spot = await Spot.create({
         ownerId, address, city, state, country, lat, lng, name, description, price})
         console.log("CREATED SPOT", spot.dataValues)
