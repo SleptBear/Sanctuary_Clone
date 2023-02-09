@@ -71,8 +71,15 @@ if (res.ok) {
         data.previewImage = data2.url
         // console.log("DATA After Change", data)
     }
+    
+    dispatch(getSpot(data.id))
+
         dispatch(actionCreateSpot(data))
+
+        return data
     }
+    //todo  send data with data 2 attached?
+
 }
 
 
@@ -128,6 +135,7 @@ export const deleteSpot = (spotId) => async dispatch => {
             const data = await res.json();
             dispatch(actionDeleteSpot(spotId))
             return data
+            //todo for all thunks return data to send back to component for error handeling
         }
 }
 
@@ -142,7 +150,8 @@ export default function spotReducer(state = initialState, action) {
             newState.spots[action.spot.id] = action.spot
             // newState.spot = action.spot
             //todo go back to normalizing data here in reducer to account for differing state shapes of spot and spots
-            
+            //todo think about chaining thunk dispatches
+            //todo can try to add get state to thunk
             return newState
 
         case READ_ALL:

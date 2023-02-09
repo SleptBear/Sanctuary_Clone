@@ -20,15 +20,14 @@ const SpotShow = () => {
     // let spot = spotStore.spot
     // let spots = spotStore.spots
     const spot = useSelector(state => state.spot.spot)
-    const spots = useSelector(state => state.spot.spots)
-    // const [targetSpot, setTargetSpot] = useState({})
-    // const [spotImg, setSpotImg] = useState('')
+    // const spots = useSelector(state => state.spot.spots)
+
     let owner = spot.Owner
     console.log("History", history)
 
     useEffect(() => {
         // console.log("LOOOOOK", spots[spotId])
-        if (!spots[spotId]) dispatch(getSpots())
+        // if (!spots[spotId]) dispatch(getSpots())
         //only want this to run if spots store state falsey..key into {}
         // dispatch(getSpot(spotId))
         // .then((res) => {
@@ -39,7 +38,7 @@ const SpotShow = () => {
 
     useEffect(() => {
         dispatch(getSpot(spotId))
-        
+
     }, [dispatch])
 
     // console.log("OWNER FROM SPOT", Owner)
@@ -58,6 +57,7 @@ const SpotShow = () => {
         }
     }
     if(!owner) return null
+    console.log("SPOT SHOW", spot)
     return (
         <>
 <section className="spotDetailsContainer">
