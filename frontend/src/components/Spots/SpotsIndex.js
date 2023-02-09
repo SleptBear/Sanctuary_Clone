@@ -12,20 +12,23 @@ import SpotCard from "../Card/SpotCard";
 
 const SpotsIndex = () => {
     const dispatch = useDispatch();
-    const [updatedSpot, setUpdatedSpot] = useState()
     const spotsObj = useSelector(state => state.spot.spots)
-    const oneSpot = useSelector(state => state.spot.spot)
     const spots = Object.values(spotsObj)
-    // const spotsArray = spots[0]
-    // const data = spotsArray.Spots
-    // console.log("LOOK", spotsObj)
-    // console.log("HERE", spots)
-    // console.log("NOW")
-    // console.log("data", data)
+
+    // const [allSpots, setAllSpots] = useState({})
+
+    // console.log("Selector Spots", spotsObj)
+    // console.log("Array Spots", spots)
+    // console.log("Selector Spot", oneSpot)
 
     useEffect(() => {
         dispatch(getSpots())
-    }, [setUpdatedSpot, useHistory])
+        // .then((res) => {
+        //     setAllSpots(res)
+        // })
+        // console.log("ALL SPOTS", allSpots)
+
+    }, [dispatch])
 
     if(!spots[0]) return null
 
@@ -41,7 +44,6 @@ const SpotsIndex = () => {
                         <Link key={spot.id.toString()} to={`/spots/${spot.id}`}>
                         <SpotCard
                         spot={spot}
-                        // key={spot.id}
                         />
                     </Link>
                         ))

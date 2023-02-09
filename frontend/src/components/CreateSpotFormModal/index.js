@@ -5,75 +5,80 @@ import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getSpot } from "../../store/spots";
 
 // import '../../index.css'
 //css file import here
 
 const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     let stateSpot = useSelector(state => state.spot.spot)
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state ,setState] = useState('');
-    const [lat ,setLat] = useState('');
-    const [lng ,setLng] = useState('');
-    const [country ,setCountry] = useState('');
-    const [name ,setName] = useState('');
-    const [description ,setDescription] = useState('');
-    const [price ,setPrice] = useState('');
-    const [imgUrl ,setImgUrl] = useState('');
+    let allSpots = useSelector(state => state.spot.spots)
+    let keys = Object.keys(allSpots)
+    const [address, setAddress] = useState('ddd');
+    const [city, setCity] = useState('ddd');
+    const [state ,setState] = useState('ddd');
+    const [lat ,setLat] = useState('3.3');
+    const [lng ,setLng] = useState('3.3');
+    const [country ,setCountry] = useState('ddd');
+    const [name ,setName] = useState('ddd');
+    const [description ,setDescription] = useState('ddd');
+    const [price ,setPrice] = useState('999');
+    const [imgUrl ,setImgUrl] = useState('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1pyrNOCmc9iKeJ3TJI-O1TtEV_HPbST7Lu9ql3nouw&s');
+
     const [errors, setErrors] = useState([]);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
 
-    const [newSpot, setNewSpot] = useState();
-    const history = useHistory()
-
-
     const newSpotData = {
-          address,
-          city,
-          state,
-          lat,
-          lng,
-          country,
-          name,
-          description,
-          price,
-          Owner: stateSpot.Owner,
-          // spotImages: [stateSpot.spotImages]
-          SpotImages: [imgUrl]
+      address,
+      city,
+      state,
+      lat,
+      lng,
+      country,
+      name,
+      description,
+      price,
+    };
 
-        };
+    const updatedImgData = {
+      url: imgUrl,
+      preview: true
+    }
 
-        const updatedImgData = {
-          url: imgUrl,
-          preview: true
-        }
+    //todo create another solution to 52-55
+    let newId
+    newId = Object.keys(allSpots)
+    newId = newId[newId.length - 1]
+    newId = +newId + 1
 
         const handleSubmit = (e) => {
-            e.preventDefault();
-            setErrors([]);
+          e.preventDefault();
+          setErrors([]);
+          setHasSubmitted(true);
 
-
-
-            dispatch(createSpot(newSpotData, updatedImgData))
-            .then(async (res) => {
-              console.log("Success")
-              // const data = await res.json();
-              // const data = useSelector(state => state.spot.spot)
-              // console.log(data)
+          dispatch(createSpot(newSpotData, updatedImgData))
+          .then(async (res) => {
+            // console.log("Success")
+            // const data = await res.json();
               closeModal()
-              history.push(`/spots/${stateSpot.id}`)
-            })
+              //i want more store state spot to dispatch getSpot after creatinga spot so redirect hold correct state data for singular spot slice
+
+              history.push(`/spots/${newId}`)
+          })
             .catch(async (res) => {
               const data = await res.json();
-              console.log(data)
+              console.log("data from api", data)
               if (data && data.errors) setErrors(data.errors)
               console.log('ERRORS', errors)
             });
-            return
-          };
+
+            // dispatch(getSpot(newId))
+
+          return
+        };
 
 
         return (
@@ -189,9 +194,12 @@ const CreateSpotFormModal = () => {
               required
               />
           </label>
-              <ul>
-                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-              </ul>
+        {hasSubmitted && errors.length > 0 && (
+        <ul>
+           {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+           {errors.map((error) => <li key={error}>{error}</li>)}
+        </ul>
+        )}
           <button type="submit">Submit Home</button>
         </form>
         </>

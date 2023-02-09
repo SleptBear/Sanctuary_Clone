@@ -1,13 +1,16 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import './Card.css'
 
 
 // function SpotCard({title, imageUrl, body}) {
 function SpotCard({spot}) {
-
+    // console.log(spot)
+    // const currentSpot = useSelector(state => state)
+    // console.log(currentSpot)
     return (
        <div className="card-container">
             <div className="image-container">

@@ -199,7 +199,7 @@ router.post(
 
     const spot = await Spot.create({
         ownerId, address, city, state, country, lat, lng, name, description, price})
-        console.log(spot)
+        console.log("CREATED SPOT", spot.dataValues)
         res.status(201)
     return res.json(
         spot
