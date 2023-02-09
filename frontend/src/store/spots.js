@@ -53,8 +53,7 @@ export const createSpot = (spot, imgData) => async dispatch => {
         },
         body: JSON.stringify(spot)
 })
-// console.log("RES", res)
-// console.log("DATA Before Change", data)
+
 
 if (res.ok) {
     const data = await res.json()
@@ -67,18 +66,16 @@ if (res.ok) {
     })
     if(res2.ok) {
         const data2 = await res2.json();
-        // console.log("data2", data2)
         data.previewImage = data2.url
-        // console.log("DATA After Change", data)
     }
-    
+
     dispatch(getSpot(data.id))
 
         dispatch(actionCreateSpot(data))
 
         return data
     }
-    //todo  send data with data 2 attached?
+
 
 }
 
@@ -88,7 +85,7 @@ export const getSpot = (spotId) => async dispatch => {
 
     const spot = await res.json();
     if (res.ok) {
-        // console.log('from get spot thunk', spot)
+
         dispatch(actionReadSpot(spot))
     }
     return spot
@@ -122,8 +119,8 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
 
     }
 
-    console.log("DATA AFTER IMAGE ADDED", data)
-    console.log('does it reach here')
+    // console.log("DATA AFTER IMAGE ADDED", data)
+    // console.log('does it reach here')
     return data
 }
 

@@ -15,19 +15,8 @@ const SpotsIndex = () => {
     const spotsObj = useSelector(state => state.spot.spots)
     const spots = Object.values(spotsObj)
 
-    // const [allSpots, setAllSpots] = useState({})
-
-    // console.log("Selector Spots", spotsObj)
-    // console.log("Array Spots", spots)
-    // console.log("Selector Spot", oneSpot)
-
     useEffect(() => {
         dispatch(getSpots())
-        // .then((res) => {
-        //     setAllSpots(res)
-        // })
-        // console.log("ALL SPOTS", allSpots)
-
     }, [dispatch])
 
     if(!spots[0]) return null
