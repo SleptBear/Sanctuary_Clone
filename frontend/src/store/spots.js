@@ -151,7 +151,7 @@ export default function spotReducer(state = initialState, action) {
         case READ_ONE:
             newState = { ...state, spots: {...state.spots}, spot: {...state.spot} }
             newState.spot = action.spot
-            newState.spots = {}
+            // newState.spots = {}
             return newState
 
         case UPDATE:

@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { getSpot } from "../../store/spots";
-
-import { deleteSpot } from '../../store/spots';
 import { useHistory } from "react-router-dom";
+import { getSpot, getSpots } from "../../store/spots";
+import { deleteSpot } from '../../store/spots';
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
 import CreateReviewFormButton from "../CreateReviewFormModal/CreateReviewFormButton"
 import ReviewsIndex from "../Reviews/ReviewsIndex";
 import UserReviewsIndex from "../Reviews/UserReviewsIndex";
 import SpotShowCard from "../Card/SpotShowCard";
-import SpotCard from "../Card/SpotCard";
 import DeleteReviewButton from "../DeleteReviewButton";
 
 const SpotShow = () => {
@@ -20,11 +17,18 @@ const SpotShow = () => {
     let { spotId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spot.spot)
+    const spots = useSelector(state => state.spot.spots)
+
     const [targetSpot, setTargetSpot] = useState({})
     const [spotImg, setSpotImg] = useState('')
     let owner = spot.Owner
+    console.log(history)
 
     useEffect(() => {
+        console.log("LOOOOOK", spots[spotId])
+        if (!spots[spotId]) dispatch(getSpots())
+        //only want this to run if spots store state is undefined...
+
         dispatch(getSpot(spotId))
         .then((res) => {
             setTargetSpot(res)
@@ -50,7 +54,8 @@ const SpotShow = () => {
             history.push('/')
         }
     }
-
+    // console.log(spots.spotId)
+    // if(spot.spotId === undefined) dispatch(getSpots())
     if(!owner) return null
     return (
         <>
