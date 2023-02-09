@@ -14,22 +14,18 @@ const validateSignup = [
       .exists({ checkFalsy: true })
       // .isLength({ min: 4 })
       .withMessage('Username is required.'),
-    check('username')
-      .not()
-      .isEmail()
-      .withMessage('Username is required'),
     check('firstName')
       .exists({ checkFalsy: true })
       // .isLength({ min: 2 })
       .withMessage('First Name is required'),
     check('lastName')
       .exists({ checkFalsy: true })
-      // .isLength({ min: 2 })
+      // .isLength({ min: 3 })
       .withMessage('Last Name is required'),
-    // check('password')
-    //   .exists({ checkFalsy: true })
-    //   // .isLength({ min: 6 })
-    //   .withMessage('Password must be 6 characters or more.'),
+    check('password')
+      .exists({ checkFalsy: true })
+      .isLength({ min: 6 })
+      .withMessage('Password must be 6 characters or more.'),
     handleValidationErrors
   ];
 
