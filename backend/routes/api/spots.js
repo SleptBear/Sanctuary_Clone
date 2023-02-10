@@ -196,12 +196,12 @@ router.post(
         // console.log(typeof ownerId)
 
         let { address, city, state, country, lat, lng, name, description, price } = req.body;
-        // console.log("FIELDS", lat, lng)
+        // console.log("FIELDS Before", lat, lng)
         // if(!lat) lat = null;
         // if(!lng) lng = null;
-        // console.log("FIELDS", lat, lng)
+        // console.log("FIELDS After", lat, lng)
     const spot = await Spot.create({
-        ownerId, address, city, state, country, lat, lng, name, description, price})
+        ownerId, address, city, state, country, name, description, price})
         console.log("CREATED SPOT", spot.dataValues)
         res.status(201)
     return res.json(
