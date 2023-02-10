@@ -113,14 +113,9 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
         if(res2.ok) {
             const data2 = await res2.json();
             data.SpotImages.push(data2)
-
         }
         dispatch(actionUpdateSpot(data))
-
     }
-
-    // console.log("DATA AFTER IMAGE ADDED", data)
-    // console.log('does it reach here')
     return data
 }
 
@@ -148,7 +143,7 @@ export default function spotReducer(state = initialState, action) {
             // newState.spot = action.spot
             //todo go back to normalizing data here in reducer to account for differing state shapes of spot and spots
             //todo think about chaining thunk dispatches
-            //todo can try to add get state to thunk
+            //todo can try to add get state to thunk if feature still not working
             return newState
 
         case READ_ALL:
