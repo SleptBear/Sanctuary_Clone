@@ -101,7 +101,7 @@ export default function reviewReducer(state = initialState, action) {
     const normalizedReviews = {}
     switch(action.type) {
         case READ_SPOT:
-            console.log(action)
+            // console.log(action)
             action.reviews.Reviews.forEach(
                 (review) => (normalizedReviews[review.id] = review)
             );

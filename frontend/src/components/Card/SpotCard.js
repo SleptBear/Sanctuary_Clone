@@ -9,7 +9,7 @@ import './Card.css'
 // function SpotCard({title, imageUrl, body}) {
 function SpotCard({spot}) {
     // console.log(spot)
-    // const currentSpot = useSelector(state => state)
+    const currentSpot = useSelector(state => state)
     // console.log(currentSpot)
     return (
        <div className="card-container">

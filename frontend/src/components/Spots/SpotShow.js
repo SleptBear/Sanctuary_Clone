@@ -19,6 +19,9 @@ const SpotShow = () => {
 
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spot.spot)
+
+    // console.log('spot state on details page', spot)
+
     let owner = spot.Owner
 
 

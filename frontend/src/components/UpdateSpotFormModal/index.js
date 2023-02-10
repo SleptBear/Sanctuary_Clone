@@ -32,10 +32,10 @@ const UpdateSpotFormModal = () => {
 
     //might not need if params has id already:
 
-        useEffect(() => {
-            dispatch(getSpot(spotId))
-            console.log('RENDERED ONCE')
-        }, [dispatch, updateSpot])
+        // useEffect(() => {
+        //     dispatch(getSpot(spotId))
+        //     console.log('RENDERED ONCE')
+        // }, [dispatch, updateSpot])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -50,8 +50,8 @@ const UpdateSpotFormModal = () => {
           name,
           description,
           price,
-          Owner: stateSpot.Owner,
-          SpotImages: stateSpot.SpotImages
+          // Owner: stateSpot.Owner,
+          // SpotImages: stateSpot.SpotImages
         };
 
         const updatedImgData = {
