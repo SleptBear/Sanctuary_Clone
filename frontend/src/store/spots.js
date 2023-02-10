@@ -100,7 +100,7 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
     })
     // console.log("response", res)
     const data = await res.json();
-    console.log('updated spot', data)
+    // console.log('updated spot', data)
     if (res.ok) {
         // data.Owner = spot.Owner
         // data.SpotImages = spot.SpotImages
