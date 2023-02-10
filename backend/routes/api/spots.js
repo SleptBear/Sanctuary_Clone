@@ -104,31 +104,14 @@ router.get(
             ],
             // ...pagination
         })
-        // const reviews = await Review.findAll({
-        //     attributes: [
-        //         'id', 'spotId',
-        //     ]
-        // })
-    //     const spots1 = await Spot.findAll();
-    //     for(let ele of spots1) {
-    //         ele = ele.toJSON();
-
-    //     const review = await Review.findAll({
-    //             where: { ele.id: 'spotId' }
-    //         });
-    //         console.log(review)
-    //     }
-    //     return res.json({
-
-    //     })
-    // })
-// console.log(spots)
+       console.log("SPOTS after the query", spots)
         let Spots = []
         spots.forEach(spot => {
             // console.log(spot)
             // console.log(spot.toJSON())
             Spots.push(spot.toJSON())
         })
+        console.log("Spots before manipulation", Spots)
         Spots.forEach(spot => {
             // console.log(spot.Reviews.length)
                     let avg = 0
@@ -145,9 +128,9 @@ router.get(
                 if(image.preview == true) {
                     spot.previewImage = image.url
                 }
-                if (image.preview == false) {
-                    spot.preview = 'no preview can be shown'
-                }
+                // if (image.preview == false) {
+                //     spot.preview = 'no preview can be shown'
+                // }
             })
             delete spot.Reviews
             delete spot.SpotImages
