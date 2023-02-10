@@ -98,11 +98,12 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spot)
     })
-
+    // console.log("response", res)
     const data = await res.json();
+    console.log('updated spot', data)
     if (res.ok) {
-        data.Owner = spot.Owner
-        data.SpotImages = spot.SpotImages
+        // data.Owner = spot.Owner
+        // data.SpotImages = spot.SpotImages
 
         const res2 = await csrfFetch(`/api/spots/${spotId}/images`, {
             method: 'POST',
@@ -111,10 +112,14 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
         })
 
         if(res2.ok) {
+            dispatch(getSpot(spotId))
             const data2 = await res2.json();
-            data.SpotImages.push(data2)
+            // console.log("new image res", data2)
+            // data.SpotImages.push(data2)
+            // console.log("updatedaction spot datas", data, data2)
+
         }
-        dispatch(actionUpdateSpot(data))
+        // dispatch(actionUpdateSpot(data))
     }
     return data
 }
