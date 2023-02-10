@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-// import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { updateSpot, getSpot } from "../../store/spots";
-import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+
 
 
 
@@ -19,8 +17,8 @@ const UpdateSpotFormModal = () => {
     const [address, setAddress] = useState(stateSpot.address);
     const [city, setCity] = useState(stateSpot.city);
     const [state ,setState] = useState(stateSpot.state);
-    const [lat ,setLat] = useState(stateSpot.lat);
-    const [lng ,setLng] = useState(stateSpot.lng);
+    // const [lat ,setLat] = useState(stateSpot.lat);
+    // const [lng ,setLng] = useState(stateSpot.lng);
     const [country ,setCountry] = useState(stateSpot.country);
     const [name ,setName] = useState(stateSpot.name);
     const [description ,setDescription] = useState(stateSpot.description);
@@ -29,7 +27,7 @@ const UpdateSpotFormModal = () => {
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
-    const [updatedSpot, setUpdatedSpot] = useState();
+    // const [updatedSpot, setUpdatedSpot] = useState();
 
 
     //might not need if params has id already:
@@ -41,14 +39,13 @@ const UpdateSpotFormModal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
 
         const updatedSpotData = {
           address,
           city,
           state,
-          lat,
-          lng,
+          // lat,
+          // lng,
           country,
           name,
           description,
@@ -63,22 +60,17 @@ const UpdateSpotFormModal = () => {
         }
 
         dispatch(updateSpot(updatedSpotData, spotId, updatedImgData))
-        .then((res) => setUpdatedSpot(res))
-        .then(closeModal())
+        // .then((res) => setUpdatedSpot(res))
+        .then(async (res) => {
+          closeModal()
+        })
         .catch(async (res) => {
             const data = await res.json();
             console.log("Checking data returning to form", data)
             if (data && data.errors) setErrors(data.errors)
+            console.log('ERRORS', errors)
           });
-          // console.log('does it get here?')
-
-          // getSpot(spotId) try to have action re render show page
-
-          // return updatedSpot
-
-          // history.push(`/spots/${spotId}`)
     }
-
 
     return (
         <>
@@ -118,7 +110,7 @@ const UpdateSpotFormModal = () => {
               required
               />
           </label>
-          <label className="input-box">
+          {/* <label className="input-box">
 
             <input
               className="input-fields"
@@ -126,7 +118,7 @@ const UpdateSpotFormModal = () => {
               value={lat}
               placeholder="latitude"
               onChange={e => setLat(e.target.value)}
-              required
+              // required
               />
           </label>
           <label className="input-box">
@@ -137,9 +129,9 @@ const UpdateSpotFormModal = () => {
               value={lng}
               placeholder="longitude"
               onChange={e => setLng(e.target.value)}
-              required
+              // required
               />
-          </label>
+          </label> */}
           <label className="input-box">
 
             <input
@@ -186,7 +178,7 @@ const UpdateSpotFormModal = () => {
             <input
               className="input-fields"
               type="url"
-              placeholder="Add Preview Image"
+              placeholder="Add Image"
               value={imgUrl}
               onChange={e => setImgUrl(e.target.value)}
               required

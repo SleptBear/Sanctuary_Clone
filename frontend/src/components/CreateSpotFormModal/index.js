@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createSpot } from "../../store/spots";
@@ -13,8 +13,8 @@ const CreateSpotFormModal = () => {
     const [address, setAddress] = useState('honeyLane');
     const [city, setCity] = useState('Marcos');
     const [state ,setState] = useState('CA');
-    const [lat ,setLat] = useState(null);
-    const [lng ,setLng] = useState(null);
+    // const [lat ,setLat] = useState(null);
+    // const [lng ,setLng] = useState(null);
     const [country ,setCountry] = useState('USA');
     const [name ,setName] = useState('HoneyPlace');
     const [description ,setDescription] = useState('To die for');
@@ -43,7 +43,6 @@ const CreateSpotFormModal = () => {
 
         const handleSubmit = (e) => {
           e.preventDefault();
-          setErrors([]);
           setHasSubmitted(true);
 
           dispatch(createSpot(newSpotData, updatedImgData))

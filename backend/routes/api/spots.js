@@ -271,7 +271,7 @@ router.post(
 //create and post image based on spotId
 router.post(
     '/:spotId/images',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     async (req, res) => {
         let spotId = req.params.spotId;
