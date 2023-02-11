@@ -5,6 +5,8 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import Dummy from "../SampleUserButton/SampleUserButton";
+import Carrot from "../Icon.js/mainIcon";
+import Burger from "../Icon.js/hamburger";
 // import { useModal } from "../../context/Modal";
 
 function ProfileButton({ user }) {
@@ -47,17 +49,21 @@ function ProfileButton({ user }) {
     <div className="user-menu">
 
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <Burger/>
+        <Carrot/>
       </button>
+      {/* <div> */}
+
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
             <li>{user.username}</li>
             <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
-            <li>
+            <li style={{}}>
 
               <button onClick={logout}>Log Out</button>
+
             </li>
           </>
         ) : (
@@ -83,8 +89,10 @@ function ProfileButton({ user }) {
 
           </>
 
-        )}
+)}
       </ul>
+{/* </div> */}
+
         </div>
     </>
   );

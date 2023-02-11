@@ -18,6 +18,9 @@ body {
 
 .logo {
     padding-left: 6rem;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* background-color: red; */
 }
 
 /* .navStart {
@@ -53,6 +56,12 @@ body {
 
     padding: 4rem;
     flex-direction: row-reverse;
+    font-size: normal;
+    color: red;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    /* border-radius: 1rem; */
 
 
 }
@@ -64,7 +73,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-left: 5rem;
+    padding-left: 3rem;
+
+}
+
+.user-menu button {
+    font-size: normal;
+    color: red;
+    height: 35px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
 }
 
  .profile-dropdown {
@@ -82,5 +103,3 @@ body {
     /* flex-direction: column; */
     /* justify-content: space-evenly; */
 }
-
-
