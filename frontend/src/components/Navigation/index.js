@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import ListHomeButton from './ListHomeButton';
+import Building from '../Icon.js/building';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -13,7 +14,9 @@ function Navigation({ isLoaded }){
     <nav className='navbar'>
 
       <div className='logo'>
-      <NavLink exact to="/">Home</NavLink>
+        <NavLink exact to="/">
+          <Building/>
+        </NavLink>
       </div>
 
     <div className='nav-modals'>
