@@ -5,8 +5,9 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import Dummy from "../SampleUserButton/SampleUserButton";
-import Carrot from "../Icon.js/mainIcon";
+import Person from "../Icon.js/mainIcon";
 import Burger from "../Icon.js/hamburger";
+// import Logo from "../Icon.js/logo";
 // import { useModal } from "../../context/Modal";
 
 function ProfileButton({ user }) {
@@ -50,7 +51,7 @@ function ProfileButton({ user }) {
 
       <button onClick={openMenu}>
         <Burger/>
-        <Carrot/>
+        <Person/>
       </button>
       {/* <div> */}
 

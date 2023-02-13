@@ -48,6 +48,7 @@ body {
     border-bottom: 2px solid rgba(128, 128, 128, 0.408);
 
 
+
 }
 
 .nav-modals  {
@@ -57,7 +58,7 @@ body {
     padding: 4rem;
     flex-direction: row-reverse;
     font-size: normal;
-    color: red;
+    color: #FF5A5F;
     height: 35px;
     display: flex;
     align-items: center;
@@ -77,9 +78,9 @@ body {
 
 }
 
-.user-menu button {
+.user-menu > button {
     font-size: normal;
-    color: red;
+    color: #FF5A5F;
     height: 35px;
     width: 50px;
     display: flex;
@@ -102,4 +103,14 @@ body {
     /* display: flex; */
     /* flex-direction: column; */
     /* justify-content: space-evenly; */
+}
+
+.fa-brands {
+    color: #FF5A5F;
+
+}
+
+/* removes underline from sanctury and logo */
+a:link {
+    text-decoration: none;
 }
