@@ -131,6 +131,7 @@ export const deleteSpot = (spotId) => async dispatch => {
         if (res.ok) {
             const data = await res.json();
             dispatch(actionDeleteSpot(spotId))
+            dispatch(actionReadSpots)
             return data
             //todo for all thunks return data to send back to component for error handeling
         }
