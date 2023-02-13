@@ -13,6 +13,7 @@ import SpotCard from "../Card/SpotCard";
 const SpotsIndex = () => {
     const dispatch = useDispatch();
     const spotsObj = useSelector(state => state.spot.spots)
+    // const spotObj = useSelector(state => state.spot.spot)
     const spots = Object.values(spotsObj)
 
     useEffect(() => {
