@@ -24,6 +24,7 @@ export const actionReadUserReviews = (reviews) => ({
     //     type: UPDATE,
     //     review
     // })
+
     export const actionDeleteReview = (reviewId) => ({
         type: DELETE,
         reviewId
@@ -33,7 +34,7 @@ export const actionReadUserReviews = (reviews) => ({
         const res = await csrfFetch(`/api/reviews/${reviewId}`, {
             method: 'DELETE'
         })
-
+        console.log('res', res)
         if (res.ok) {
             // const data = await res.json();
             dispatch(actionDeleteReview(reviewId))
@@ -50,11 +51,14 @@ export const actionReadUserReviews = (reviews) => ({
             body: JSON.stringify(review)
         })
 
-    if (res.ok) {
         const data = await res.json()
+    if (res.ok) {
         dispatch(actionCreateReview(data))
-        return data
+        // .then(async(res) => {
+        //     dispatch()
+        // })
     }
+    return data
 }
 
 export const getReviews = (spotId) => async dispatch => {
@@ -125,18 +129,7 @@ export default function reviewReducer(state = initialState, action) {
         //     newState = { ...state, spot: {...state.spot}, user: {...state.user} }
         //     return newState
         case DELETE:
-            // const delReview = {
-            //     ...state
-            // }
-            // newState = { ...state, spot: {...state.spot}, user: {...state.user} }
-            // delete newState.spot.Reviews[action.id]
-            // delete newState.user.Reviews[action.id]
-            // newState.spot.Reviews.find(obj => obj.id == action.id)
-            // newState.user.Reviews.find(obj => obj.id == action.id)
-            // newState.spot = {...state.spot}
-            // newState.user = {...state.user}
-            // delete newState.spot[action.reviewId]
-            // delete newState.user[action.reviewId]
+            
             newState.spot = {...state.spot}
             newState.user = {...state.user}
             delete newState.spot[action.reviewId]

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
-import { getReviews } from "../../store/reviews";
+import { getReviews, getUserReviews } from "../../store/reviews";
 // import { deleteReview } from "../store/reviews";
 
 
@@ -10,6 +10,7 @@ const dispatch = useDispatch();
 let { spotId }= useParams();
 // spotId = Number(spotId)
 const reviewsObj = useSelector(state => state.reviews.spot)
+const currentUser = useSelector(state => state.session?.user)
 const reviewsArray = Object.values(reviewsObj)
 
 // const data = reviewsObj.spotId
@@ -23,7 +24,9 @@ const reviewsArray = Object.values(reviewsObj)
 
 useEffect(() => {
     dispatch(getReviews(spotId))
-}, [])
+    if(currentUser) dispatch(getUserReviews())
+
+}, [dispatch, currentUser])
 
 // const deleteIndex = async (e) => {
 //     e.preventDefault();
@@ -39,7 +42,7 @@ useEffect(() => {
             </div>
             <section>
                 {reviewsArray.map(review => (
-                    review.User.firstName + ' ' + review.User.lastName + ": " + review.review
+                    review.User?.firstName + ' ' + review.User?.lastName + ": " + review.review
                 ))
             }
             </section>

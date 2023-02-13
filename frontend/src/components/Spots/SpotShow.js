@@ -53,7 +53,7 @@ const SpotShow = () => {
         <br></br>
         <div className="rating">
         Avg Rating {spot.avgStarRating} Stars with {spot.numReviews} Review(s)
-        
+
         <UpdateSpotFormButton user={sessionUser} />
         </div>
         <br></br>
@@ -62,9 +62,9 @@ const SpotShow = () => {
 <div >
     <hr></hr>
 
-        <CreateReviewFormButton></CreateReviewFormButton>
 
         <ReviewsIndex></ReviewsIndex>
+        <CreateReviewFormButton></CreateReviewFormButton>
 
         <DeleteReviewButton></DeleteReviewButton>
 <br></br>
