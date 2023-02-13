@@ -1,4 +1,4 @@
-const Carrot = () => {
+const Person = () => {
   return (
     <div>
       <i className="fa-regular fa-user"></i>
@@ -7,4 +7,4 @@ const Carrot = () => {
 };
 
 
-  export default Carrot;
+  export default Person;

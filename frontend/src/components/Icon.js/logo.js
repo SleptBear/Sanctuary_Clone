@@ -1,11 +1,11 @@
-const Building = () => {
+const Logo = () => {
     return (
       <div style={{fontSize: "30px", display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '150px'}}>
         <i class="fa-brands fa-airbnb"></i>
-        <>Sanctuary</>
+        <div style={{color: 'red'}}>Sanctuary</div>
       </div>
     );
   };
 
 
-    export default Building;
+    export default Logo;
