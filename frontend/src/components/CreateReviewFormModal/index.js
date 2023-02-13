@@ -29,14 +29,14 @@ const handleSubmit = (e) => {
         stars
     }
 
-    dispatch(createReview(spotId, reviewData))
-    .then(closeModal())
-    .catch(async (res) => {
-      const data = await res.json();
-      console.log("Checking data returning to form", data)
-      if (data && data.errors) setErrors(data.errors)
-    });
-    getUserReviews();
+    // dispatch(createReview(spotId, reviewData))
+    // .then(closeModal())
+    // .catch(async (res) => {
+    //   const data = await res.json();
+    //   console.log("Checking data returning to form", data)
+    //   if (data && data.errors) setErrors(data.errors)
+    // });
+    // getUserReviews();
 }
 
     return (
