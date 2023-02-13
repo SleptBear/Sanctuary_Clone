@@ -69,6 +69,7 @@ body {
 
 
 
+
 .user-menu {
     display: flex;
     flex-direction: column;
@@ -80,13 +81,16 @@ body {
 
 .user-menu > button {
     font-size: normal;
-    color: #FF5A5F;
+    color: #999999;
+    background-color: white;
     height: 35px;
     width: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 1rem;
+    border-style: none;
+    box-shadow: 0px 0px 15px -5px;
 }
 
  .profile-dropdown {

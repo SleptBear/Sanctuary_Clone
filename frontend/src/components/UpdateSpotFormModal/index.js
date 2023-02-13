@@ -72,6 +72,8 @@ const UpdateSpotFormModal = () => {
           });
     }
 
+
+
     return (
         <>
     <h1>Home's New Information</h1>

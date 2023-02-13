@@ -1,7 +1,7 @@
 const Person = () => {
   return (
     <div>
-      <i className="fa-regular fa-user"></i>
+      <i className="fa-solid fa-user"></i>
     </div>
   );
 };
