@@ -70,9 +70,9 @@ if (res.ok) {
         data.previewImage = data2.url
     }
 
-    dispatch(getSpot(data.id))
 
-        dispatch(actionCreateSpot(data))
+    dispatch(getSpot(data.id))
+    dispatch(actionCreateSpot(data))
 
         return data
     }
@@ -132,7 +132,7 @@ export const deleteSpot = (spotId) => async dispatch => {
         if (res.ok) {
             const data = await res.json();
             dispatch(actionDeleteSpot(spotId))
-            dispatch(actionReadSpots)
+            dispatch(actionReadSpots())
             return data
             //todo for all thunks return data to send back to component for error handeling
         }
