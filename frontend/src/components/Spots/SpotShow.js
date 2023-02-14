@@ -19,6 +19,7 @@ const SpotShow = () => {
 
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spot.spot)
+    // const reviews = useSelector(state => state.reviews.spot)
 
     // console.log('spot state on details page', spot)
 
@@ -53,6 +54,7 @@ const SpotShow = () => {
         <br></br>
         <div className="rating">
         Avg Rating {spot.avgStarRating} Stars with {spot.numReviews} Review(s)
+
         <UpdateSpotFormButton user={sessionUser} />
         </div>
         <br></br>
@@ -61,9 +63,9 @@ const SpotShow = () => {
 <div >
     <hr></hr>
 
-        <CreateReviewFormButton></CreateReviewFormButton>
 
         <ReviewsIndex></ReviewsIndex>
+        <CreateReviewFormButton></CreateReviewFormButton>
 
         <DeleteReviewButton></DeleteReviewButton>
 <br></br>

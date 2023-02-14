@@ -5,6 +5,7 @@ import { useModal } from "../../context/Modal";
 import { createReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 import { getUserReviews } from "../../store/reviews";
+import { getSpot } from "../../store/spots";
 
 
 const CreateReviewFormModal = () => {
@@ -18,25 +19,32 @@ const CreateReviewFormModal = () => {
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
-console.log(spotId)
-
 const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
 
     const reviewData = {
         review,
         stars
     }
 
-    // dispatch(createReview(spotId, reviewData))
-    // .then(closeModal())
-    // .catch(async (res) => {
-    //   const data = await res.json();
-    //   console.log("Checking data returning to form", data)
-    //   if (data && data.errors) setErrors(data.errors)
-    // });
-    // getUserReviews();
+    dispatch(createReview(spotId, reviewData))
+    .then(async(res) => {
+      dispatch(getUserReviews())
+      dispatch(getSpot(spotId))
+
+      closeModal()
+    })
+    .catch(async (res) => {
+      const data = await res.json();
+      console.log("Checking data returning to form", data)
+      if (data && data?.message) setErrors([data.message])
+      
+    });
+
+
+
+    // dispatch(getSpot(spotId));
+
 }
 
     return (
@@ -66,7 +74,7 @@ const handleSubmit = (e) => {
               />
           </label>
               <ul>
-                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                 {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
               </ul>
 
           <button type="submit">Send Review</button>

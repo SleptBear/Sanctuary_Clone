@@ -33,13 +33,13 @@ function ListHomeButton({ user }) {
 // const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
 return (
-    <>
+    <div>
       <OpenModalButton
       buttonText="Create a Sanctuary"
       onButtonClick={openMenu}
       modalComponent={<CreateSpotFormModal />}
       ></OpenModalButton>
-    </>
+    </div>
     )
 
 }

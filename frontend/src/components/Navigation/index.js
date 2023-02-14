@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import ListHomeButton from './ListHomeButton';
-import Building from '../Icon.js/logo';
+import Logo from '../Icon.js/logo';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -15,7 +15,7 @@ function Navigation({ isLoaded }){
 
       <div className='logo'>
         <NavLink exact to="/">
-          <Building/>
+          <Logo/>
         </NavLink>
       </div>
 

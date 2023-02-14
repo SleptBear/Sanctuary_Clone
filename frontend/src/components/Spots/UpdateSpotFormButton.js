@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
-// import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useRef } from "react";
 // import * as sessionActions from '../store/session';
 import UpdateSpotFormModal from "../UpdateSpotFormModal";
 import OpenModalButton from "../OpenModalButton";
@@ -7,7 +8,9 @@ import OpenModalButton from "../OpenModalButton";
 
 function UpdateSpotFormButton({ user }) {
     // const dispatch = useDispatch();
-    // let stateSpot = useSelector(state => state.spot.spot)
+    let currentUser = useSelector(state => state.session.user)
+    let stateSpot = useSelector(state => state.spot.spot)
+    const ulRef = useRef();
 
     const [showMenu, setShowMenu] = useState(false);
     // const [address, setAddress] = useState('')
@@ -28,12 +31,12 @@ function UpdateSpotFormButton({ user }) {
 
       const closeMenu = () => setShowMenu(false);
 
+      const ulClassName = "update-button" + (currentUser?.id === stateSpot?.ownerId ? "" : " hidden");
 
-
-
+      // if (currentUser.id !== stateSpot.ownerId) return null
       return (
         <>
-        <div className="update-button">
+        <div className={ulClassName} ref={ulRef}>
 
           <OpenModalButton
           buttonText="Update Your Home"
