@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Card.css'
 
 //todo make there be a way to edit preview image as well
@@ -7,7 +7,9 @@ function SpotShowCard({spot}) {
     // console.log('SpotShowCard', spot)
     //todo map all images if more than one to this container or import new component to display images in grid like manner
     //todo strange live site interaction where browser sorts array but also randomly sets preview image to new image??
-
+    spot.SpotImages.sort((a, b) => {
+        return a.id - b.id
+    });
     return (
        <div className="large-card-container">
             <div className="large-image-container">

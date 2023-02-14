@@ -36,6 +36,7 @@ export const getSpots = () => async dispatch => {
     const spots = await res.json();
     let normalizedSpots = {}
     let spotsArray = spots.Spots
+    console.log('spots Array', spotsArray)
 
         spotsArray.forEach(spot => {
             normalizedSpots[spot.id] = spot
