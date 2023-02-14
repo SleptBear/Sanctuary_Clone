@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -13,6 +13,7 @@ import DeleteReviewButton from "../DeleteReviewButton";
 
 const SpotShow = () => {
     const dispatch = useDispatch();
+    const ulRef = useRef();
     let history = useHistory();
     let { spotId } = useParams();
 
@@ -45,6 +46,7 @@ const SpotShow = () => {
     //if parameters id does not match store id then do not render  jsx
     if (+spotId !== spot.id) return null
 
+    let ulClassName = "delete-button" + (owner?.id === sessionUser?.id ? "" : " hidden");
 
     return (
         <>
@@ -69,7 +71,7 @@ const SpotShow = () => {
 
         <DeleteReviewButton></DeleteReviewButton>
 <br></br>
-        <button onClick={deleteIndex}>Delete Spot</button>
+        <button onClick={deleteIndex} className={ulClassName}>Delete Spot</button>
 
 </div>
 
