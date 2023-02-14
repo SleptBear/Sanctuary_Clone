@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+import { getSpot } from "./spots";
 
 const CREATE = 'reviews/CREATE_REVIEW';
 const READ_SPOT = 'reviews/READ_SPOT_REVIEWS';
@@ -38,6 +39,7 @@ export const actionReadUserReviews = (reviews) => ({
         if (res.ok) {
             // const data = await res.json();
             dispatch(actionDeleteReview(reviewId))
+
             // return reviewId
         }
     }
@@ -54,9 +56,7 @@ export const actionReadUserReviews = (reviews) => ({
         const data = await res.json()
     if (res.ok) {
         dispatch(actionCreateReview(data))
-        // .then(async(res) => {
-        //     dispatch()
-        // })
+        // dispatch(getSpot(spotId))
     }
     return data
 }
@@ -129,7 +129,7 @@ export default function reviewReducer(state = initialState, action) {
         //     newState = { ...state, spot: {...state.spot}, user: {...state.user} }
         //     return newState
         case DELETE:
-            
+
             newState.spot = {...state.spot}
             newState.user = {...state.user}
             delete newState.spot[action.reviewId]

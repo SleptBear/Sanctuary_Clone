@@ -552,7 +552,7 @@ const reviewValidation = [
 
 router.post(
     '/:spotId/reviews',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     reviewValidation,
     async (req, res) => {
@@ -565,12 +565,34 @@ router.post(
 
 
 
-        if (await Review.findOne({
+        let testReview = await Review.findOne({
             where: {
                 userId: userId,
                 spotId: spotId
             }
-        })) {
+        })
+
+        console.log("userId", userId)
+        console.log("spotID", spotId)
+        console.log("LOOOOOOOOK", testReview)
+
+        let thisSpot = await Spot.findByPk(spotId)
+        console.log('this spot', thisSpot.toJSON())
+        let spotDetails = thisSpot.toJSON()
+        console.log('this spot details', spotDetails)
+
+        if (spotDetails.ownerId === userId) {
+            res.status(403)
+            return res.json({
+                "message": "User owns this spot. Cannot leave Review",
+                "statusCode": 403
+            })
+        }
+
+
+
+        if (testReview)
+        {
             res.status(403)
                 return res.json({
                     "message": "User already has a review for this spot",

@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { deleteReview } from "../../store/reviews";
+import { getSpot } from "../../store/spots";
+import { getUserReviews } from "../../store/reviews";
 
 
 
@@ -34,15 +36,22 @@ let findUserReview = (array, value) => {
 
   const removeIndex = async (e) => {
       e.preventDefault();
-      console.log(spotState)
-      console.log(reviewOwner)
-      dispatch(deleteReview(usersReviewId))
+      console.log("state of review here", spotState)
+      console.log("state of users reviews", reviewOwner)
+      console.log('review ID at this moment', usersReviewId)
+      dispatch(deleteReview(usersReviewId.id))
+      .then(async(res) => {
+        dispatch(getUserReviews())
+        dispatch(getSpot(spotId))
+      })
       .catch(async (res) => {
         const data = await res.json();
         console.log("Checking data returning to form", data)
         if (data && data.errors) setErrors(data.errors)
         console.log("ERRORS", errors)
       });
+
+
 
   }
 

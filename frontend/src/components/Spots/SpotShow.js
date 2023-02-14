@@ -19,6 +19,7 @@ const SpotShow = () => {
 
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spot.spot)
+    // const reviews = useSelector(state => state.reviews.spot)
 
     // console.log('spot state on details page', spot)
 
