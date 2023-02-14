@@ -124,8 +124,16 @@ router.get(
             if (!spot.Reviews) {
                 spot.review = 'no reviews found'
             }
+            console.log("IMAGES", spot.SpotImages)
+            console.log("ONE SPOT", spot.SpotImages[0])
+            spot.SpotImages.sort((a, b) => {
+                return a.id - b.id
+            });
+            // console.log("IMAGES after sort", sortedArray)
+            console.log("IMAGES after sort", spot.SpotImages)
+
             spot.SpotImages.forEach(image => {
-                if(image.preview == true) {
+                if(image.preview === true) {
                     spot.previewImage = image.url
                 }
                 // if (image.preview == false) {
