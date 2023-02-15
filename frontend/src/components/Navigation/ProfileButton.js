@@ -5,8 +5,8 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import Dummy from "../SampleUserButton/SampleUserButton";
-import Person from "../Icon.js/mainIcon";
-import Burger from "../Icon.js/hamburger";
+import Person from "../Icons/mainIcon";
+import Burger from "../Icons/hamburger";
 // import Logo from "../Icon.js/logo";
 // import { useModal } from "../../context/Modal";
 

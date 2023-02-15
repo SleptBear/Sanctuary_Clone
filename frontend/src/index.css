@@ -30,7 +30,46 @@ button:hover {
 
 .review-section {
     width: 80%;
+    height:fit-content;
+
 }
+
+.entire-review-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bigger-review-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  /* gap: 20px; */
+
+}
+
+.individual-reviews-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+
+}
+
+.review-top {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+}
+
+/* .individual-reviews-container p {
+    display: flex;
+    flex-direction: column;
+} */
 
 #modal-content {
     border-radius: 1rem;
@@ -189,8 +228,4 @@ form > button {
     /* margin-bottom: 10px; */
 
 
-}
-
-.review-section {
-    display: flex;
 }
