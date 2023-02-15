@@ -69,7 +69,7 @@ const SpotShow = () => {
     <hr style={{width:'100%'}}></hr>
 
     <div className="rating">
-    <i className="fa-solid fa-star"></i> {spot.avgStarRating + " · " + spot.numReviews} Review(s)
+    <i className="fa-solid fa-star"></i> {(Math.floor(spot.avgStarRating * 100)/100) + " · " + spot.numReviews} Review(s)
 
         </div>
         <ReviewsIndex></ReviewsIndex>

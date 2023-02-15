@@ -143,11 +143,6 @@ form > button {
     padding-right: 1rem;
 }
 
-/* .card-container {
-    display: flex;
-    flex-direction: column;
-} */
-
 .spotDetailsContainer {
     display: flex;
     flex-direction: column;

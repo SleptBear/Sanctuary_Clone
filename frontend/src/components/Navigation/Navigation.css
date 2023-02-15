@@ -51,7 +51,7 @@ justify-content: center;
     border: solid;
     border-bottom: 2px solid rgba(128, 128, 128, 0.408);
     padding-left: 10%;
-    padding-right: 10%;
+    padding-right: 9%;
 
 }
 
@@ -68,6 +68,7 @@ justify-content: center;
     align-items: center;
     /* border-radius: 1rem; */
     /* padding-right: 10%; */
+    /* background-color: red; */
 
 
 }
