@@ -50,7 +50,7 @@ function CreateReviewFormButton({ user }) {
 
 
       let ulClassName = "create-review-button" + (currentUser?.id !== stateSpot?.ownerId ? "" : " hidden");
-      ulClassName = "create-review-button" + (!compareArrays(spotArray, userArray) ? "" : " hidden");
+      ulClassName = "create-review-button" + (!compareArrays(spotArray, userArray) && currentUser?.id ? "" : " hidden");
       // console.log(reviewsState.hasOwn('spot'))
       // console.log(Object.entries(reviewsState))
       // let test = (Object.entries(reviewsState))
