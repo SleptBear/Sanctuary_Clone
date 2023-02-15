@@ -28,7 +28,7 @@ function SpotShowCard({spot}) {
             }
             </div>
         </div>
-            <div className="spot-body">
+            <div className="spot-body" style={{width:'100%'}}>
                     <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
                     <h2>${spot.price} night</h2>
             </div>

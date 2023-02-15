@@ -52,13 +52,16 @@ const SpotShow = () => {
         <>
 <section className="spotDetailsContainer">
 
-        <div className="name">{spot.name}</div>
+        <div className="name" style={{width:'80%'}}>{spot.name}</div>
         <br></br>
+        <div style={{width:'80%'}}>
+
         <div className="location">
-            {spot.city + " " + spot.state + " " + spot.country}
+            {spot.city + ", " + spot.state + ", " + spot.country}
         <UpdateSpotFormButton user={sessionUser} />
             </div>
-        <br></br>
+        </div>
+
         <SpotShowCard spot={spot}></SpotShowCard>
 
 <div className="review-section">
