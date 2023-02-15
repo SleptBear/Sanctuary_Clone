@@ -61,9 +61,9 @@ let findUserReview = (array, value) => {
     const ulClassName = "delete-review-button" + ((findUserReview(Object.values(spotState), currentUser?.id) && currentUser?.id) ? "" : " hidden");
 
     return (
-        <div className={ulClassName} ref={ulRef}>
+        <div className={ulClassName} ref={ulRef}>Additional Options
         <button
-        onClick={removeIndex}>Remove Review</button>
+        onClick={removeIndex}>Remove Your Review</button>
         </div>
     )
 }

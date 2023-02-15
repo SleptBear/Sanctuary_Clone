@@ -38,21 +38,28 @@ useEffect(() => {
         <>
 
             <h2>REVIEWS</h2>
-            <div>
-                {/* {reviewsObj} */}
-            </div>
-            <section>
+            <div className="entire-review-container">
+
+            <section className="bigger-review-container">
                 {reviewsArray.map(review => (
-                    <div key={review.id}>
+                    <div key={review.id} className='individual-reviews-container'>
+
+                    <h4 className="review-top">
+
                         <i className="fa-solid fa-user"></i>
-                        <p>
-                            {review.User?.firstName + ' ' + review.User?.lastName + ": " + review.review}
-                        </p>
+                        <p>{review.User?.firstName}</p>
+                    </h4>
+
+                    <div>
+                        <p>{review.review}</p>
+                    </div>
+
 
                     </div>
                 ))
             }
             </section>
+            </div>
 
         </>
     )

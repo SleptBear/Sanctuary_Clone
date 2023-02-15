@@ -65,9 +65,12 @@ const SpotShow = () => {
         <br></br>
         <div style={{width:'80%'}}>
 
-        <div className="location">
-            {spot.city + ", " + spot.state + ", " + spot.country}
-        <UpdateSpotFormButton user={sessionUser} />
+            <div className="location">
+                {spot.city + ", " + spot.state + ", " + spot.country}
+                <div style={{display:'flex'}}>
+                    <UpdateSpotFormButton user={sessionUser} />
+                    <button onClick={deleteIndex} className={ulClassName}>Delete Spot</button>
+                </div>
             </div>
         </div>
         <br></br>
@@ -78,16 +81,15 @@ const SpotShow = () => {
     <hr style={{width:'100%'}}></hr>
 
     <div className="rating">
-    <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
+        <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
+    </div>
 
-        </div>
         <ReviewsIndex></ReviewsIndex>
         <br></br>
         <CreateReviewFormButton></CreateReviewFormButton>
 
         <DeleteReviewButton></DeleteReviewButton>
-<br></br>
-        <button onClick={deleteIndex} className={ulClassName}>Delete Spot</button>
+        <br></br>
 
 </div>
 
@@ -97,4 +99,3 @@ const SpotShow = () => {
 }
 
 export default SpotShow;
-

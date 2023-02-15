@@ -46,7 +46,7 @@ function CreateReviewFormButton({ user }) {
           return boolean
       }
 
-      console.log("truthy?", compareArrays(spotArray, userArray))
+      // console.log("truthy?", compareArrays(spotArray, userArray))
 
 
       let ulClassName = "create-review-button" + (!compareArrays(spotArray, userArray) && !(currentUser?.id === stateSpot?.ownerId) && currentUser?.id ? "" : " hidden");
@@ -54,8 +54,8 @@ function CreateReviewFormButton({ user }) {
       // console.log(Object.entries(reviewsState))
       // let test = (Object.entries(reviewsState))
       // console.log("TES", test)
-      console.log("currentUser", currentUser?.id)
-      console.log("currentUser", (currentUser?.id == true))
+      // console.log("currentUser", currentUser?.id)
+      // console.log("currentUser", (currentUser?.id == true))
 
       return (
         <div className={ulClassName} ref={ulRef}>
