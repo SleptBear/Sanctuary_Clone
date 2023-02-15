@@ -1,5 +1,5 @@
 import { csrfFetch } from "./csrf";
-import { getSpot } from "./spots";
+
 
 const CREATE = 'reviews/CREATE_REVIEW';
 const READ_SPOT = 'reviews/READ_SPOT_REVIEWS';
@@ -56,7 +56,8 @@ export const actionReadUserReviews = (reviews) => ({
         const data = await res.json()
     if (res.ok) {
         dispatch(actionCreateReview(data))
-        // dispatch(getSpot(spotId))
+        dispatch(getReviews(spotId))
+        console.log("data for create review action", data)
     }
     return data
 }

@@ -190,3 +190,7 @@ form > button {
 
 
 }
+
+.review-section {
+    display: flex;
+}
