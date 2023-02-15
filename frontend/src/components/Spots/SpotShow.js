@@ -54,19 +54,23 @@ const SpotShow = () => {
 
         <div className="name">{spot.name}</div>
         <br></br>
-        <div className="rating">
-        Avg Rating {spot.avgStarRating} Stars with {spot.numReviews} Review(s)
-
+        <div className="location">
+            {spot.city + " " + spot.state + " " + spot.country}
         <UpdateSpotFormButton user={sessionUser} />
-        </div>
+            </div>
         <br></br>
         <SpotShowCard spot={spot}></SpotShowCard>
 
-<div >
-    <hr></hr>
+<div className="review-section">
 
+    <hr style={{width:'100%'}}></hr>
 
+    <div className="rating">
+    <i className="fa-solid fa-star"></i> {spot.avgStarRating + " · " + spot.numReviews} Review(s)
+
+        </div>
         <ReviewsIndex></ReviewsIndex>
+        <br></br>
         <CreateReviewFormButton></CreateReviewFormButton>
 
         <DeleteReviewButton></DeleteReviewButton>

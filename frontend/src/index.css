@@ -1,5 +1,9 @@
 /* TODO Add site wide styles */
 
+button:hover {
+    cursor: pointer;
+}
+
 .outside {
     max-width: 100%;
     display: flex;
@@ -16,7 +20,7 @@
     align-items: center;
     /* flex-flow: wrap; */
     /* flex-wrap: wrap; */
-    background-color: blue;
+    /* background-color: blue; */
     /* padding-top: 1rem; */
 
 }
@@ -37,7 +41,9 @@
     padding-left: 2.5rem;
 }
 
-
+.review-section {
+    width: 80%;
+}
 
 
 #modal-content {

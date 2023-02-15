@@ -36,6 +36,7 @@ useEffect(() => {
 // if (!data) return null
     return (
         <>
+        
             <h2>REVIEWS</h2>
             <div>
                 {/* {reviewsObj} */}

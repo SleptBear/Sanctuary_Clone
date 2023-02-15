@@ -10,16 +10,30 @@ function SpotShowCard({spot}) {
     spot.SpotImages.sort((a, b) => {
         return a.id - b.id
     });
+    let extraImages = spot.SpotImages.slice(1)
+    console.log("sliced", extraImages)
+
+    console.log("current images", spot.SpotImages)
     return (
        <div className="large-card-container">
+        <div className="all-images-container">
             <div className="large-image-container">
-                <img src={spot.SpotImages[spot.SpotImages.length - 1].url} alt='NOT FOUND'></img>
+                <img src={spot.SpotImages[0].url} alt='NOT FOUND'></img>
             </div>
-
-
+            <div className="extra-images-container">
+            {
+                extraImages.map(img => (
+                    <img src={img.url} alt='nothing yet' key={img.id} className='extra-imgs'></img>
+                ))
+            }
+            </div>
+        </div>
             <div className="spot-body">
-                    <h2>{spot.description}</h2>
+                    <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
                     <h2>${spot.price} night</h2>
+            </div>
+            <div className="details">
+                <p>{spot.description}</p>
             </div>
        </div>
     )
