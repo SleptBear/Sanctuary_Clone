@@ -21,7 +21,8 @@ const DeleteReviewButton = () => {
 let findUserReview = (array, value) => {
     let boolean = false;
     array.forEach(index => {
-    //   console.log("each index", index?.userId)
+      // console.log("each index userId", index?.userId)
+      // console.log('value in function', value)
       if (index?.userId === value) {
         boolean = true
         usersReviewId = index
@@ -54,9 +55,10 @@ let findUserReview = (array, value) => {
 
 
   }
-
-//    console.log("response from function", findUserReview(Object.values(reviewOwner), currentUser?.id))
-    const ulClassName = "delete-review-button" + ((findUserReview(Object.values(reviewOwner), currentUser?.id)) ? "" : " hidden");
+  // console.log("THE ARRAY", Object.values(spotState))
+  // console.log('CURRENT USER', currentUser)
+  //  console.log("response from function", findUserReview(Object.values(reviewOwner), currentUser?.id))
+    const ulClassName = "delete-review-button" + ((findUserReview(Object.values(spotState), currentUser?.id) && currentUser?.id) ? "" : " hidden");
 
     return (
         <div className={ulClassName} ref={ulRef}>

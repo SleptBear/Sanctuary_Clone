@@ -48,6 +48,15 @@ const SpotShow = () => {
 
     let ulClassName = "delete-button" + (owner?.id === sessionUser?.id ? "" : " hidden");
 
+    function checkIfReview() {
+        if (spot.numReviews === 0) {
+            return "Be the first to leave us a Review!"
+        } else {
+            return (Math.floor(spot.avgStarRating * 100)/100)
+        }
+    }
+
+
     return (
         <>
 <section className="spotDetailsContainer">
@@ -61,7 +70,7 @@ const SpotShow = () => {
         <UpdateSpotFormButton user={sessionUser} />
             </div>
         </div>
-
+        <br></br>
         <SpotShowCard spot={spot}></SpotShowCard>
 
 <div className="review-section">
@@ -69,7 +78,7 @@ const SpotShow = () => {
     <hr style={{width:'100%'}}></hr>
 
     <div className="rating">
-    <i className="fa-solid fa-star"></i> {(Math.floor(spot.avgStarRating * 100)/100) + " · " + spot.numReviews} Review(s)
+    <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
 
         </div>
         <ReviewsIndex></ReviewsIndex>
@@ -89,18 +98,3 @@ const SpotShow = () => {
 
 export default SpotShow;
 
-// const handleLoad = () => {
-//     dispatch(getSpot(spotId))
-//     .then((res) => {
-//      setTargetSpot(res)
-//      console.log(res)
-//     })
-// }
-
-// useEffect(() => {
-//     window.addEventListener('loadSpot', handleLoad)
-
-//     return () => {
-//         window.removeEventListener('loadSpot', handleLoad)
-//     }
-// }, [])
