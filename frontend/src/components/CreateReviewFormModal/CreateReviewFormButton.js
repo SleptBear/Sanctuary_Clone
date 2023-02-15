@@ -31,8 +31,8 @@ function CreateReviewFormButton({ user }) {
       // console.log("review state", reviewsState)
       let spotArray = Object.keys(reviewsState?.spot)
       let userArray = Object.keys(reviewsState?.user)
-      // console.log(spotArray)
-      // console.log(userArray)
+      // console.log("review Id's for spot", spotArray)
+      // console.log("review ID's for user", userArray)
 
       let compareArrays = (a, b) => {
         let boolean = false;
@@ -46,15 +46,16 @@ function CreateReviewFormButton({ user }) {
           return boolean
       }
 
-      // console.log("truthy?", compareArrays(spotArray, userArray))
+      console.log("truthy?", compareArrays(spotArray, userArray))
 
 
-      let ulClassName = "create-review-button" + (currentUser?.id !== stateSpot?.ownerId ? "" : " hidden");
-      ulClassName = "create-review-button" + (!compareArrays(spotArray, userArray) && currentUser?.id ? "" : " hidden");
+      let ulClassName = "create-review-button" + (!compareArrays(spotArray, userArray) && !(currentUser?.id === stateSpot?.ownerId) && currentUser?.id ? "" : " hidden");
       // console.log(reviewsState.hasOwn('spot'))
       // console.log(Object.entries(reviewsState))
       // let test = (Object.entries(reviewsState))
       // console.log("TES", test)
+      console.log("currentUser", currentUser?.id)
+      console.log("currentUser", (currentUser?.id == true))
 
       return (
         <div className={ulClassName} ref={ulRef}>
