@@ -56,7 +56,7 @@ const UpdateSpotFormModal = () => {
 
         const updatedImgData = {
           url: imgUrl,
-          preview: true
+          preview: false
         }
 
         dispatch(updateSpot(updatedSpotData, spotId, updatedImgData))

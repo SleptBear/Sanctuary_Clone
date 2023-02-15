@@ -11,19 +11,31 @@ function SpotCard({spot}) {
     // console.log(spot)
     const currentSpot = useSelector(state => state)
     // console.log(currentSpot)
+
+    function checkStar() {
+        if (spot.avgRating) {
+        return <i className="fa-solid fa-star"></i>
+        }
+    }
     return (
        <div className="card-container">
             <div className="image-container">
                 <img src={spot.previewImage} alt='NOT FOUND'></img>
             </div>
-            <br></br>
+            {/* <br></br> */}
+        <div className="card-info">
+
             <div className="card-title">
-                <h3>{spot.city}, {spot.state}</h3>
+                <h3>{spot.city}, {spot.state} </h3>
+                <h3>{checkStar()} {(Math.round(spot?.avgRating * 100)/100)}</h3>
             </div>
-            <br></br>
+            <div>
+            </div>
+            {/* <br></br> */}
             <div className="card-body">
                 <div>$ {spot.price} night</div>
             </div>
+        </div>
        </div>
     )
 }

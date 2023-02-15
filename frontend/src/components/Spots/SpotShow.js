@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -13,6 +13,7 @@ import DeleteReviewButton from "../DeleteReviewButton";
 
 const SpotShow = () => {
     const dispatch = useDispatch();
+    const ulRef = useRef();
     let history = useHistory();
     let { spotId } = useParams();
 
@@ -45,31 +46,39 @@ const SpotShow = () => {
     //if parameters id does not match store id then do not render  jsx
     if (+spotId !== spot.id) return null
 
+    let ulClassName = "delete-button" + (owner?.id === sessionUser?.id ? "" : " hidden");
 
     return (
         <>
 <section className="spotDetailsContainer">
 
-        <div className="name">{spot.name}</div>
+        <div className="name" style={{width:'80%'}}>{spot.name}</div>
         <br></br>
-        <div className="rating">
-        Avg Rating {spot.avgStarRating} Stars with {spot.numReviews} Review(s)
+        <div style={{width:'80%'}}>
 
+        <div className="location">
+            {spot.city + ", " + spot.state + ", " + spot.country}
         <UpdateSpotFormButton user={sessionUser} />
+            </div>
         </div>
-        <br></br>
+
         <SpotShowCard spot={spot}></SpotShowCard>
 
-<div >
-    <hr></hr>
+<div className="review-section">
 
+    <hr style={{width:'100%'}}></hr>
 
+    <div className="rating">
+    <i className="fa-solid fa-star"></i> {(Math.floor(spot.avgStarRating * 100)/100) + " · " + spot.numReviews} Review(s)
+
+        </div>
         <ReviewsIndex></ReviewsIndex>
+        <br></br>
         <CreateReviewFormButton></CreateReviewFormButton>
 
         <DeleteReviewButton></DeleteReviewButton>
 <br></br>
-        <button onClick={deleteIndex}>Delete Spot</button>
+        <button onClick={deleteIndex} className={ulClassName}>Delete Spot</button>
 
 </div>
 
