@@ -10,14 +10,14 @@ const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [address, setAddress] = useState('honeyLane');
-    const [city, setCity] = useState('Marcos');
-    const [state ,setState] = useState('CA');
+    const [address, setAddress] = useState('HoneyLane');
+    const [city, setCity] = useState('Santa Barbara');
+    const [state ,setState] = useState('California');
     // const [lat ,setLat] = useState(null);
     // const [lng ,setLng] = useState(null);
-    const [country ,setCountry] = useState('USA');
+    const [country ,setCountry] = useState('United State of America');
     const [name ,setName] = useState('HoneyPlace');
-    const [description ,setDescription] = useState('To die for');
+    const [description ,setDescription] = useState('Lorem ipsum dolor sit amet, nec timeam corrumpit an, nam accusam scripserit inciderint ei. Vim ea omnium repudiandae, graeco ancillae ne per. Ne consul audiam molestie mel, id his homero neglegentur definitiones. Prompta bonorum per cu, nec ei paulo temporibus.');
     const [price ,setPrice] = useState('555');
     const [imgUrl ,setImgUrl] = useState('https://a0.muscache.com/im/pictures/0eb500ca-0f15-4889-9e1b-6156699b9505.jpg?im_w=1200')
     const [errors, setErrors] = useState([]);
@@ -65,7 +65,7 @@ const CreateSpotFormModal = () => {
     <h1>My Home's Information</h1>
         <form onSubmit={handleSubmit} className="create-spotform" >
           <label className='input-box'>
-
+            Address:
             <input
               className="input-fields"
               type="text"
@@ -76,7 +76,7 @@ const CreateSpotFormModal = () => {
               />
           </label>
           <label className='input-box'>
-
+            City:
             <input
               className="input-fields"
               type="text"
@@ -87,7 +87,7 @@ const CreateSpotFormModal = () => {
               />
           </label>
           <label className='input-box'>
-
+            State:
             <input
               className="input-fields"
               type="text"
@@ -120,7 +120,7 @@ const CreateSpotFormModal = () => {
               />
           </label> */}
           <label className='input-box'>
-
+          Country:
             <input
               className="input-fields"
               type="text"
@@ -131,7 +131,7 @@ const CreateSpotFormModal = () => {
               />
           </label>
           <label className='input-box'>
-
+          Name:
             <input
               className="input-fields"
               type="text"
@@ -142,7 +142,7 @@ const CreateSpotFormModal = () => {
               />
           </label>
           <label className='input-box'>
-
+          Description:
             <input
               className="input-fields"
               type="text"
@@ -153,7 +153,7 @@ const CreateSpotFormModal = () => {
               />
           </label>
           <label className='input-box'>
-
+          Price:
             <input
               className="input-fields"
               type="text"
@@ -164,6 +164,7 @@ const CreateSpotFormModal = () => {
               />
           </label>
           <label className='input-box'>
+            Preview Image:
             <input
               className="input-fields"
               type="url"
@@ -175,7 +176,6 @@ const CreateSpotFormModal = () => {
           </label>
         {hasSubmitted && errors.length > 0 && (
         <ul>
-           {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
            {errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
         )}

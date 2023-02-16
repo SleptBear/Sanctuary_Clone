@@ -14,7 +14,7 @@ function SpotCard({spot}) {
 
     function checkStar() {
         if (spot.avgRating) {
-            console.log(spot.avgRating)
+            // console.log(spot.avgRating)
         return <i className="fa-solid fa-star"></i>
         }
     }

@@ -35,7 +35,7 @@ function SignupFormModal() {
 
   return (
     <>
-    <h1>Welcome to Sanctuary</h1>
+    <h1>Make an Account</h1>
     <form onSubmit={handleSubmit} className='signup-spotform'>
       <label className='input-box'>
         <input

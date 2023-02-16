@@ -90,7 +90,7 @@
 }
 
 .extra-images-container img {
-    min-width: 50%;
+    width: 50%;
     height: 198px;
     object-fit: fill;
     /* padding: 1px; */

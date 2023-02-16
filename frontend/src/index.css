@@ -88,14 +88,15 @@ button:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 35rem;
+    width: 80%;
+    height: 80%;
     background-color: white;
     box-shadow: 0 0 2px rgba(10, 0, 10, 0.30);
 }
 
 .create-spotform {
     width: 100%;
-    max-height: 600px;
+    /* max-height: 600px; */
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -114,7 +115,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: white;
 }
 
@@ -127,7 +128,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: white;
 }
 
@@ -140,7 +141,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: white;
 }
 
@@ -154,17 +155,18 @@ button:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     background-color: white;
     /* box-shadow: 0 0 2px rgba(10, 0, 10, 0.30); */
 }
 
 .input-box {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 90%;
+    /* padding-left: 1rem; */
+    /* padding-right: 1rem; */
     border-width: thin thin thin 1em;
+    /* background-color: red; */
 }
 
 .input-fields {
@@ -182,14 +184,15 @@ button:hover {
 }
 
 form > button {
-    width: 100%;
+    width: 90%;
     color: white;
     background-color: rgb(227, 38, 69);
     border-radius: .5rem;
     bottom: 2rem;
     height: 2.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 5px;
+    /* padding-left: 1rem; */
+    /* padding-right: 1rem; */
 }
 
 .reserve-button-container {

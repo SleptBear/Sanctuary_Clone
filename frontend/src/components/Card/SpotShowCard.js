@@ -14,9 +14,17 @@ function SpotShowCard({spot}) {
         return a.id - b.id
     });
     let extraImages = spot.SpotImages.slice(1)
+    let urls = []
+    extraImages.forEach(element => {
+        urls.push(element.url)
+    });
     // console.log("sliced", extraImages)
+    // console.log("URLS", urls)
+    while (urls.length < 4) {
+        urls.push('https://t3.ftcdn.net/jpg/03/15/92/94/360_F_315929483_O3zCF74h869pep9L2WMi6cWS2bhO2AjH.jpg')
+    }
+    // console.log("URLs AFTER", urls)
 
-    // console.log("current images", spot.SpotImages)
 
     // let ulClassName = 'extra-imgs' + (spot?.SpotImages.length > 4 ? "" : " hidden");
 
@@ -27,14 +35,14 @@ function SpotShowCard({spot}) {
                 <img src={spot.SpotImages[0].url} alt='NOT FOUND'></img>
             </div>
             <div className="extra-images-container">
-                {/* <ul> */}
+
 
             {
-                extraImages.map(img => (
-                    <img src={img.url} alt='nothing yet' key={img.id} className='extra-imgs'></img>
+                urls.map((img, index) => (
+                    <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>
                     ))
                 }
-                {/* </ul> */}
+
             </div>
         </div>
         <div className="spot-sub-info">
