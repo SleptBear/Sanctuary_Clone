@@ -37,9 +37,9 @@ let findUserReview = (array, value) => {
 
   const removeIndex = async (e) => {
       e.preventDefault();
-      console.log("state of review here", spotState)
-      console.log("state of users reviews", reviewOwner)
-      console.log('review ID at this moment', usersReviewId)
+      // console.log("state of review here", spotState)
+      // console.log("state of users reviews", reviewOwner)
+      // console.log('review ID at this moment', usersReviewId)
       dispatch(deleteReview(usersReviewId.id))
       .then(async(res) => {
         dispatch(getUserReviews())

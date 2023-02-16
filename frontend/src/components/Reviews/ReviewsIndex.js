@@ -51,7 +51,7 @@ useEffect(() => {
                     </h4>
 
                     <div>
-                        <p>{review.review}</p>
+                        <p className="p-review">{review.review}</p>
                     </div>
 
 

@@ -142,15 +142,96 @@
 }
 
 
+.spot-sub-info {
+    display: flex;
+    justify-content: row;
+}
+
 .spot-body{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width: 55%;
+    height: fit-content;
 
+}
+
+
+.reserve-button-container {
+    display: flex;
+    /* background-color: red; */
+    height: 40% ;
+    width: 100%;
+}
+
+
+
+.reserve-container {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    /* background-color: pink; */
+
+}
+
+.reserve-box {
+    /* background-color: gray; */
+    width: 80%;
+    border-radius: 1rem;
+    border-style: none;
+    box-shadow: 0px 0px 15px -5px;
+}
+
+.reserve-info {
+    /* background-color: yellow; */
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+
+}
+
+.reserve-price {
+    /* width: 50%; */
+    display: flex;
+    /* background-color: blue; */
+    font-size: xx-large;
+    justify-content: center;
+
+}
+
+.rating {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    gap: 6px;
+    /* padding-right: 5px; */
 }
 
 .body-container-items {
     display: flex;
+}
+
+.reserve-button {
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.reserve-button button {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    /* color: red; */
+    align-items: center;
+    font-size: x-large;
 }
 
 hr {
