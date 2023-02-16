@@ -35,7 +35,7 @@ function ListHomeButton({ user }) {
 return (
     <div>
       <OpenModalButton
-      buttonText="Create a Sanctuary"
+      buttonText="Build a Sanctuary"
       onButtonClick={openMenu}
       modalComponent={<CreateSpotFormModal />}
       ></OpenModalButton>

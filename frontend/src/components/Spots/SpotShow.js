@@ -69,7 +69,7 @@ const SpotShow = () => {
                 {spot.city + ", " + spot.state + ", " + spot.country}
                 <div style={{display:'flex'}}>
                     <UpdateSpotFormButton user={sessionUser} />
-                    <button onClick={deleteIndex} className={ulClassName}>Delete Spot</button>
+                    <button onClick={deleteIndex} className={ulClassName}>Destroy Sanctuary</button>
                 </div>
             </div>
         </div>

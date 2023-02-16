@@ -73,6 +73,12 @@ justify-content: center;
 
 }
 
+li > button {
+    display: flex;
+    color: white;
+    background-color: gray;
+    border-radius: 1rem;
+}
 
 
 
@@ -113,6 +119,13 @@ justify-content: center;
     /* display: flex; */
     /* flex-direction: column; */
     /* justify-content: space-evenly; */
+}
+
+.profile-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .fa-brands {
