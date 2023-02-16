@@ -30,16 +30,19 @@ button:hover {
 
 .review-section {
     width: 80%;
-    height:fit-content;
+    max-height: 100rem;
+    /* overflow: scroll; */
+    /* background-color: red; */
+
 
 }
 
 .entire-review-container {
     display: flex;
     flex-wrap: wrap;
-    max-height: 400px;
+    /* max-height: 400px; */
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .bigger-review-container {
@@ -47,14 +50,15 @@ button:hover {
     width: 100%;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
-  /* gap: 20px; */
+    /* gap: 20px; */
 
 }
 
 .individual-reviews-container {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    max-height: 80%;
 
 
 }
@@ -64,6 +68,12 @@ button:hover {
     flex-direction: row;
     align-items: baseline;
     gap: 10px;
+}
+
+.p-review {
+    font-size: medium;
+    max-height: 60%;
+    overflow-y: auto;
 }
 
 /* .individual-reviews-container p {
@@ -182,11 +192,29 @@ form > button {
     padding-right: 1rem;
 }
 
+.reserve-button-container {
+    display: flex;
+    /* background-color: red; */
+    height: 40% ;
+    width: 100%;
+}
+
+.reserve-button {
+    width: 100%;
+    /* background-color: red; */
+}
+
 .spotDetailsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    /* background-color: blue; */
+    height:fit-content;
+}
+
+.large-card-container {
+    background-color: white;
 }
 
 .detailsImage {
@@ -196,7 +224,7 @@ form > button {
     border-radius: 20px;
 }
 
-.rating {
+.rating-container {
     display: flex;
     flex-direction: row;
     justify-items: flex-start;

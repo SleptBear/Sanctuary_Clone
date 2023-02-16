@@ -1,13 +1,13 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
-import { getSpot, getSpots } from "../../store/spots";
+import { getSpot } from "../../store/spots";
 import { deleteSpot } from '../../store/spots';
 import UpdateSpotFormButton from "./UpdateSpotFormButton";
 import CreateReviewFormButton from "../CreateReviewFormModal/CreateReviewFormButton"
 import ReviewsIndex from "../Reviews/ReviewsIndex";
-import UserReviewsIndex from "../Reviews/UserReviewsIndex";
+// import UserReviewsIndex from "../Reviews/UserReviewsIndex";
 import SpotShowCard from "../Card/SpotShowCard";
 import DeleteReviewButton from "../DeleteReviewButton";
 
@@ -29,7 +29,7 @@ const SpotShow = () => {
 
     useEffect(() => {
         dispatch(getSpot(spotId))
-    }, [dispatch])
+    }, [dispatch, spotId])
 
 
     //TODO refactor to have delete component imported from its own file
@@ -78,9 +78,13 @@ const SpotShow = () => {
 
 <div className="review-section">
 
+    <br></br>
+
     <hr style={{width:'100%'}}></hr>
 
-    <div className="rating">
+    <br></br>
+
+    <div className="rating-container">
         <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
     </div>
 
