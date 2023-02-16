@@ -40,7 +40,7 @@ button:hover {
 .entire-review-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: red;
+    /* background-color: red; */
     /* height: auto; */
     /* max-height: 400px; */
     width: 100%;
@@ -71,6 +71,12 @@ button:hover {
     flex-direction: row;
     align-items: baseline;
     gap: 10px;
+}
+
+.review-top-nd {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 5px;
 }
 
 .p-review {
@@ -248,7 +254,8 @@ form > button {
     flex-direction: row;
     justify-items: flex-start;
     width: 50rem;
-    font-weight:bolder
+    font-weight:bolder;
+    gap: 5px;
 
 }
 

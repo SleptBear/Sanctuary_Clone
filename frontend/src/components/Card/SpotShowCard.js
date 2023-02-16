@@ -21,7 +21,7 @@ function SpotShowCard({spot}) {
     // console.log("sliced", extraImages)
     // console.log("URLS", urls)
     while (urls.length < 4) {
-        urls.push('https://t3.ftcdn.net/jpg/03/15/92/94/360_F_315929483_O3zCF74h869pep9L2WMi6cWS2bhO2AjH.jpg')
+        urls.push('https://cdn.pixabay.com/photo/2017/11/10/05/24/add-2935429_1280.png')
     }
     // console.log("URLs AFTER", urls)
 

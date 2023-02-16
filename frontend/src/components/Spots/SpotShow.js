@@ -86,11 +86,12 @@ const SpotShow = () => {
 
     <div className="rating-container">
         <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
+        <CreateReviewFormButton></CreateReviewFormButton>
+
     </div>
 
         <ReviewsIndex></ReviewsIndex>
         <br></br>
-        <CreateReviewFormButton></CreateReviewFormButton>
 
         {/* <DeleteReviewButton></DeleteReviewButton> */}
         <br></br>

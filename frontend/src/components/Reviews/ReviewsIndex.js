@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
 import { getReviews, getUserReviews } from "../../store/reviews";
+import CreateReviewFormButton from "../CreateReviewFormModal/CreateReviewFormButton";
 import DeleteReviewButton from "../DeleteReviewButton";
 
 
@@ -41,6 +42,7 @@ if (!reviewsArray[0]) return null
         <>
 
             <h2>REVIEWS</h2>
+            {/* <CreateReviewFormButton></CreateReviewFormButton> */}
             <div className="entire-review-container">
 
             <section className="bigger-review-container">
@@ -52,8 +54,14 @@ if (!reviewsArray[0]) return null
                     <h4 className="review-top">
 
                         <i className="fa-solid fa-user"></i>
+                        <div className="review-top-nd">
+
                         <p>{review.User?.firstName}</p>
-                        
+                        <p style={{fontWeight: 'initial'}}>
+                            {(review.createdAt.slice(0,4))}
+                        </p>
+                        </div>
+
                         <DeleteReviewButton user={currentUser} review={review}></DeleteReviewButton>
                     </h4>
 
