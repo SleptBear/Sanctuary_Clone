@@ -84,12 +84,13 @@
     width: 50%;
     height: 412px;
     justify-content: flex-start;
+    overflow: hidden;
     /* background-color: blue; */
     /* justify-content: space-evenly; */
 }
 
 .extra-images-container img {
-    max-width: 50%;
+    width: 50%;
     height: 198px;
     object-fit: fill;
     /* padding: 1px; */
@@ -232,6 +233,9 @@
     /* color: red; */
     align-items: center;
     font-size: x-large;
+    /* border-style: double; */
+    background-color: #FF5A5F;
+    border-radius: 1rem;
 }
 
 hr {

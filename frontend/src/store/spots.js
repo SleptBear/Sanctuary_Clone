@@ -102,7 +102,7 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
     // console.log("response", res)
     const data = await res.json();
     // console.log('updated spot', data)
-    if (res.ok) {
+    if (res.ok && imgData.url.length > 3) {
         // data.Owner = spot.Owner
         // data.SpotImages = spot.SpotImages
 
@@ -112,7 +112,7 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
             body: JSON.stringify(imgData)
         })
 
-        if(res2.ok) {
+        if(res.ok) {
             dispatch(getSpot(spotId))
             const data2 = await res2.json();
             // console.log("new image res", data2)

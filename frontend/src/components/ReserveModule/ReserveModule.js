@@ -2,12 +2,10 @@ import ReserveButton from "../Reservations/ReserveButton"
 
 
 const ReserveModule = ({spot}) => {
-    let test = spot
-    console.log(spot)
 
     function checkIfReview() {
         if (spot.numReviews === 0) {
-            return "Be the first to leave us a Review!"
+            return ''
         } else {
             return (Math.floor(spot.avgStarRating * 100)/100)
         }

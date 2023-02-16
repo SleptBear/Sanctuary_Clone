@@ -14,8 +14,17 @@ function SpotCard({spot}) {
 
     function checkStar() {
         if (spot.avgRating) {
+            // console.log(spot.avgRating)
         return <i className="fa-solid fa-star"></i>
         }
+    }
+
+    function checkAvg() {
+        if ((Math.round(spot?.avgRating * 100)/100) === 0) {
+            return null
+        } else
+        return (Math.round(spot?.avgRating * 100)/100)
+
     }
     return (
        <div className="card-container">
@@ -27,7 +36,7 @@ function SpotCard({spot}) {
 
             <div className="card-title">
                 <h3>{spot.city}, {spot.state} </h3>
-                <h3>{checkStar()} {(Math.round(spot?.avgRating * 100)/100)}</h3>
+                <h3>{checkStar()} {checkAvg()}</h3>
             </div>
             <div>
             </div>

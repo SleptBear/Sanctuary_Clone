@@ -25,6 +25,8 @@ const UpdateSpotFormModal = () => {
     const [price ,setPrice] = useState(stateSpot.price);
     const [imgUrl ,setImgUrl] = useState('');
     const [errors, setErrors] = useState([]);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+
     const { closeModal } = useModal();
 
     // const [updatedSpot, setUpdatedSpot] = useState();
@@ -39,7 +41,7 @@ const UpdateSpotFormModal = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        setHasSubmitted(true);
         const updatedSpotData = {
           address,
           city,
@@ -79,7 +81,7 @@ const UpdateSpotFormModal = () => {
     <h1>Home's New Information</h1>
         <form onSubmit={handleSubmit} className="update-spotform" >
           <label className="input-box">
-
+              Address:
             <input
               className="input-fields"
               type="text"
@@ -90,6 +92,7 @@ const UpdateSpotFormModal = () => {
               />
           </label>
           <label className="input-box">
+            City:
             <input
               className="input-fields"
               type="text"
@@ -102,7 +105,7 @@ const UpdateSpotFormModal = () => {
 
           </label>
           <label className="input-box">
-
+            State:
             <input
               className="input-fields"
               type="text"
@@ -135,7 +138,7 @@ const UpdateSpotFormModal = () => {
               />
           </label> */}
           <label className="input-box">
-
+            Country:
             <input
               className="input-fields"
               type="text"
@@ -146,7 +149,7 @@ const UpdateSpotFormModal = () => {
               />
           </label>
           <label className="input-box">
-
+            Name:
             <input
               className="input-fields"
               type="text"
@@ -157,6 +160,7 @@ const UpdateSpotFormModal = () => {
               />
           </label>
           <label className="input-box">
+            Description:
             <input
               className="input-fields"
               type="text"
@@ -167,6 +171,7 @@ const UpdateSpotFormModal = () => {
               />
           </label>
           <label className="input-box">
+            Price:
             <input
               className="input-fields"
               type="text"
@@ -177,18 +182,21 @@ const UpdateSpotFormModal = () => {
               />
           </label>
           <label className="input-box">
+            Image:
             <input
               className="input-fields"
               type="url"
-              placeholder="Add Image"
+              placeholder="Add Image (optional)"
               value={imgUrl}
               onChange={e => setImgUrl(e.target.value)}
-              required
+              // required
               />
           </label>
+          {hasSubmitted && errors.length > 0 && (
               <ul>
-                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                {errors.map((error) => <li key={error}>{error}</li>)}
               </ul>
+              )}
           <button type="submit">Update Home</button>
         </form>
         </>
