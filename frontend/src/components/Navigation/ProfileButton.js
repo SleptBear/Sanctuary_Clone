@@ -55,17 +55,22 @@ function ProfileButton({ user }) {
       </button>
       {/* <div> */}
 
-      <ul className={ulClassName} ref={ulRef}>
+      <ul className={ulClassName} ref={ulRef} style={{width: '100%'}}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
+          <div className="profile-list">
+
+            <li>Hello, {user.username}</li>
+
+            {/* <li>{user.firstName} {user.lastName}</li> */}
             <li>{user.email}</li>
-            <li style={{}}>
+            <hr style={{width: '100%'}}></hr>
+            <li style={{justifyContent: 'center'}}>
 
               <button onClick={logout}>Log Out</button>
 
             </li>
+          </div>
           </>
         ) : (
           <>

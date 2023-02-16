@@ -12,22 +12,22 @@ const user = require('../../db/models/user');
 const validateCreation = [
     check('address')
       .exists({ checkFalsy: true })
-    //   .isLength({ min: 4 })
+      .isLength({ min: 4, max: 30 })
       .withMessage('Street address is required'),
     check('city')
       .exists({ checkFalsy: true })
-    //   .isLength({ min: 3 })
+      .isLength({ min: 3, max: 30 })
       .withMessage('City is required'),
     check('state')
       .exists({ checkFalsy: true })
-    //   .isLength({ min: 2 })
+      .isLength({ min: 2, max: 30 })
       .withMessage('State is required'),
     check('country')
       .exists({ checkFalsy: true })
-    //   .isLength({ min: 2 })
+      .isLength({ min: 2, max: 30 })
       .withMessage('Country is required'),
     check('name')
-    //   .exists({ checkFalsy: true })
+      .exists({ checkFalsy: true })
     //   .custom(value => {
     //     if(value.length >= 50) {
     //         return Promise.reject('Name must be less than 50 characters')

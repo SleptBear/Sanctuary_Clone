@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import './Card.css'
 
-
 // function SpotCard({title, imageUrl, body}) {
 function SpotCard({spot}) {
     // console.log(spot)

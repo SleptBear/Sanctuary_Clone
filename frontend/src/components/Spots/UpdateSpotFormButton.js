@@ -39,7 +39,7 @@ function UpdateSpotFormButton({ user }) {
         <div className={ulClassName} ref={ulRef}>
 
           <OpenModalButton
-          buttonText="Update Your Home"
+          buttonText="Update Sanctuary"
           onButtonClick={openMenu}
           modalComponent={<UpdateSpotFormModal />}
           ></OpenModalButton>
