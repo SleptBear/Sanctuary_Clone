@@ -40,6 +40,8 @@ button:hover {
 .entire-review-container {
     display: flex;
     flex-wrap: wrap;
+    background-color: red;
+    /* height: auto; */
     /* max-height: 400px; */
     width: 100%;
     /* overflow: hidden; */
@@ -50,6 +52,7 @@ button:hover {
     width: 100%;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
+    /* padding-bottom: 10px; */
     /* gap: 20px; */
 
 }
@@ -57,8 +60,8 @@ button:hover {
 .individual-reviews-container {
     display: flex;
     flex-direction: column;
-    /* overflow-y: auto; */
-    max-height: 80%;
+    overflow: hidden;
+    max-height: 100%;
 
 
 }
@@ -74,6 +77,11 @@ button:hover {
     font-size: medium;
     max-height: 60%;
     overflow-y: auto;
+
+}
+
+.p-review::-webkit-scrollbar {
+    display:none;
 }
 
 /* .individual-reviews-container p {
@@ -181,6 +189,14 @@ button:hover {
     box-sizing: border-box;
     /* margin: 1rem; */
     border-radius: 0.5rem;
+}
+
+div > button {
+    border-radius: 1rem;
+    border-style: none;
+    background-color: white;
+    font-weight: bold;
+    /* box-shadow: 0px 0px 15px -5px; */
 }
 
 form > button {

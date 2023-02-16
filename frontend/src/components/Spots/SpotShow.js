@@ -92,7 +92,7 @@ const SpotShow = () => {
         <br></br>
         <CreateReviewFormButton></CreateReviewFormButton>
 
-        <DeleteReviewButton></DeleteReviewButton>
+        {/* <DeleteReviewButton></DeleteReviewButton> */}
         <br></br>
 
 </div>

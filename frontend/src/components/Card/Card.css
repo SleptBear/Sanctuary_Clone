@@ -233,6 +233,9 @@
     /* color: red; */
     align-items: center;
     font-size: x-large;
+    /* border-style: double; */
+    background-color: #FF5A5F;
+    border-radius: 1rem;
 }
 
 hr {
