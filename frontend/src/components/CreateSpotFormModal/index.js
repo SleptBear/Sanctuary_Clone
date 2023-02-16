@@ -19,7 +19,7 @@ const CreateSpotFormModal = () => {
     const [name ,setName] = useState('HoneyPlace');
     const [description ,setDescription] = useState('To die for');
     const [price ,setPrice] = useState('555');
-    const [imgUrl ,setImgUrl] = useState('https://www.cnet.com/a/img/resize/e1099c9949ed3f107c63f05149b8fe494a4f03ad/hub/2016/02/19/8fd43938-1f49-49b0-818b-284b68645490/2016-the-legend-of-zelda.jpg?auto=webp&width=1200')
+    const [imgUrl ,setImgUrl] = useState('https://a0.muscache.com/im/pictures/0eb500ca-0f15-4889-9e1b-6156699b9505.jpg?im_w=1200')
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
