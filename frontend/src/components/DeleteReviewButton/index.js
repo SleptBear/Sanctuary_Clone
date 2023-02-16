@@ -8,9 +8,9 @@ import { getUserReviews } from "../../store/reviews";
 
 
 const DeleteReviewButton = (prop) => {
-  // console.log("PROPS TO DELETE REVIEW", user, review)
+
   console.log("PROP", prop)
-  // console.log("REVIEW PROP", review)
+
     const { spotId } = useParams();
     const dispatch = useDispatch();
     // const spotState = useSelector(state => state.reviews.spot)
@@ -67,7 +67,9 @@ const DeleteReviewButton = (prop) => {
     // console.log(review)
     // console.log(spotState)
     // console.log(user)
-    if (prop.user || prop.user?.id !== prop.review?.userId) return null
+
+    // if (!prop.user?.id) return null
+    if (!prop.user?.id || prop.user?.id !== prop.review?.userId) return null
     return (
         <div className="delete-review-button">
         <button

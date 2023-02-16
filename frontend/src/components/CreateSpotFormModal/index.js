@@ -71,6 +71,7 @@ const CreateSpotFormModal = () => {
               type="text"
               value={address}
               placeholder='address'
+              pattern="[a-zA-Z0-9 ]*"
               onChange={e => setAddress(e.target.value)}
               required
               />
@@ -82,6 +83,7 @@ const CreateSpotFormModal = () => {
               type="text"
               value={city}
               placeholder='city'
+              pattern="[a-zA-Z ]*"
               onChange={e => setCity(e.target.value)}
               required
               />
@@ -93,6 +95,7 @@ const CreateSpotFormModal = () => {
               type="text"
               value={state}
               placeholder='state'
+              pattern="[a-zA-Z ]*"
               onChange={e => setState(e.target.value)}
               required
               />
@@ -126,6 +129,7 @@ const CreateSpotFormModal = () => {
               type="text"
               value={country}
               placeholder='country'
+              pattern="[a-zA-Z ]*"
               onChange={e => setCountry(e.target.value)}
               required
               />
@@ -136,6 +140,7 @@ const CreateSpotFormModal = () => {
               className="input-fields"
               type="text"
               value={name}
+              pattern="[a-zA-Z ]*"
               placeholder='name'
               onChange={e => setName(e.target.value)}
               required
@@ -147,6 +152,7 @@ const CreateSpotFormModal = () => {
               className="input-fields"
               type="text"
               value={description}
+              pattern="[a-zA-Z., ]*"
               placeholder='description'
               onChange={e => setDescription(e.target.value)}
               required
@@ -158,6 +164,7 @@ const CreateSpotFormModal = () => {
               className="input-fields"
               type="text"
               value={price}
+              pattern="[0-9]*"
               placeholder='price'
               onChange={e => setPrice(e.target.value)}
               required
