@@ -51,6 +51,7 @@ function SpotShowCard({spot}) {
                     <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
                     {/* <h2>${spot.price} night</h2> */}
                     <div className="detailed-description">
+                        {console.log(spot.description.length)}
                         <p>{spot.description}</p>
                     </div>
                 </div>

@@ -113,6 +113,14 @@
     justify-content: space-between;
 } */
 
+.detailed-description {
+    overflow: scroll;
+}
+
+.detailed-description::-webkit-scrollbar {
+    display:none;
+}
+
 .card-container:hover {
     transform: scale(1.1);
 }
