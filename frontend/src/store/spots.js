@@ -178,9 +178,9 @@ export default function spotReducer(state = initialState, action) {
 
         case DELETE:
             // newState = { ...state, spots: {...state.spots}, spot: {...state.spot}
+            newState = {...state, spots: {...state.spots}, spot: {...state.spot}}
             delete newState.spots[action.id]
             newState.spot = {}
-            newState = {...state, spots: {...state.spots}, spot: {...state.spot}}
             return newState
 
         default:
