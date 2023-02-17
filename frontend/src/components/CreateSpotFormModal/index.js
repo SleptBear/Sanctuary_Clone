@@ -186,7 +186,10 @@ const CreateSpotFormModal = () => {
            {errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
         )}
+          {/* <div className="home-submit-button"> */}
+
           <button type="submit">Submit Home</button>
+          {/* </div> */}
         </form>
         </>
       );

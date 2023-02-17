@@ -492,7 +492,7 @@ router.get(
 
 router.put(
     '/:spotId',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     validateCreation,
     async (req, res) => {

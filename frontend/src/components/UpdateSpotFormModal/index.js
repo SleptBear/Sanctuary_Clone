@@ -73,6 +73,7 @@ const UpdateSpotFormModal = () => {
             console.log('ERRORS', errors)
           });
     }
+//todo check if create validation inbackend works for upating spot errors rn no errors return.
 
 
 
