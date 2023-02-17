@@ -42,7 +42,7 @@ export const getSpots = () => async dispatch => {
         spotsArray.forEach(spot => {
             normalizedSpots[spot.id] = spot
         });
-        console.log('bormalized spots', normalizedSpots)
+        console.log('normalized spots', normalizedSpots)
         dispatch(actionReadSpots(normalizedSpots))
     }
 
