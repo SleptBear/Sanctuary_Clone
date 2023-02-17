@@ -73,7 +73,7 @@ if (res.ok) {
     }
 
 
-    dispatch(getSpot(data.id))
+    // dispatch(getSpot(data.id))
     dispatch(actionCreateSpot(data))
 
         return data
@@ -117,7 +117,7 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
             body: JSON.stringify(imgData)
         })
     }
-
+    //todo dispatch update with correct data types and value instead of read
     if (res.ok) {
     dispatch(getSpot(spotId))
 
