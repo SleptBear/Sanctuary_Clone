@@ -54,10 +54,11 @@ function LoginFormModal() {
         required
         />
       </label>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
       <button type="submit">Log In</button>
+      <br></br>
+        <div className='error-lists'>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </div>
     </form>
         </>
   );

@@ -200,12 +200,12 @@ const UpdateSpotFormModal = () => {
               // required
               />
           </label>
+          <button type="submit">Update Home</button>
           {hasSubmitted && errors.length > 0 && (
-              <ul>
+              <ul className="error-lists">
                 {errors.map((error) => <li key={error}>{error}</li>)}
               </ul>
               )}
-          <button type="submit">Update Home</button>
         </form>
         </>
       );
