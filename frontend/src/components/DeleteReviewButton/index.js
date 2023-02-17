@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { deleteReview } from "../../store/reviews";
 import { getSpot } from "../../store/spots";
