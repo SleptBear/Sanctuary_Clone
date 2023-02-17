@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { deleteReview } from "../../store/reviews";
 import { getSpot } from "../../store/spots";
@@ -9,7 +9,7 @@ import { getUserReviews } from "../../store/reviews";
 
 const DeleteReviewButton = (prop) => {
 
-  console.log("PROP", prop)
+  // console.log("PROP", prop)
 
     const { spotId } = useParams();
     const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const DeleteReviewButton = (prop) => {
       e.preventDefault();
       // console.log("state of review here", spotState)
       // console.log("state of users reviews", reviewOwner)
-      console.log('review ID from prop', prop.review.id)
+      // console.log('review ID from prop', prop.review.id)
       dispatch(deleteReview(prop.review.id))
       .then(async(res) => {
         dispatch(getUserReviews())
