@@ -10,14 +10,14 @@ const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [address, setAddress] = useState('HoneyLane');
-    const [city, setCity] = useState('Santa Barbara');
-    const [state ,setState] = useState('California');
+    const [address, setAddress] = useState('1das');
+    const [city, setCity] = useState('Sadsf');
+    const [state ,setState] = useState('Casd');
     // const [lat ,setLat] = useState(null);
     // const [lng ,setLng] = useState(null);
-    const [country ,setCountry] = useState('United State of America');
-    const [name ,setName] = useState('HoneyPlace');
-    const [description ,setDescription] = useState('Lorem ipsum dolor sit amet, nec timeam corrumpit an, nam accusam scripserit inciderint ei. Vim ea omnium repudiandae, graeco ancillae ne per. Ne consul audiam molestie mel, id his homero neglegentur definitiones. Prompta bonorum per cu, nec ei paulo temporibus.');
+    const [country ,setCountry] = useState('Uasdf');
+    const [name ,setName] = useState('Hasd');
+    const [description ,setDescription] = useState('Lorem ipsum dolor sit amet, nec timeam corrumpit an, nam accusam scripserit inciderint ei. Vo ancillae ne per.');
     const [price ,setPrice] = useState('555');
     const [imgUrl ,setImgUrl] = useState('https://a0.muscache.com/im/pictures/0eb500ca-0f15-4889-9e1b-6156699b9505.jpg?im_w=1200')
     const [errors, setErrors] = useState([]);
@@ -181,14 +181,14 @@ const CreateSpotFormModal = () => {
               required
               />
           </label>
-        {hasSubmitted && errors.length > 0 && (
-        <ul>
-           {errors.map((error) => <li key={error}>{error}</li>)}
-        </ul>
-        )}
           {/* <div className="home-submit-button"> */}
 
           <button type="submit">Submit Home</button>
+        {hasSubmitted && errors.length > 0 && (
+        <ul className="error-lists">
+           {errors.map((error) => <li key={error}>{error}</li>)}
+        </ul>
+        )}
           {/* </div> */}
         </form>
         </>

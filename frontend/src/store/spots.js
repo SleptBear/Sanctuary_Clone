@@ -31,16 +31,18 @@ export const actionDeleteSpot = (id) => ({
 
 export const getSpots = () => async dispatch => {
     const res = await csrfFetch('/api/spots/');
-
+    console.log("res", res)
     if (res.ok) {
     const spots = await res.json();
+    console.log("res json", spots)
     let normalizedSpots = {}
     let spotsArray = spots.Spots
-    // console.log('spots Array', spotsArray)
+    console.log('spots Array', spotsArray)
 
         spotsArray.forEach(spot => {
             normalizedSpots[spot.id] = spot
         });
+        console.log('bormalized spots', normalizedSpots)
         dispatch(actionReadSpots(normalizedSpots))
     }
 

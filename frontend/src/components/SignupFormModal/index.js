@@ -103,10 +103,11 @@ function SignupFormModal() {
           // minLength={6}
           />
       </label>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
       <button type="submit">Sign Up</button>
+      <br></br>
+          <div className="error-lists">
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </div>
     </form>
     </>
   );

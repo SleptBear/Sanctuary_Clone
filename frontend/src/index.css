@@ -101,11 +101,22 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 80%;
     height: 80%;
+    max-height: 95%;
     background-color: white;
     box-shadow: 0 0 2px rgba(10, 0, 10, 0.30);
+    object-fit: contain;
+}
+
+.error-lists {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    color: red;
+    font-weight: bold;
+    
 }
 
 .create-spotform {
@@ -213,7 +224,7 @@ form > button {
     background-color: #FF5A5F;
     border-radius: .5rem;
     bottom: 2rem;
-    height: 2.5rem;
+    min-height: 2.5rem;
     padding-top: 5px;
     /* padding-left: 1rem; */
     /* padding-right: 1rem; */
