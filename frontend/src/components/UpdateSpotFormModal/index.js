@@ -67,7 +67,7 @@ const UpdateSpotFormModal = () => {
           closeModal()
         })
         .catch(async (res) => {
-            const data = await res;
+            const data = await res.json();
             console.log("Checking data returning to form", data)
             if (data && data.errors) setErrors(data.errors)
             console.log('ERRORS', errors)
