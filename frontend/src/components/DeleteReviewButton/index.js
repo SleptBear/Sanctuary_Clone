@@ -9,7 +9,7 @@ import { getUserReviews } from "../../store/reviews";
 
 const DeleteReviewButton = (prop) => {
 
-  console.log("PROP", prop)
+  // console.log("PROP", prop)
 
     const { spotId } = useParams();
     const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const DeleteReviewButton = (prop) => {
       e.preventDefault();
       // console.log("state of review here", spotState)
       // console.log("state of users reviews", reviewOwner)
-      console.log('review ID from prop', prop.review.id)
+      // console.log('review ID from prop', prop.review.id)
       dispatch(deleteReview(prop.review.id))
       .then(async(res) => {
         dispatch(getUserReviews())

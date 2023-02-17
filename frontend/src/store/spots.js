@@ -31,18 +31,18 @@ export const actionDeleteSpot = (id) => ({
 
 export const getSpots = () => async dispatch => {
     const res = await csrfFetch('/api/spots/');
-    console.log("res", res)
+    // console.log("res", res)
     if (res.ok) {
     const spots = await res.json();
-    console.log("res json", spots)
+    // console.log("res json", spots)
     let normalizedSpots = {}
     let spotsArray = spots.Spots
-    console.log('spots Array', spotsArray)
+    // console.log('spots Array', spotsArray)
 
         spotsArray.forEach(spot => {
             normalizedSpots[spot.id] = spot
         });
-        console.log('normalized spots', normalizedSpots)
+        // console.log('normalized spots', normalizedSpots)
         dispatch(actionReadSpots(normalizedSpots))
     }
 
@@ -103,8 +103,8 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
     })
     // console.log("response", res)
     const data = await res.json();
-    console.log('updated spot', data)
-    console.log('res status', res.ok)
+    // console.log('updated spot', data)
+    // console.log('res status', res.ok)
 
 
     if (res.ok && imgData.url.length > 5) {
@@ -134,14 +134,14 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
 export const deleteSpot = (spotId) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${spotId}`, {
         method: 'DELETE'})
-
+        let data;
         if (res.ok) {
-            const data = await res.json();
+            data = await res.json();
             dispatch(actionDeleteSpot(spotId))
-            dispatch(actionReadSpots())
-            return data
+            // dispatch(actionReadSpots())
             //todo for all thunks return data to send back to component for error handeling
         }
+        return data
 }
 
 const initialState = { spots: {}, spot: {} }
@@ -177,9 +177,10 @@ export default function spotReducer(state = initialState, action) {
             return newState
 
         case DELETE:
-            // delete newState[action.id]
-            //TODO might want to add in empty replacement for spots
+            // newState = { ...state, spots: {...state.spots}, spot: {...state.spot}
+            delete newState.spots[action.id]
             newState.spot = {}
+            newState = {...state, spots: {...state.spots}, spot: {...state.spot}}
             return newState
 
         default:

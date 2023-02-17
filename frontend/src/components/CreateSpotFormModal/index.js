@@ -17,9 +17,9 @@ const CreateSpotFormModal = () => {
     // const [lng ,setLng] = useState(null);
     const [country ,setCountry] = useState('United State of America');
     const [name ,setName] = useState('HoneyPlace');
-    const [description ,setDescription] = useState('Lorem ipsum dolor sit amet, nec timeam corrumpit an, nam accusam scripserit inciderint ei. Vim ea omnium repudiandae, graeco ancillae ne per. Ne consul audiam molestie mel, id his homero neglegentur definitiones. Prompta bonorum per cu, nec ei paulo temporibus.');
+    const [description ,setDescription] = useState('Lorem ipsum dolor sit amet, nec timeam corrumpit an, nam accusam scripserit inciderint ei. Vim ea omnium repudiandae, graeco ancillae ne per.');
     const [price ,setPrice] = useState('555');
-    const [imgUrl ,setImgUrl] = useState('https://a0.muscache.com/im/pictures/0eb500ca-0f15-4889-9e1b-6156699b9505.jpg?im_w=1200')
+    const [imgUrl ,setImgUrl] = useState('https://a0.muscache.com/im/pictures/prohost-api/Hosting-755137040389728919/original/c478a83e-c396-4833-89ff-ac6ba226109e.jpeg?im_w=1200')
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();

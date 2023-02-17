@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -16,6 +16,7 @@ const SpotShow = () => {
     const ulRef = useRef();
     let history = useHistory();
     let { spotId } = useParams();
+    const [errors, setErrors] = useState([]);
 
 
     const sessionUser = useSelector(state => state.session.user);
@@ -37,7 +38,17 @@ const SpotShow = () => {
         e.preventDefault();
         if(owner.id === sessionUser.id) {
             dispatch(deleteSpot(spotId))
-            history.push('/')
+            .then(async (res) => {
+
+                history.push(`/`)
+
+              })
+              .catch(async (res) => {
+                const data = await res.json();
+                console.log("data from api", data)
+                if (data && data.errors) setErrors(data.errors)
+                console.log('ERRORS', errors)
+              });
         }
     }
 
