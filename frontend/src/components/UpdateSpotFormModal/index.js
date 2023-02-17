@@ -79,7 +79,7 @@ const UpdateSpotFormModal = () => {
 
     return (
         <>
-    <h1>Home's New Information</h1>
+    <h1>Sanctuary Updates</h1>
         <form onSubmit={handleSubmit} className="update-spotform" >
           <label className="input-box">
               Address:

@@ -10,16 +10,16 @@ const CreateSpotFormModal = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [address, setAddress] = useState('HoneyLane');
-    const [city, setCity] = useState('Santa Barbara');
-    const [state ,setState] = useState('California');
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state ,setState] = useState('');
     // const [lat ,setLat] = useState(null);
     // const [lng ,setLng] = useState(null);
-    const [country ,setCountry] = useState('United State of America');
-    const [name ,setName] = useState('HoneyPlace');
-    const [description ,setDescription] = useState('Lorem ipsum dolor sit amet, nec timeam corrumpit an, nam accusam scripserit inciderint ei. Vim ea omnium repudiandae, graeco ancillae ne per.');
-    const [price ,setPrice] = useState('555');
-    const [imgUrl ,setImgUrl] = useState('https://a0.muscache.com/im/pictures/prohost-api/Hosting-755137040389728919/original/c478a83e-c396-4833-89ff-ac6ba226109e.jpeg?im_w=1200')
+    const [country ,setCountry] = useState('');
+    const [name ,setName] = useState('');
+    const [description ,setDescription] = useState('');
+    const [price ,setPrice] = useState('');
+    const [imgUrl ,setImgUrl] = useState('')
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
@@ -62,7 +62,7 @@ const CreateSpotFormModal = () => {
 
         return (
           <>
-    <h1>My Home's Information</h1>
+    <h1>My Sanctuary</h1>
         <form onSubmit={handleSubmit} className="create-spotform" >
           <label className='input-box'>
             Address:

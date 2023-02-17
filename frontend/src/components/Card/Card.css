@@ -153,7 +153,9 @@
 
 .spot-sub-info {
     display: flex;
-    justify-content: row;
+    justify-content: center;
+    /* align-items: center; */
+
 }
 
 .spot-body{
@@ -179,6 +181,7 @@
     width: 45%;
     display: flex;
     justify-content: center;
+    align-items: center;
     /* background-color: pink; */
 
 }
@@ -186,6 +189,12 @@
 .reserve-box {
     /* background-color: gray; */
     width: 80%;
+    height: 12rem;
+    min-height: 2rem;
+    max-height: 12rem;
+    /* padding-top: 40px; */
+    /* max-height: 100%; */
+    /* min-height: 60%; */
     border-radius: 1rem;
     border-style: none;
     box-shadow: 0px 0px 15px -5px;
