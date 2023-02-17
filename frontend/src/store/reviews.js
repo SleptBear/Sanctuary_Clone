@@ -35,7 +35,7 @@ export const actionReadUserReviews = (reviews) => ({
         const res = await csrfFetch(`/api/reviews/${reviewId}`, {
             method: 'DELETE'
         })
-        console.log('res', res)
+        // console.log('res', res)
         if (res.ok) {
             // const data = await res.json();
             dispatch(actionDeleteReview(reviewId))
@@ -57,7 +57,7 @@ export const actionReadUserReviews = (reviews) => ({
     if (res.ok) {
         dispatch(actionCreateReview(data))
         dispatch(getReviews(spotId))
-        console.log("data for create review action", data)
+        // console.log("data for create review action", data)
     }
     return data
 }
