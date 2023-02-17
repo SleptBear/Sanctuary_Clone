@@ -152,7 +152,7 @@ const CreateSpotFormModal = () => {
               className="input-fields"
               type="text"
               value={description}
-              pattern="[a-zA-Z., ]*"
+              pattern="[a-zA-Z.,;:?! ]*"
               placeholder='description'
               onChange={e => setDescription(e.target.value)}
               required

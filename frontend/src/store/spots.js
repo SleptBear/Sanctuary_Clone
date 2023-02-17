@@ -101,8 +101,11 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
     })
     // console.log("response", res)
     const data = await res.json();
-    // console.log('updated spot', data)
-    if (res.ok && imgData.url.length > 3) {
+    console.log('updated spot', data)
+    console.log('res status', res.ok)
+
+
+    if (res.ok && imgData.url.length > 5) {
         // data.Owner = spot.Owner
         // data.SpotImages = spot.SpotImages
 
@@ -111,15 +114,16 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(imgData)
         })
+    }
 
-        if(res.ok) {
-            dispatch(getSpot(spotId))
-            const data2 = await res2.json();
+    if (res.ok) {
+    dispatch(getSpot(spotId))
+
             // console.log("new image res", data2)
             // data.SpotImages.push(data2)
             // console.log("updatedaction spot datas", data, data2)
 
-        }
+
         // dispatch(actionUpdateSpot(data))
     }
     return data

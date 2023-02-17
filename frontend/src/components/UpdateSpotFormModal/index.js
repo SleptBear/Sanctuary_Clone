@@ -67,7 +67,7 @@ const UpdateSpotFormModal = () => {
           closeModal()
         })
         .catch(async (res) => {
-            const data = await res.json();
+            const data = await res;
             console.log("Checking data returning to form", data)
             if (data && data.errors) setErrors(data.errors)
             console.log('ERRORS', errors)
@@ -87,6 +87,7 @@ const UpdateSpotFormModal = () => {
               type="text"
               value={address}
               placeholder="address"
+              pattern="[a-zA-Z0-9 ]*"
               onChange={e => setAddress(e.target.value)}
               required
               />
@@ -98,6 +99,7 @@ const UpdateSpotFormModal = () => {
               type="text"
               value={city}
               placeholder="city"
+              pattern="[a-zA-Z ]*"
               onChange={e => setCity(e.target.value)}
               required
               />
@@ -111,6 +113,7 @@ const UpdateSpotFormModal = () => {
               type="text"
               value={state}
               placeholder="state"
+              pattern="[a-zA-Z ]*"
               onChange={e => setState(e.target.value)}
               required
               />
@@ -144,6 +147,7 @@ const UpdateSpotFormModal = () => {
               type="text"
               value={country}
               placeholder="country"
+              pattern="[a-zA-Z ]*"
               onChange={e => setCountry(e.target.value)}
               required
               />
@@ -155,6 +159,7 @@ const UpdateSpotFormModal = () => {
               type="text"
               value={name}
               placeholder="name"
+              pattern="[a-zA-Z ]*"
               onChange={e => setName(e.target.value)}
               required
               />
@@ -165,6 +170,7 @@ const UpdateSpotFormModal = () => {
               className="input-fields"
               type="text"
               placeholder="description"
+              pattern="[a-zA-Z.,;:?! ]*"
               value={description}
               onChange={e => setDescription(e.target.value)}
               required
@@ -176,6 +182,7 @@ const UpdateSpotFormModal = () => {
               className="input-fields"
               type="text"
               placeholder="price"
+              pattern="[0-9]*"
               value={price}
               onChange={e => setPrice(e.target.value)}
               required
@@ -186,7 +193,7 @@ const UpdateSpotFormModal = () => {
             <input
               className="input-fields"
               type="url"
-              placeholder="Add Image (optional)"
+              placeholder="Add New Image (optional)"
               value={imgUrl}
               onChange={e => setImgUrl(e.target.value)}
               // required
