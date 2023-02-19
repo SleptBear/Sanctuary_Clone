@@ -122,6 +122,8 @@ li > button {
     padding: 1rem;
     overflow: hidden;
     z-index: 100;
+    /* font-weight: bold; */
+    /* font-family: inherit; */
     /* display: flex; */
     /* flex-direction: column; */
     /* justify-content: space-evenly; */
