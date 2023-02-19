@@ -113,10 +113,11 @@ button:hover {
 .error-lists {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    padding-top: 1rem;
+    gap: 1rem;
     color: red;
     font-weight: bold;
-    
+
 }
 
 .create-spotform {

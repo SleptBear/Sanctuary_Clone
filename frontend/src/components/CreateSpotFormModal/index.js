@@ -193,9 +193,9 @@ const CreateSpotFormModal = () => {
 
           <button type="submit">Submit Home</button>
         {hasSubmitted && errors.length > 0 && (
-        <ul className="error-lists">
+        <div className="error-lists">
            {errors.map((error) => <li key={error}>{error}</li>)}
-        </ul>
+        </div>
         )}
           {/* </div> */}
         </form>

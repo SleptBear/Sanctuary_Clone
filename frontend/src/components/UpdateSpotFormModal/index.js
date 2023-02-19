@@ -208,9 +208,9 @@ const UpdateSpotFormModal = () => {
           </label>
           <button type="submit">Update Home</button>
           {hasSubmitted && errors.length > 0 && (
-              <ul className="error-lists">
+              <div className="error-lists">
                 {errors.map((error) => <div key={error}>{error}</div>)}
-              </ul>
+              </div>
               )}
         </form>
         </>
