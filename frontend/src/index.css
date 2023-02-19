@@ -103,7 +103,7 @@ button:hover {
     align-items: center;
     /* flex-wrap: wrap; */
     width: 80%;
-    height: 80%;
+    height: 85%;
     max-height: 95%;
     background-color: white;
     box-shadow: 0 0 2px rgba(10, 0, 10, 0.30);
@@ -195,6 +195,7 @@ button:hover {
     /* padding-right: 1rem; */
     border-width: thin thin thin 1em;
     /* background-color: red; */
+    /* overflow-wrap: break-word; */
 }
 
 .input-fields {
@@ -209,6 +210,17 @@ button:hover {
     box-sizing: border-box;
     /* margin: 1rem; */
     border-radius: 0.5rem;
+    border-color: black;
+    border-width: 2px;
+    font-family: inherit;
+    font-size: inherit;
+    overflow: scroll;
+    /* flex-wrap: wrap;
+    overflow-wrap: break-word; */
+}
+
+.input-fields::-webkit-scrollbar {
+    display: none;
 }
 
 div > button {

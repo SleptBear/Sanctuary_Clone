@@ -155,7 +155,7 @@ const CreateSpotFormModal = () => {
           </label>
           <label className="input-box">
             Description:
-            <input
+            <textarea
               className="input-fields"
               type="text"
               placeholder="description"

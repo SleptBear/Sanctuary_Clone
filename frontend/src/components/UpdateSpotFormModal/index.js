@@ -172,9 +172,10 @@ const UpdateSpotFormModal = () => {
           </label>
           <label className="input-box">
             Description:
-            <input
+            <textarea
               className="input-fields"
               type="text"
+
               placeholder="description"
               pattern="[-a-zA-Z0-9 .,;:?! ]*"
               value={description}
