@@ -61,17 +61,11 @@ function ProfileButton({ user }) {
 
 
             <li>Hello, {user.username}</li>
-
-
             <li>{user.email}</li>
-            <hr style={{width: '100%'}}></hr>
-            <li style={{justifyContent: 'center'}}>
+              <hr style={{width: '100%'}}></hr>
             <li className="list-button">
               <button onClick={logout}>Log Out</button>
             </li>
-
-            </li>
-          
           </>
         ) : (
           <>

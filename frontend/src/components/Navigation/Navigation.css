@@ -121,6 +121,7 @@ li > button {
     max-width: 12rem;
     padding: 1rem;
     overflow: hidden;
+    z-index: 100;
     /* display: flex; */
     /* flex-direction: column; */
     /* justify-content: space-evenly; */

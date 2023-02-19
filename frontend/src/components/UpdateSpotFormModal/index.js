@@ -89,6 +89,7 @@ const UpdateSpotFormModal = () => {
               value={address}
               placeholder="address"
               pattern="[a-zA-Z0-9 ]*"
+              title="No Symbols or special characters"
               onChange={e => setAddress(e.target.value)}
               required
               />
@@ -101,6 +102,7 @@ const UpdateSpotFormModal = () => {
               value={city}
               placeholder="city"
               pattern="[a-zA-Z ]*"
+              title="No Symbols or special characters"
               onChange={e => setCity(e.target.value)}
               required
               />
@@ -115,6 +117,7 @@ const UpdateSpotFormModal = () => {
               value={state}
               placeholder="state"
               pattern="[a-zA-Z ]*"
+              title="No Symbols, numbers, or special characters"
               onChange={e => setState(e.target.value)}
               required
               />
@@ -149,6 +152,7 @@ const UpdateSpotFormModal = () => {
               value={country}
               placeholder="country"
               pattern="[a-zA-Z ]*"
+              title="No Symbols, numbers, or special characters"
               onChange={e => setCountry(e.target.value)}
               required
               />
@@ -161,6 +165,7 @@ const UpdateSpotFormModal = () => {
               value={name}
               placeholder="name"
               pattern="[a-zA-Z ]*"
+              title="No Symbols, numbers, or special characters"
               onChange={e => setName(e.target.value)}
               required
               />
@@ -171,7 +176,7 @@ const UpdateSpotFormModal = () => {
               className="input-fields"
               type="text"
               placeholder="description"
-              pattern="[a-zA-Z.,;:?! ]*"
+              pattern="[-a-zA-Z0-9 .,;:?! ]*"
               value={description}
               onChange={e => setDescription(e.target.value)}
               required
@@ -184,6 +189,7 @@ const UpdateSpotFormModal = () => {
               type="text"
               placeholder="price"
               pattern="[0-9]*"
+              title="No Symbols or Characters"
               value={price}
               onChange={e => setPrice(e.target.value)}
               required
