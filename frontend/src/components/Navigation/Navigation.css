@@ -80,6 +80,11 @@ li > button {
     border-radius: 1rem;
 }
 
+.list-button {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 .user-menu {
@@ -116,17 +121,15 @@ li > button {
     max-width: 12rem;
     padding: 1rem;
     overflow: hidden;
+    z-index: 100;
+    /* font-weight: bold; */
+    /* font-family: inherit; */
     /* display: flex; */
     /* flex-direction: column; */
     /* justify-content: space-evenly; */
 }
 
-.profile-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-}
 
 .fa-brands {
     color: #FF5A5F;

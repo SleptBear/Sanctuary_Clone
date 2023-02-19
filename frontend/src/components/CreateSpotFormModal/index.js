@@ -64,108 +64,116 @@ const CreateSpotFormModal = () => {
           <>
     <h1>My Sanctuary</h1>
         <form onSubmit={handleSubmit} className="create-spotform" >
-          <label className='input-box'>
-            Address:
+        <label className="input-box">
+              Address:
             <input
               className="input-fields"
               type="text"
               value={address}
-              placeholder='address'
+              placeholder="address"
               pattern="[a-zA-Z0-9 ]*"
+              title="No Symbols or special characters"
               onChange={e => setAddress(e.target.value)}
               required
               />
           </label>
-          <label className='input-box'>
+          <label className="input-box">
             City:
             <input
               className="input-fields"
               type="text"
               value={city}
-              placeholder='city'
+              placeholder="city"
               pattern="[a-zA-Z ]*"
+              title="No Symbols or special characters"
               onChange={e => setCity(e.target.value)}
               required
               />
+
+
           </label>
-          <label className='input-box'>
+          <label className="input-box">
             State:
             <input
               className="input-fields"
               type="text"
               value={state}
-              placeholder='state'
+              placeholder="state"
               pattern="[a-zA-Z ]*"
+              title="No Symbols, numbers, or special characters"
               onChange={e => setState(e.target.value)}
               required
               />
           </label>
-          {/* <label className='input-box'>
+          {/* <label className="input-box">
 
             <input
               className="input-fields"
               type="text"
               value={lat}
-              placeholder='latitude'
+              placeholder="latitude"
               onChange={e => setLat(e.target.value)}
               // required
               />
           </label>
-          <label className='input-box'>
+          <label className="input-box">
 
             <input
               className="input-fields"
               type="text"
               value={lng}
-              placeholder='longitude'
+              placeholder="longitude"
               onChange={e => setLng(e.target.value)}
               // required
               />
           </label> */}
-          <label className='input-box'>
-          Country:
+          <label className="input-box">
+            Country:
             <input
               className="input-fields"
               type="text"
               value={country}
-              placeholder='country'
+              placeholder="country"
               pattern="[a-zA-Z ]*"
+              title="No Symbols, numbers, or special characters"
               onChange={e => setCountry(e.target.value)}
               required
               />
           </label>
-          <label className='input-box'>
-          Name:
+          <label className="input-box">
+            Name:
             <input
               className="input-fields"
               type="text"
               value={name}
+              placeholder="name"
               pattern="[a-zA-Z ]*"
-              placeholder='name'
+              title="No Symbols, numbers, or special characters"
               onChange={e => setName(e.target.value)}
               required
               />
           </label>
-          <label className='input-box'>
-          Description:
+          <label className="input-box">
+            Description:
             <input
               className="input-fields"
               type="text"
+              placeholder="description"
+              pattern="[-a-zA-Z0-9 .,;:?! ]*"
               value={description}
-              pattern="[a-zA-Z.,;:?! ]*"
-              placeholder='description'
               onChange={e => setDescription(e.target.value)}
               required
               />
           </label>
-          <label className='input-box'>
-          Price:
+          <label className="input-box">
+            Price:
             <input
               className="input-fields"
               type="text"
-              value={price}
+              placeholder="price"
               pattern="[0-9]*"
-              placeholder='price'
+              title="No Symbols or Characters"
+              value={price}
               onChange={e => setPrice(e.target.value)}
               required
               />
