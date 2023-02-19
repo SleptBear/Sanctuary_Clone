@@ -88,7 +88,6 @@ function SignupFormModal() {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
           required
-          // minLength={6}
           />
       </label>
       <label className='input-box'>
@@ -100,7 +99,6 @@ function SignupFormModal() {
           placeholder='Confirm Password'
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
-          // minLength={6}
           />
       </label>
       <button type="submit">Sign Up</button>
