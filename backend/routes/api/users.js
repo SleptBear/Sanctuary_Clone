@@ -13,19 +13,19 @@ const validateSignup = [
     check('username')
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
-      .withMessage('Username is required  and must include 4 characters.'),
+      .withMessage('Invalid Username, must include 4 characters.'),
     check('firstName')
       .exists({ checkFalsy: true })
       .isLength({ min: 2 })
-      .withMessage('First Name is required and must include 2 letters'),
+      .withMessage('Invalid First Name, must include 2 letters'),
     check('lastName')
       .exists({ checkFalsy: true })
       .isLength({ min: 2 })
-      .withMessage('Last Name is required and must include 2 letters'),
+      .withMessage('Innvalid Last Name, must include 2 letters'),
     check('password')
       .exists({ checkFalsy: true })
       .isLength({ min: 6 })
-      .withMessage('Password must be 6 characters or more.'),
+      .withMessage('Invalid Password, must be 6 characters or more.'),
     handleValidationErrors
   ];
 

@@ -80,6 +80,11 @@ li > button {
     border-radius: 1rem;
 }
 
+.list-button {
+    display: flex;
+    justify-content: center;
+}
+
 
 
 .user-menu {
@@ -121,12 +126,7 @@ li > button {
     /* justify-content: space-evenly; */
 }
 
-.profile-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-}
 
 .fa-brands {
     color: #FF5A5F;

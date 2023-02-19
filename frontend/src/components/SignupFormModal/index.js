@@ -40,7 +40,7 @@ function SignupFormModal() {
       <label className='input-box'>
         <input
           className='input-fields'
-          type="text"
+          type="email"
           value={email}
           placeholder='Email'
           onChange={(e) => setEmail(e.target.value)}
