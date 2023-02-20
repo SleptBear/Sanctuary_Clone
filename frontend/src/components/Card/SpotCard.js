@@ -23,7 +23,13 @@ function SpotCard({spot}) {
             return null
         } else
         return (Math.round(spot?.avgRating * 100)/100)
+    }
 
+    function checkPrice() {
+        let price = spot.price
+        price = price.toLocaleString()
+        console.log(price)
+        return price
     }
     return (
        <div className="card-container">
@@ -41,7 +47,7 @@ function SpotCard({spot}) {
             </div>
             {/* <br></br> */}
             <div className="card-body">
-                <div>$ {spot.price} night</div>
+                <div>$ {checkPrice()} night</div>
             </div>
         </div>
        </div>
