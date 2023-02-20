@@ -35,6 +35,12 @@ useEffect(() => {
 //     dispatch(deleteReview(spotId))
 // }
 
+// console.log(reviewsObj)
+// function getDate(review) {
+//     let date = review.createdAt;
+//     console.log(new Date(date)))
+// }
+
 
 
 if (!reviewsArray[0]) return null
@@ -42,28 +48,26 @@ if (!reviewsArray[0]) return null
         <>
 
             <h2>REVIEWS</h2>
-            {/* <CreateReviewFormButton></CreateReviewFormButton> */}
+
             <div className="entire-review-container">
 
             <section className="bigger-review-container">
 
                 {reviewsArray.map(review => (
-
                     <div key={review.id} className='individual-reviews-container'>
+                        {/* {getDate(review)} */}
 
-                    <h4 className="review-top">
+                    <h4 className="review-top" style={{margin: '0px'}}>
 
                         <i className="fa-solid fa-user"></i>
+                            <p>{review.User?.firstName}</p>
                         <div className="review-top-nd">
 
-                        <p>{review.User?.firstName}</p>
-                        <p style={{fontWeight: 'initial'}}>
-                            {(review.createdAt.slice(0,4))}
-                        </p>
+                        <DeleteReviewButton user={currentUser} review={review}></DeleteReviewButton>
                         </div>
 
-                        <DeleteReviewButton user={currentUser} review={review}></DeleteReviewButton>
                     </h4>
+                            <p style={{fontWeight: 'initial', margin: '0px'}}>{(review.createdAt.slice(0,10))}</p>
 
                     <div>
                         <p className="p-review">{review.review}</p>
