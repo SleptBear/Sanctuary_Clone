@@ -27,6 +27,9 @@ button:hover {
     /* padding-right: 10%; */
     max-width: 90%;
 }
+/* .body-container-items a {
+    max-width: 25%;
+} */
 
 .review-section {
     width: 80%;
@@ -62,6 +65,7 @@ button:hover {
     flex-direction: column;
     overflow: hidden;
     max-height: 100%;
+    max-width: 90%;
 
 
 }
@@ -75,8 +79,9 @@ button:hover {
 
 .review-top-nd {
     display: flex;
-    /* flex-direction: column; */
-    gap: 5px;
+    flex-direction: column;
+    margin: 0;
+    /* gap: 5px; */
 }
 
 .p-review {

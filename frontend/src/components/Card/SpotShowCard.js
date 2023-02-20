@@ -39,7 +39,10 @@ function SpotShowCard({spot}) {
 
             {
                 urls.map((img, index) => (
+                
                     <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>
+
+
                     ))
                 }
 
