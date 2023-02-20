@@ -11,12 +11,18 @@ const ReserveModule = ({spot}) => {
         }
     }
 
+    function checkPrice() {
+        let price = spot.price
+        price = price.toLocaleString()
+        // console.log(price)
+        return price
+    }
 
     return (
 
     <div className="reserve-box">
         <div className="reserve-info">
-            <div className="reserve-price" style={{width:'50%'}}>${spot.price} night</div>
+            <div className="reserve-price" style={{width:'50%'}}>${checkPrice()} night</div>
             <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <div>

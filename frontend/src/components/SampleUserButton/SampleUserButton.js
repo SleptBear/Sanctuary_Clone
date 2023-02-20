@@ -5,17 +5,19 @@ import { useModal } from '../../context/Modal';
 
 function Dummy() {
   const dispatch = useDispatch();
+
   const [credential, setCredential] = useState('john.smith@gmail.com');
   const [password, setPassword] = useState('secret password');
+
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
     dispatch(sessionActions.login({ credential, password }))
-    // .then((res) => setUser(res))
-    .then(closeModal())
+    .then(async (res) => {
+    closeModal()
+  })
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -45,10 +47,10 @@ function Dummy() {
         required
         />
       </label>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
       <button type="submit">Log In</button>
+          <div className='error-lists'>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </div>
     </form>
         </>
   );

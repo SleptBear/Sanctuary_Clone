@@ -16,7 +16,6 @@ function LoginFormModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setErrors already set to array in useState
     dispatch(sessionActions.login({ credential, password }))
     .then(async (res) => {
       closeModal()
@@ -55,7 +54,7 @@ function LoginFormModal() {
         />
       </label>
       <button type="submit">Log In</button>
-      <br></br>
+      {/* <br></br> */}
         <div className='error-lists'>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </div>
