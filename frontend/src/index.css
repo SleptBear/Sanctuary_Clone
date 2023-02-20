@@ -8,11 +8,13 @@ button:hover {
     max-width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .body-container {
     width: 100%;
+    max-width: 1460px;
+    min-width: 703px;
     display: flex;
     flex-direction: row;
     padding-left: 10%;
