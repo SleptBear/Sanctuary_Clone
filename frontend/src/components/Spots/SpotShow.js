@@ -63,7 +63,6 @@ const SpotShow = () => {
         if (spot.numReviews === 0) {
             return "Be the first to leave us a Review!"
         } else {
-            console.log(((Math.floor(spot.avgStarRating * 100)/100)))
             return ((Math.floor(spot.avgStarRating * 100)/100)).toLocaleString()
         }
     }

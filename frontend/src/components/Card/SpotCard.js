@@ -28,7 +28,7 @@ function SpotCard({spot}) {
     function checkPrice() {
         let price = spot.price
         price = price.toLocaleString()
-        console.log(price)
+        // console.log(price)
         return price
     }
     return (
