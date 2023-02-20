@@ -42,7 +42,7 @@
 }
 
 .all-images-container {
-    width: 102%;
+    width: 110%;
     /* max-height: 320px; */
     display: flex;
     flex-direction: row;
