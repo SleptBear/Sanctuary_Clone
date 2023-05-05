@@ -32,16 +32,21 @@ module.exports = {
    },
 
    async down (queryInterface, Sequelize) {
-    options.tableName = 'Bookings';
-    const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      id: { [Op.in]: ["1", "2", "3"] }
-    }, {});
+    options.tableName = 'Bookings'; // define table name in options object
+    return queryInterface.bulkDelete(options); // pass in options object here
+  }
+
+  //  async down (queryInterface, Sequelize) {
+  //   options.tableName = 'Bookings';
+  //   const Op = Sequelize.Op;
+  //   return queryInterface.bulkDelete(options, {
+  //     id: { [Op.in]: ["1", "2", "3"] }
+  //   }, {});
+  // }
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
 };

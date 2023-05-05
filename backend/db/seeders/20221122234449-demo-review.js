@@ -56,10 +56,14 @@ module.exports = {
    },
 
    async down (queryInterface, Sequelize) {
-    options.tableName = 'Reviews';
-    const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      id: { [Op.in]: ["1", "2", "3", "4", "5", "6", "7"] }
-    }, {});
+    options.tableName = 'Reviews'; // define table name in options object
+    return queryInterface.bulkDelete(options); // pass in options object here
   }
+  //  async down (queryInterface, Sequelize) {
+  //   options.tableName = 'Reviews';
+  //   const Op = Sequelize.Op;
+  //   return queryInterface.bulkDelete(options, {
+  //     id: { [Op.in]: ["1", "2", "3", "4", "5", "6", "7"] }
+  //   }, {});
+  // }
 };
