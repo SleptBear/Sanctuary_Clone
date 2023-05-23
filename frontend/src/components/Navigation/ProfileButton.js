@@ -53,7 +53,6 @@ function ProfileButton({ user }) {
         <Burger/>
         <Person/>
       </button>
-      {/* <div> */}
 
       <ul className={ulClassName} ref={ulRef} style={{width: '100%'}}>
         {user ? (
@@ -62,9 +61,9 @@ function ProfileButton({ user }) {
 
             <li>Hello, {user.username}</li>
             <li>{user.email}</li>
-              <hr style={{width: '100%'}}></hr>
-            <li className="list-button">
-              <button onClick={logout}>Log Out</button>
+            <hr style={{width: '100%'}}></hr>
+            <li id="pointer" style={{justifyContent: 'center'}} onClick={logout}>Log Out
+
             </li>
           </>
         ) : (
@@ -80,19 +79,13 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
               />
-              <hr style={{width: '100%'}}></hr>
-              {/* <br></br> */}
-            <OpenModalMenuItem
-              itemText="Demo User"
-              onItemClick={closeMenu}
-              modalComponent={<Dummy />}
-              />
+
 
           </>
 
 )}
       </ul>
-{/* </div> */}
+
 
         </div>
     </>

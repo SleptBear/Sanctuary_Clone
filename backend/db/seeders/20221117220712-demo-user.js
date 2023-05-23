@@ -51,14 +51,21 @@ module.exports = {
     */
   },
 
+  // async down (queryInterface, Sequelize) {
+  //   options.tableName = 'Users';
+  //   const Op = Sequelize.Op;
+  //   return queryInterface.bulkDelete(options, {
+  //     // username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2', 'johnnysmith'] }
+  //     id: { [Op.in]: ['1', '2', '3', '4'] }
+  //   }, {});
+  // }
+
   async down (queryInterface, Sequelize) {
-    options.tableName = 'Users';
-    const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      // username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2', 'johnnysmith'] }
-      id: { [Op.in]: ['1', '2', '3', '4'] }
-    }, {});
+    options.tableName = 'Users'; // define table name in options object
+    return queryInterface.bulkDelete(options); // pass in options object here
   }
+
+
     /**
      * Add commands to revert seed here.
      *
