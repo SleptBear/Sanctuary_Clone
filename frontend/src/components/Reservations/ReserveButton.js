@@ -11,7 +11,7 @@ const ReserveButton = () => {
     return (
         <div
         // style={{display: 'flex', alignContent: 'center'}}
-        className="reserve-button">
+        className="reserve-button" id='not-allowed'>
         <button
         // style={{width: '80%',height: '80%', display: 'flex', justifyContent: 'center',}}
 

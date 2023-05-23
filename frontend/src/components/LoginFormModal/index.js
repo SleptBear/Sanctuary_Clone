@@ -32,8 +32,10 @@ function LoginFormModal() {
 
   return (
     <>
-    <h1>Welcome to Santuary</h1>
+    <div className='login-modal'>
+
     <form onSubmit={handleSubmit} className='login-spotform'>
+    <h1>Welcome to Santuary</h1>
       <label className="input-box">
         <input
         className='input-fields'
@@ -55,11 +57,13 @@ function LoginFormModal() {
         />
       </label>
       <button type="submit">Log In</button>
+    </form>
+      <button id='form-button' className="submit-button" onClick={() => dispatch(sessionActions.login("john.smith@gmail.com", "secret password")).then(() => closeModal())}>Demo User</button>
       <br></br>
         <div className='error-lists'>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </div>
-    </form>
+        </div>
         </>
   );
 }

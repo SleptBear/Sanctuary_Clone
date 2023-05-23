@@ -1,12 +1,12 @@
 #modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  width: 500px;
+height: 400px;
+top: 50%;
+left: 50%;
+margin-top: -200px; /* Negative half of height. */
+margin-left: -250px; /* Negative half of width. */
+
   }
 
   #modal-background {
@@ -15,6 +15,8 @@
     right: 0;
     left: 0;
     bottom: 0;
+    /* width: 100vw;
+    height: 100vh; */
     background-color: rgba(0, 0, 0, 0.7);
   }
 
@@ -25,4 +27,10 @@
 
   .profile-dropdown {
     color: black;
+  }
+
+  .login-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }

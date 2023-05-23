@@ -65,9 +65,7 @@ function ProfileButton({ user }) {
             {/* <li>{user.firstName} {user.lastName}</li> */}
             <li>{user.email}</li>
             <hr style={{width: '100%'}}></hr>
-            <li style={{justifyContent: 'center'}}>
-
-              <button onClick={logout}>Log Out</button>
+            <li id="pointer" style={{justifyContent: 'center'}} onClick={logout}>Log Out
 
             </li>
           </div>
@@ -85,13 +83,7 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
               />
-              <hr></hr>
-              {/* <br></br> */}
-            <OpenModalMenuItem
-              itemText="Demo User"
-              onItemClick={closeMenu}
-              modalComponent={<Dummy />}
-              />
+
 
           </>
 

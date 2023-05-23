@@ -1,4 +1,17 @@
 /* TODO Add site wide styles */
+#root {
+    min-width: 1080px;
+    max-width: 100vw;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 3.5rem;    /* Footer height */
+}
 
 button:hover {
     cursor: pointer;
@@ -116,7 +129,7 @@ button:hover {
     gap: 2rem;
     color: red;
     font-weight: bold;
-    
+
 }
 
 .create-spotform {
@@ -230,6 +243,19 @@ form > button {
     /* padding-right: 1rem; */
 }
 
+#form-button {
+    width: 90%;
+    color: white;
+    background-color: #FF5A5F;
+    border-radius: .5rem;
+    bottom: 2rem;
+    min-height: 2.5rem;
+    /* padding-top: 5px; */
+    border-width: 2px;
+    border-style: solid;
+
+}
+
 .home-submit-button {
     display: flex;
     flex-direction: row;
@@ -312,4 +338,58 @@ form > button {
     flex-direction: row;
     /* width: 100%; */
     justify-content: space-between
+}
+
+
+#footer {
+    position: relative;
+    bottom: 0;
+    /* width: 100vw; */
+    height: 7.5rem;            /* Footer height */
+    background-color: #f7f7f7;
+      color: black;
+      /* margin-top: 20px; */
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      font-size: 14px;
+      /* width: 100%; */
+      /* margin-top: 6rem; */
+      font-size: 18px;
+  }
+
+  #Footer-div {
+    display: flex;
+    /* min-height: 100vh; */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* margin-top: 10px; */
+  }
+
+  #dev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+  }
+
+  #dev div {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  #dev a {
+    color: rgb(231, 92, 194);
+    text-decoration: none;
+    margin: 2px;
+  }
+
+  #dev a:hover {
+    text-decoration: underline;
+  }
+
+  #not-allowed:hover {
+    cursor: not-allowed;
 }
