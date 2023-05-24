@@ -145,6 +145,7 @@
     /* gap: 3%; */
     /* background-color: blue; */
     gap: 4rem;
+    height: fit-content;
     /* align-items: flex-end; */
 
 }

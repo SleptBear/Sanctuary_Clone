@@ -47,12 +47,18 @@ button:hover {
 } */
 
 .review-section {
+    display: flex;
     width: 80%;
     max-height: 100rem;
     /* overflow: scroll; */
     /* background-color: red; */
+}
 
-
+#spot-show-left {
+    width: 60%;
+}
+#spot-show-right {
+    width: 40%;
 }
 
 .entire-review-container {
@@ -303,6 +309,7 @@ form > button {
 .reserve-button {
     width: 100%;
     border-radius: 0%;
+    list-style: none;
     /* background-color: blue; */
 }
 

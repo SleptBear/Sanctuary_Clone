@@ -1,6 +1,11 @@
 import './reservation.css'
+import { useState } from 'react';
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
+import LoginFormModal from '../LoginFormModal';
 
 const ReserveButton = () => {
+    const [showMenu, setShowMenu] = useState(false);
+    const closeMenu = () => setShowMenu(false);
 
     const placeHolder = async (e) => {
         e.preventDefault();
@@ -11,12 +16,15 @@ const ReserveButton = () => {
     return (
         <div
         // style={{display: 'flex', alignContent: 'center'}}
-        className="reserve-button" id='not-allowed'>
-        <button
-        // style={{width: '80%',height: '80%', display: 'flex', justifyContent: 'center',}}
+        className="reserve-button">
+            <button>
 
-        onClick={placeHolder}>
-            Reserve</button>
+        <OpenModalMenuItem
+              itemText="Log In to Reserve"
+              onItemClick={closeMenu}
+              modalComponent={<LoginFormModal />}
+              />
+              </button>
         </div>
     )
 }

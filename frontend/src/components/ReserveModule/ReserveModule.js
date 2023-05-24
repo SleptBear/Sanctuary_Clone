@@ -1,4 +1,5 @@
 import ReserveButton from "../Reservations/ReserveButton"
+import Bookings from "../Bookings"
 
 
 const ReserveModule = ({spot}) => {
@@ -32,7 +33,8 @@ const ReserveModule = ({spot}) => {
         </div>
 
         <div className="reserve-button-container">
-            <ReserveButton></ReserveButton>
+            {/* <ReserveButton></ReserveButton> */}
+            <Bookings/>
         </div>
     </div>
 )}

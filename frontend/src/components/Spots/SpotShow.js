@@ -10,6 +10,7 @@ import ReviewsIndex from "../Reviews/ReviewsIndex";
 // import UserReviewsIndex from "../Reviews/UserReviewsIndex";
 import SpotShowCard from "../Card/SpotShowCard";
 import DeleteReviewButton from "../DeleteReviewButton";
+import ReserveModule from "../ReserveModule/ReserveModule";
 
 const SpotShow = () => {
     const dispatch = useDispatch();
@@ -85,11 +86,24 @@ const SpotShow = () => {
             </div>
         </div>
         <br></br>
+
         <SpotShowCard spot={spot}></SpotShowCard>
-
 <div className="review-section">
+    <div id="spot-show-left">
 
-    <br></br>
+        <div className="spot-sub-info">
+                <div className="spot-body">
+                    <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
+                    {/* <h2>${spot.price} night</h2> */}
+                    <div className="detailed-description">
+                        {/* {console.log(spot.description.length)} */}
+                        <p>{spot.description}</p>
+                    </div>
+                </div>
+                {/* <div className="reserve-container">
+                    <ReserveModule spot={spot}></ReserveModule>
+                </div> */}
+        </div>
 
     <hr style={{width:'100%'}}></hr>
 
@@ -108,7 +122,13 @@ const SpotShow = () => {
         <br></br>
 
 </div>
+<div id="spot-show-right">
+<div className="reserve-container">
+                    <ReserveModule spot={spot}></ReserveModule>
+                </div>
+</div>
 
+                </div>
 </section>
 </>
     )
