@@ -2,21 +2,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    /* padding: 20px; */
     align-items: center;
-    font-family: Arial, sans-serif;
-    position: relative;
-    gap: 15px;
+    /* font-family: Arial, sans-serif; */
+    /* position: relative; */
+    /* gap: 15px; */
   }
 
   .show-calendar {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: #3498db;
     color: #fff;
     border: none;
     padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
+    /* border-radius: 5px; */
+    /* font-size: 16px; */
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -30,20 +31,20 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    position: absolute;
-    right: 0;
+    /* font-family: Arial, sans-serif; */
+    /* position: absolute; */
+    /* right: 0; */
   }
 
   .calendar {
-    width: 100%;
-    max-width: 600px;
+    width: 10%;
+    max-width: 500px;
     /* height: 400px; */
     height: 320px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 20px;
+    /* overflow: hidden; */
+    /* margin-bottom: 20px; */
   }
 
   .date-calendar-range {
@@ -104,74 +105,17 @@
     font-size: 16px;
   }
 
-
-
-  [data-theme='dark'] {
-    --background: #212121;
-    --primary: #fff;
+  .react-calendar button {
+    color: black;
+    background-color: white;
   }
 
+  .react-calendar__navigation {
+    margin-top: 10px;
 
-  body {
-    background-color: var(--background);
-    color: var(--primary);
   }
 
-  [data-theme='dark'] .calendar-container p {
-    background-color: #282c34;
-    color: #fff;
-  }
-
-  [data-theme='dark'] .calendar  {
-    background-color: #282c34;
-    color: #fff;
-  }
-
-  @media (max-width: 768px) {
-    .booking-container {
-      display: block;
-      padding: 0;
-    }
-
-    .calendar-container {
-      position: static;
-      margin-top: 20px;
-    }
-
-    .calendar {
-      width: 100%;
-      max-width: 100%;
-      /* height: 200px; */
-      margin-bottom: 0;
-    }
-
-    .create-booking-btn {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-  }
-
-  @media screen and (min-width: 769px) and (max-width: 1200px) {
-    .booking-container {
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .calendar-container {
-      position: relative;
-      margin-left: 20px;
-    }
-
-    .calendar {
-      width: 100%;
-      height: 400px;
-      margin-bottom: 0;
-    }
-
-    .create-booking-button {
-      margin-left: 20px;
-      margin-bottom: 0;
-    }
-
+  .date-calendar-range {
+    position: relative;
+    left: 2px;
   }
