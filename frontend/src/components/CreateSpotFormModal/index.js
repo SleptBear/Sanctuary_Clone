@@ -62,8 +62,8 @@ const CreateSpotFormModal = () => {
 
         return (
           <>
-    <h1>My Sanctuary</h1>
         <form onSubmit={handleSubmit} className="create-spotform" >
+    <h1>My Sanctuary</h1>
         <label className="input-box">
               Address:
             <input
@@ -158,7 +158,7 @@ const CreateSpotFormModal = () => {
             <textarea
               className="input-fields"
               type="text"
-              placeholder="description"
+              placeholder="description..."
               pattern="[-a-zA-Z0-9 .,;:?! ]*"
               value={description}
               onChange={e => setDescription(e.target.value)}
@@ -191,7 +191,9 @@ const CreateSpotFormModal = () => {
           </label>
           {/* <div className="home-submit-button"> */}
 
+          <br></br>
           <button type="submit">Submit Home</button>
+          <br></br>
         {hasSubmitted && errors.length > 0 && (
         <div className="error-lists">
            {errors.map((error) => <li key={error}>{error}</li>)}

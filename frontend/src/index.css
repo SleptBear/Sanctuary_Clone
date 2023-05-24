@@ -149,7 +149,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: white;
 }
 

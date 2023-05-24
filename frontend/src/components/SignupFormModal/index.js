@@ -101,11 +101,12 @@ function SignupFormModal() {
           required
           />
       </label>
-      <button type="submit">Sign Up</button>
       <br></br>
+      <button type="submit">Sign Up</button>
           <div className="error-lists">
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </div>
+      <br></br>
     </form>
     </>
   );

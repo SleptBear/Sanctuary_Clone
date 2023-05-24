@@ -1,11 +1,11 @@
 #modal {
   position: fixed;
-  width: 500px;
-height: 400px;
-top: 50%;
-left: 50%;
-margin-top: -200px; /* Negative half of height. */
-margin-left: -250px; /* Negative half of width. */
+  min-width: 500px;
+  min-height: 400px;
+  top: 50%;
+  left: 52.5%;
+  margin-top: -200px; /* Negative half of height. */
+  margin-left: -250px; /* Negative half of width. */
 
   }
 
@@ -15,14 +15,14 @@ margin-left: -250px; /* Negative half of width. */
     right: 0;
     left: 0;
     bottom: 0;
-    /* width: 100vw;
-    height: 100vh; */
     background-color: rgba(0, 0, 0, 0.7);
   }
 
   #modal-content {
     position: absolute;
     background-color:white;
+    width: fit-content;
+    height: fit-content;
   }
 
   .profile-dropdown {
