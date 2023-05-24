@@ -8,10 +8,10 @@ const { getCurrentUserById } = require('../../db/models/user');
 
 
 
-
+// current users bookings
 router.get(
     '/current',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     async (req, res) => {
         let user = req.user

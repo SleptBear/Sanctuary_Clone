@@ -739,8 +739,8 @@ router.delete(
 
 router.post(
     '/:spotIdForBooking/bookings',
-    restoreUser,
-    requireAuth,
+    // restoreUser,
+    // requireAuth,
     async (req, res) => {
         let userId = req.user.id;
         let spotId = Number(req.params.spotIdForBooking);
