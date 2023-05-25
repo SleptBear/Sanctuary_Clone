@@ -1,0 +1,121 @@
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 20px; */
+    align-items: center;
+    /* font-family: Arial, sans-serif; */
+    /* position: relative; */
+    /* gap: 15px; */
+  }
+
+  .show-calendar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    /* border-radius: 5px; */
+    /* font-size: 16px; */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .show-calendar:hover {
+    background-color: #f3282f;
+  }
+
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* font-family: Arial, sans-serif; */
+    /* position: absolute; */
+    /* right: 0; */
+  }
+
+  .calendar {
+    width: 10%;
+    max-width: 500px;
+    /* height: 400px; */
+    height: 320px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* overflow: hidden; */
+    /* margin-bottom: 20px; */
+  }
+
+  .date-calendar-range {
+    position: absolute;
+    z-index: 1;
+    right: 45px;
+  }
+
+  .calendar-container p {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .create-booking-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+
+  .create-booking-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+
+  .create-booking-btn:hover {
+    background-color: #f3282f;
+  }
+
+  .booking-mapped {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .booking-mapped li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .booking-mapped li p {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .react-calendar button {
+    color: black;
+    background-color: white;
+  }
+
+  .react-calendar__navigation {
+    margin-top: 10px;
+
+  }
+
+  .date-calendar-range {
+    position: relative;
+    left: 2px;
+  }

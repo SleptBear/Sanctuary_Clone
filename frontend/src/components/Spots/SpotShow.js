@@ -10,6 +10,7 @@ import ReviewsIndex from "../Reviews/ReviewsIndex";
 // import UserReviewsIndex from "../Reviews/UserReviewsIndex";
 import SpotShowCard from "../Card/SpotShowCard";
 import DeleteReviewButton from "../DeleteReviewButton";
+import ReserveModule from "../ReserveModule/ReserveModule";
 
 const SpotShow = () => {
     const dispatch = useDispatch();
@@ -71,10 +72,15 @@ const SpotShow = () => {
     return (
         <>
 <section className="spotDetailsContainer">
+    <div className="spotShowContainer">
 
-        <div className="name" style={{width:'80%'}}>{spot.name}</div>
+
+            <div id="name">
+        <div className="name">
+                {spot.name}</div>
+            </div>
         <br></br>
-        <div style={{width:'80%'}}>
+        <div id='location'>
 
             <div className="location">
                 {spot.city + ", " + spot.state + ", " + spot.country}
@@ -85,16 +91,36 @@ const SpotShow = () => {
             </div>
         </div>
         <br></br>
+
         <SpotShowCard spot={spot}></SpotShowCard>
+        <div id="review-section">
 
 <div className="review-section">
+    <div id="spot-show-left">
 
-    <br></br>
+        <div className="spot-sub-info">
+                <div className="spot-body">
+                    <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
+                    {/* <h2>${spot.price} night</h2> */}
+                    <div className="detailed-description">
+                        {/* {console.log(spot.description.length)} */}
+                        <p>{spot.description}</p>
+                    </div>
+                </div>
+                {/* <div className="reserve-container">
+                    <ReserveModule spot={spot}></ReserveModule>
+                </div> */}
+        </div>
 
     <hr style={{width:'100%'}}></hr>
 
     <br></br>
+<div>
 
+</div>
+<div id="below-card">
+
+</div>
     <div className="rating-container">
         <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
         <CreateReviewFormButton></CreateReviewFormButton>
@@ -108,7 +134,15 @@ const SpotShow = () => {
         <br></br>
 
 </div>
+<div id="spot-show-right">
+<div className="reserve-container">
+                    <ReserveModule spot={spot}></ReserveModule>
+                </div>
+</div>
 
+</div>
+                </div>
+                </div>
 </section>
 </>
     )

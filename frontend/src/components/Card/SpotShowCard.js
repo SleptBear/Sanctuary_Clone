@@ -1,5 +1,6 @@
 import React from "react";
 import ReserveModule from "../ReserveModule/ReserveModule";
+import Bookings from "../Bookings"
 import './Card.css'
 
 
@@ -25,7 +26,8 @@ function SpotShowCard({spot}) {
     }
     // console.log("URLs AFTER", urls)
 
-
+    let firstUrls = urls.slice(0,2)
+    let secondUrls = urls.slice(2)
     // let ulClassName = 'extra-imgs' + (spot?.SpotImages.length > 4 ? "" : " hidden");
 
     return (
@@ -35,33 +37,31 @@ function SpotShowCard({spot}) {
                 <img src={spot.SpotImages[0].url} alt='NOT FOUND'></img>
             </div>
             <div className="extra-images-container">
-
-
             {
-                urls.map((img, index) => (
-                
+                firstUrls.map((img, index) => (
                     <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>
-
-
                     ))
                 }
-
+            </div>
+            <div className="extra-images-container1">
+            {
+                secondUrls.map((img, index) => (
+                    <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>
+                    ))
+                }
             </div>
         </div>
-        <div className="spot-sub-info">
-
+        {/* <div className="spot-sub-info">
                 <div className="spot-body">
                     <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
-                    {/* <h2>${spot.price} night</h2> */}
                     <div className="detailed-description">
-                        {/* {console.log(spot.description.length)} */}
                         <p>{spot.description}</p>
                     </div>
                 </div>
                 <div className="reserve-container">
                     <ReserveModule spot={spot}></ReserveModule>
                 </div>
-        </div>
+        </div> */}
        </div>
     )
 }
