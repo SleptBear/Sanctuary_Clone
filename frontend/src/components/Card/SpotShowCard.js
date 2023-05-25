@@ -43,7 +43,7 @@ function SpotShowCard({spot}) {
                     ))
                 }
             </div>
-            <div className="extra-images-container">
+            <div className="extra-images-container1">
             {
                 secondUrls.map((img, index) => (
                     <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>

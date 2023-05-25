@@ -57,6 +57,13 @@ button:hover {
     /* background-color: red; */
 }
 
+#review-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
 #spot-show-left {
     width: 50%;
 }
@@ -329,7 +336,7 @@ form > button {
     flex-direction: column;
     /* justify-content: flex-start; */
     /* align-items: center; */
-    background-color: blue;
+    /* background-color: blue; */
     height:fit-content;
     width: 100%;
     /* margin-left: 5%; */
@@ -367,22 +374,36 @@ form > button {
     display: flex;
     flex-direction: row;
     max-width: 1242px;
-    /* width: 80%; */
+    width: 100%;
     font-weight:bolder;
     font-size:xx-large;
     /* background-color: red; */
     /* justify-content: center; */
     /* justify-items: start; */
 }
+#name {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* justify-content: flex-start; */
+    align-items: center;
+}
 
 .location {
     display: flex;
     flex-direction: row;
-    /* width: 80%; */
+    width: 100%;
     max-width: 1242px;
     /* background-color: purple; */
     /* justify-items: flex-start; */
     justify-content: space-between
+}
+#location {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 

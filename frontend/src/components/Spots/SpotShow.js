@@ -75,12 +75,12 @@ const SpotShow = () => {
     <div className="spotShowContainer">
 
 
-            {/* <div style={{width: '80%'}}> */}
+            <div id="name">
         <div className="name">
                 {spot.name}</div>
-            {/* </div> */}
+            </div>
         <br></br>
-        {/* <div style={{width:'80%'}}> */}
+        <div id='location'>
 
             <div className="location">
                 {spot.city + ", " + spot.state + ", " + spot.country}
@@ -89,10 +89,12 @@ const SpotShow = () => {
                     <button onClick={deleteIndex} className={ulClassName}>Destroy Sanctuary</button>
                 </div>
             </div>
-        {/* </div> */}
+        </div>
         <br></br>
 
         <SpotShowCard spot={spot}></SpotShowCard>
+        <div id="review-section">
+
 <div className="review-section">
     <div id="spot-show-left">
 
@@ -113,7 +115,12 @@ const SpotShow = () => {
     <hr style={{width:'100%'}}></hr>
 
     <br></br>
+<div>
 
+</div>
+<div id="below-card">
+
+</div>
     <div className="rating-container">
         <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
         <CreateReviewFormButton></CreateReviewFormButton>
@@ -134,6 +141,7 @@ const SpotShow = () => {
 </div>
 
 </div>
+                </div>
                 </div>
 </section>
 </>
