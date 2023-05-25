@@ -26,7 +26,8 @@ function SpotShowCard({spot}) {
     }
     // console.log("URLs AFTER", urls)
 
-
+    let firstUrls = urls.slice(0,2)
+    let secondUrls = urls.slice(2)
     // let ulClassName = 'extra-imgs' + (spot?.SpotImages.length > 4 ? "" : " hidden");
 
     return (
@@ -37,7 +38,14 @@ function SpotShowCard({spot}) {
             </div>
             <div className="extra-images-container">
             {
-                urls.map((img, index) => (
+                firstUrls.map((img, index) => (
+                    <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>
+                    ))
+                }
+            </div>
+            <div className="extra-images-container">
+            {
+                secondUrls.map((img, index) => (
                     <img src={img} alt='nothing yet' key={index} className='extra-imgs'></img>
                     ))
                 }

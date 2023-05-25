@@ -23,7 +23,7 @@
   }
 
   .show-calendar:hover {
-    background-color: #2980b9;
+    background-color: #f3282f;
   }
 
   .calendar-container {
@@ -84,7 +84,7 @@
   }
 
   .create-booking-btn:hover {
-    background-color: #2980b9;
+    background-color: #f3282f;
   }
 
   .booking-mapped {

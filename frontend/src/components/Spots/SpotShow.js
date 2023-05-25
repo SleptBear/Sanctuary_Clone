@@ -72,10 +72,15 @@ const SpotShow = () => {
     return (
         <>
 <section className="spotDetailsContainer">
+    <div className="spotShowContainer">
 
-        <div className="name" style={{width:'80%'}}>{spot.name}</div>
+
+            {/* <div style={{width: '80%'}}> */}
+        <div className="name">
+                {spot.name}</div>
+            {/* </div> */}
         <br></br>
-        <div style={{width:'80%'}}>
+        {/* <div style={{width:'80%'}}> */}
 
             <div className="location">
                 {spot.city + ", " + spot.state + ", " + spot.country}
@@ -84,7 +89,7 @@ const SpotShow = () => {
                     <button onClick={deleteIndex} className={ulClassName}>Destroy Sanctuary</button>
                 </div>
             </div>
-        </div>
+        {/* </div> */}
         <br></br>
 
         <SpotShowCard spot={spot}></SpotShowCard>
@@ -128,6 +133,7 @@ const SpotShow = () => {
                 </div>
 </div>
 
+</div>
                 </div>
 </section>
 </>

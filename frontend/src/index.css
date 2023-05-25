@@ -1,6 +1,6 @@
 /* TODO Add site wide styles */
 #root {
-    min-width: 1080px;
+    /* min-width: 1080px; */
     max-width: 100vw;
 }
 
@@ -26,8 +26,8 @@ button:hover {
 
 .body-container {
     width: 100%;
-    max-width: 1460px;
-    min-width: 703px;
+    /* max-width: 1460px; */
+    /* min-width: 703px; */
     display: flex;
     flex-direction: row;
     padding-left: 10%;
@@ -40,7 +40,7 @@ button:hover {
     gap: 2rem;
     /* background-color: blue; */
     /* padding-right: 10%; */
-    max-width: 90%;
+    /* max-width: 90%; */
 }
 /* .body-container-items a {
     max-width: 25%;
@@ -48,14 +48,17 @@ button:hover {
 
 .review-section {
     display: flex;
-    width: 80%;
+    justify-content: space-between;
+    /* width: 100vw; */
+    /* max-width: 100%; */
+    /* justify-content: center; */
     /* max-height: 100rem; */
     /* overflow: scroll; */
     /* background-color: red; */
 }
 
 #spot-show-left {
-    width: 60%;
+    width: 50%;
 }
 #spot-show-right {
     width: 40%;
@@ -324,14 +327,23 @@ form > button {
 .spotDetailsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    /* background-color: blue; */
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    background-color: blue;
     height:fit-content;
+    width: 100%;
+    /* margin-left: 5%; */
+    margin-right: 5%;
+    /* width: fit-content; */
+    /* max-width: 1250px; */
 }
 
+
 .large-card-container {
-    background-color: white;
+    /* background-color: rgba(255, 255, 255, 0.56); */
+    display: flex;
+    align-items: center;
+    /* max-width: 1244px; */
 }
 
 .detailsImage {
@@ -354,16 +366,22 @@ form > button {
 .name {
     display: flex;
     flex-direction: row;
-    justify-items: flex-start;
-    width: 50rem;
+    max-width: 1242px;
+    /* width: 80%; */
     font-weight:bolder;
-    font-size:xx-large
+    font-size:xx-large;
+    /* background-color: red; */
+    /* justify-content: center; */
+    /* justify-items: start; */
 }
 
 .location {
     display: flex;
     flex-direction: row;
-    /* width: 100%; */
+    /* width: 80%; */
+    max-width: 1242px;
+    /* background-color: purple; */
+    /* justify-items: flex-start; */
     justify-content: space-between
 }
 
