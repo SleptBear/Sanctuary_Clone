@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getAllBookingUser } from "../../store/bookings";
+import { deleteBooking, getAllBookingUser } from "../../store/bookings";
 import { useEffect } from "react";
+import DeleteBookingButton from "./DeleteBookingButton";
 
 
 function UserBookings() {
@@ -15,15 +16,17 @@ function UserBookings() {
         }
       }, [dispatch, user]);
 
+
+
       if (!user) {
         return <h1>Login or Create an account</h1>
       }
 
       if (!bookings || bookings.length === 0) {
-        return <h1>You have no Trips</h1>;
+        return <h1>You have no trips booked yet!</h1>;
+        <p>Time to dust off your bags and start planning your next adventure</p>;
+        <button className="start-searching">Start Searching</button>
       }
-
-      console.log(bookings)
 
     return (
         <div className='bookings-root'>
@@ -37,6 +40,7 @@ function UserBookings() {
                 <div>Location: {booking?.Spot.country}, {booking.Spot.city}</div>
                 <div>Check In: {booking?.startDate.slice(0,10)}</div>
                 <div>Check Out: {booking?.endDate.slice(0,10)}</div>
+                <DeleteBookingButton booking={booking}/>
                 {/* <img src={booking.Spot.SpotImages[0].url}></img> */}
 
 

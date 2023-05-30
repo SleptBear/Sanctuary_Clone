@@ -72,11 +72,12 @@ export const deleteBooking = (bookingId) => async (dispatch) => {
     const response = await csrfFetch(`/api/bookings/${bookingId}`, {
         method: 'DELETE'
     })
+    let data;
     if (response.ok) {
-        const data = await response.json()
-        dispatch(removeBooking(data))
-        return data
+        data = await response.json()
+        dispatch(removeBooking(bookingId))
     }
+    return data
 }
 
 export const editBookings = (booking) => async (dispatch) => {
@@ -137,9 +138,9 @@ export const bookingsReducer = (state = initialState, action) => {
             return { ...state, singleBooking: updatedBookings }
         case DELETE_BOOKINGS:
             newState = {...state}
-            let copy3 = {...newState.allBookings}
+            let copy3 = {...newState.userBookings}
             delete copy3[action.payload.id]
-            newState.allBookings = copy3
+            newState.userBookings = copy3
             return newState
         default:
             return state
