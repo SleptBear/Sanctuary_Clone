@@ -132,9 +132,14 @@ const SpotShow = () => {
 
         {/* <DeleteReviewButton></DeleteReviewButton> */}
         <br></br>
+        <br></br>
+        <br></br>
+        <hr style={{width:'100%'}}></hr>
 
 </div>
 <div id="spot-show-right">
+    <br></br>
+    <br></br>
 <div className="reserve-container">
                     <ReserveModule spot={spot}></ReserveModule>
                 </div>

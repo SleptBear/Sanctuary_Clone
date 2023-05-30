@@ -824,9 +824,21 @@ router.get(
         let spotData;
         // console.log(spot)
         if(spot) spotData = spot.dataValues
-        let Bookings;
-        if(spotData && spotData.ownerId === userId) {
+        else {
+            res.status(404);
+            return res.json({
+                "message": "Spot couldn't be found",
+                "statusCode": 404
+              })
+        }
 
+        let Bookings = await Booking.findAll({
+            where: {
+                spotId: spotId
+            },
+            attributes: ['spotId', 'startDate', 'endDate']
+        });
+        if(spotData && spotData.ownerId === userId) {
 
         Bookings = await Booking.findAll({
             where: {
@@ -838,23 +850,16 @@ router.get(
             }
             ]
         });
-    } else {
-        Bookings = await Booking.findAll({
-            where: {
-                spotId: spotId
-            },
-            attributes: ['spotId', 'startDate', 'endDate']
-        });
     }
 
 // console.log(spotBookings[0])
-        if(!Bookings[0]) {
-            res.status(404);
-            return res.json({
-                "message": "Spot couldn't be found",
-                "statusCode": 404
-              })
-        }
+        // if(!Bookings[0]) {
+        //     res.status(404);
+        //     return res.json({
+        //         "message": "Spot couldn't be found",
+        //         "statusCode": 404
+        //       })
+        // }
 
         res.json({Bookings})
     }

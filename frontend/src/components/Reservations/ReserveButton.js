@@ -17,7 +17,7 @@ const ReserveButton = () => {
         <div
         // style={{display: 'flex', alignContent: 'center'}}
         className="reserve-button">
-            <button>
+            <button className='please-log-in'>
 
         <OpenModalMenuItem
               itemText="Log In to Reserve"

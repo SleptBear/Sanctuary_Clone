@@ -21,6 +21,18 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
+  .please-log-in {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    /* border-radius: 5px; */
+    /* font-size: 16px; */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
   .show-calendar:hover {
     background-color: #f3282f;
@@ -118,4 +130,24 @@
   .date-calendar-range {
     position: relative;
     left: 2px;
+  }
+
+  .bookings-root {
+    margin: 50px auto;
+    max-width: 1800px;
+  }
+
+  .User-Bookings-Container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .User-Bookings-Container:first-child {
+    margin-top: 0px;
+  }
+  .User-Bookings-Container:last-child {
+    margin-bottom: 0px;
   }

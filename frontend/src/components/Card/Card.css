@@ -221,12 +221,36 @@
 
 }
 
+@media screen and (max-width: 960px) {
+    .reserve-container {
+        min-width: 45%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: fit-content;
+        /* background-color: pink; */
+
+    }
+    .extra-images-container1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .extra-images-container {
+        display: none;
+    }
+
+}
+
 .reserve-box {
     /* background-color: gray; */
     width: 90%;
     /* height: 12rem; */
     min-height: fit-content;
     max-height: fit-content;
+    max-width: 500px;
     /* padding-top: 40px; */
     /* max-height: 100%; */
     /* min-height: 60%; */

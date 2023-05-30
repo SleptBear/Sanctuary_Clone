@@ -7,11 +7,13 @@ import SignupFormModal from '../SignupFormModal';
 import Dummy from "../SampleUserButton/SampleUserButton";
 import Person from "../Icons/mainIcon";
 import Burger from "../Icons/hamburger";
+import { useHistory } from "react-router-dom";
 // import Logo from "../Icon.js/logo";
 // import { useModal } from "../../context/Modal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   // const { closeModal } = useModal();
@@ -43,6 +45,11 @@ function ProfileButton({ user }) {
     closeMenu();
   };
 
+  const handleTrips = (e) => {
+    e.preventDefault();
+    history.push('/trips')
+  }
+
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
   return (
@@ -59,12 +66,12 @@ function ProfileButton({ user }) {
           <>
 
 
-            <li>Hello, {user.username}</li>
-            <li>{user.email}</li>
+            <li id="mouse">Hello, {user.username}</li>
+            <li id="mouse">{user.email}</li>
             <hr style={{width: '100%'}}></hr>
-            <li id="pointer" style={{justifyContent: 'center'}} onClick={logout}>Log Out
-
-            </li>
+            <li onClick={handleTrips}>Trips</li>
+            <hr style={{width: '100%'}}></hr>
+            <li id="pointer" style={{justifyContent: 'center'}} onClick={logout}>Log Out</li>
           </>
         ) : (
           <>

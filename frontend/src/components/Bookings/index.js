@@ -88,7 +88,9 @@ const Bookings = () => {
   // }
 
   if (!user) {
-    return <ReserveButton/>
+    return (
+      <ReserveButton/>
+    )
   }
 
   return (
