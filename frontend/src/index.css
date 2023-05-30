@@ -64,7 +64,7 @@ button:hover {
     align-items: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1230px) {
     #review-section {
         display: flex;
         flex-direction: column;

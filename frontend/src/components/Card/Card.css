@@ -232,6 +232,16 @@
         /* background-color: pink; */
 
     }
+    .extra-images-container1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .extra-images-container {
+        display: none;
+    }
+
 }
 
 .reserve-box {
