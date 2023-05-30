@@ -64,12 +64,45 @@ button:hover {
     align-items: center;
 }
 
+@media screen and (max-width: 1200px) {
+    #review-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: normal;
+    }
+}
 #spot-show-left {
     width: 50%;
 }
 #spot-show-right {
     width: 40%;
 }
+@media screen and (max-width: 960px) {
+    .review-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    #spot-show-left {
+        width: 100%;
+    }
+    #spot-show-right {
+        width: 100%;
+    }
+    .bigger-review-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        justify-items: center;
+        /* padding-bottom: 10px; */
+        /* gap: 20px; */
+
+    }
+}
+
 
 .entire-review-container {
     display: flex;

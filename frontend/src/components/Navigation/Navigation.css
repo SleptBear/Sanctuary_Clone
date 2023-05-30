@@ -151,6 +151,9 @@ li > button {
 #pointer:hover {
     cursor: pointer;
 }
+#mouse:hover {
+    cursor: default
+}
 
 .fa-brands {
     color: #FF5A5F;
