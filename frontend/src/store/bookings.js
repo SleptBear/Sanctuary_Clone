@@ -38,7 +38,7 @@ export const getAllBookings = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${id}/bookings`)
     if (response.ok) {
         const bookingData = await response.json()
-        // console.log({bookingData})
+        console.log({bookingData})
         dispatch(loadBookings(bookingData))
         return bookingData
     }
@@ -93,7 +93,7 @@ export const editBookings = (booking) => async (dispatch) => {
     }
 }
 
-const initialState = { allBookings: {}, singleBooking: {} }
+const initialState = { allBookings: {}, singleBooking: {}, userBookings: {} }
 
 export const bookingsReducer = (state = initialState, action) => {
     let newState;
@@ -102,8 +102,8 @@ export const bookingsReducer = (state = initialState, action) => {
             newState = { ...state }
             let copy = {}
             // console.log('newState', newState)
-            // console.log('ACTION2', action.payload.id)
-            action.payload.Booking.forEach((booking, index) => {
+            // console.log('ACTION2', action.payload)
+            action.payload.Bookings.forEach((booking, index) => {
                 // console.log('ACTION', action.payload)
 
                 copy[index] = booking
@@ -120,7 +120,7 @@ export const bookingsReducer = (state = initialState, action) => {
 
                 copy4[index] = booking
             });
-            newState.allBookings = copy4
+            newState.userBookings = copy4
             return newState
         case ADD_BOOKINGS:
             newState = { ...state }
