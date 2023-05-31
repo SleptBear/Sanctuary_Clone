@@ -33,7 +33,7 @@ function ListHomeButton({ user }) {
 // const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
 return (
-    <div>
+    <div className="listing-part">
       <OpenModalButton
       buttonText="Build a Sanctuary"
       onButtonClick={openMenu}

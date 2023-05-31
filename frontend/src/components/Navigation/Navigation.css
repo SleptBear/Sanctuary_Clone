@@ -110,6 +110,7 @@ li > button {
     border-radius: 1rem;
     border-style: none;
     box-shadow: 0px 0px 15px -5px;
+    box-shadow: 0 0 2px rgba(10, 10, 10, 0.70);
 }
 
  .profile-dropdown {
@@ -139,6 +140,7 @@ li > button {
 
 .profile-dropdown li {
     padding: 10px;
+    transition: .5s;
 }
 .profile-dropdown li:hover {
     background-color: lightgray;
@@ -152,7 +154,8 @@ li > button {
     cursor: pointer;
 }
 #mouse:hover {
-    cursor: default
+    cursor: default;
+    background-color: white;
 }
 
 .fa-brands {

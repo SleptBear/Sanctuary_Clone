@@ -47,7 +47,8 @@ function SpotCard({spot}) {
             </div>
             {/* <br></br> */}
             <div className="card-body">
-                <div>$ {checkPrice()} night</div>
+                <div>$ {checkPrice()}</div>
+                <p style={{fontWeight: 'normal'}}> night</p>
             </div>
         </div>
        </div>

@@ -76,7 +76,7 @@ router.get(
 
 router.delete(
     '/:bookingId',
-    restoreUser,
+    // restoreUser,
     requireAuth,
     async (req, res) => {
         let user = req.user
@@ -101,7 +101,7 @@ router.delete(
         if(booking.dataValues.startDate < new Date) {
             res.status(403);
             return res.json({
-                "message": "Bookings that have been started can't be deleted",
+                "errors": "Bookings that have been started can't be deleted",
                 "statusCode": 403
               })
         }
@@ -128,7 +128,7 @@ router.put(
         let startDate = new Date(req.body.startDate);
         let endDate = new Date(req.body.endDate);
 
-        console.log(endDate < startDate)
+        // console.log(endDate < startDate)
         if(endDate <= startDate) {
             res.status(400);
             return res.json({
