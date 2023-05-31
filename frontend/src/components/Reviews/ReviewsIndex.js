@@ -47,7 +47,7 @@ if (!reviewsArray[0]) return null
     return (
         <>
 
-            <h2>REVIEWS</h2>
+            {/* <h2>REVIEWS</h2> */}
 
             <div className="entire-review-container">
 
@@ -60,17 +60,17 @@ if (!reviewsArray[0]) return null
                     <h4 className="review-top" style={{margin: '0px'}}>
 
                         <i className="fa-solid fa-user"></i>
-                            <p>{review.User?.firstName}</p>
+                            <p style={{fontSize: 'x-large', marginBottom: '10px'}} >{review.User?.firstName}</p>
                         <div className="review-top-nd">
 
                         <DeleteReviewButton user={currentUser} review={review}></DeleteReviewButton>
                         </div>
 
                     </h4>
-                            <p style={{fontWeight: 'initial', margin: '0px'}}>{(review.createdAt.slice(0,10))}</p>
+                            <p style={{fontWeight: 'initial', margin: '0px', fontSize: 'small'}}>{(review.createdAt.slice(0,10))}</p>
 
                     <div>
-                        <p className="p-review">{review.review}</p>
+                        <p style={{fontSize: 'large'}} className="p-review">{review.review}</p>
                     </div>
 
 

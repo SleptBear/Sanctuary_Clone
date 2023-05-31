@@ -64,43 +64,11 @@ button:hover {
     align-items: center;
 }
 
-@media screen and (max-width: 1230px) {
-    #review-section {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: normal;
-    }
-}
 #spot-show-left {
     width: 50%;
 }
 #spot-show-right {
     width: 40%;
-}
-@media screen and (max-width: 960px) {
-    .review-section {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
-    #spot-show-left {
-        width: 100%;
-    }
-    #spot-show-right {
-        width: 100%;
-    }
-    .bigger-review-container {
-        display: grid;
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: auto;
-        justify-items: center;
-        /* padding-bottom: 10px; */
-        /* gap: 20px; */
-
-    }
 }
 
 
@@ -148,6 +116,44 @@ button:hover {
     /* gap: 5px; */
 }
 
+@media screen and (max-width: 1230px) {
+    #review-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: normal;
+    }
+}
+@media screen and (max-width: 960px) {
+    .review-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    #spot-show-left {
+        width: 100%;
+    }
+    #spot-show-right {
+        width: 100%;
+    }
+    .bigger-review-container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        grid-auto-rows: auto;
+        justify-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        /* padding-bottom: 10px; */
+        /* gap: 20px; */
+    }
+
+    .detailed-description {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
 .p-review {
     font-size: medium;
     max-height: 60%;
@@ -297,6 +303,9 @@ div > button {
     border-style: none;
     background-color: white;
     font-weight: bold;
+    transition: .5s;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
     /* box-shadow: 0px 0px 15px -5px; */
 }
 
@@ -364,6 +373,24 @@ form > button {
 
 }
 
+.create-review-button button {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background-color: lightgray;
+    transition: .5s;
+}
+
+.create-review-button button:hover {
+    background-color: lightslategray;
+}
+
+.listing-part button:hover {
+    background-color: lightgray;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+
+
 .spotDetailsContainer {
     display: flex;
     flex-direction: column;
@@ -399,7 +426,9 @@ form > button {
     justify-items: flex-start;
     width: 50rem;
     font-weight:bolder;
+    font-size: xx-large;
     gap: 5px;
+    align-items: center;
 
 }
 
@@ -446,49 +475,54 @@ form > button {
     /* width: 100vw; */
     height: 7.5rem;            /* Footer height */
     background-color: #f7f7f7;
-      color: black;
-      /* margin-top: 20px; */
-      padding-top: 20px;
-      display: flex;
-      flex-direction: column;
-      /* justify-content: center; */
-      align-items: center;
-      font-size: 14px;
-      /* width: 100%; */
-      /* margin-top: 6rem; */
-      font-size: 18px;
-  }
+    color: black;
+    /* margin-top: 20px; */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    font-size: 14px;
+    /* width: 100%; */
+    /* margin-top: 6rem; */
+    font-size: 18px;
+}
 
-  #Footer-div {
+#Footer-div {
     display: flex;
     /* min-height: 100vh; */
     flex-wrap: wrap;
     justify-content: center;
     /* margin-top: 10px; */
-  }
+}
 
-  #dev {
+#dev {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
-  }
+}
 
-  #dev div {
+#dev div {
     font-weight: bold;
     margin-bottom: 5px;
-  }
+}
 
-  #dev a {
+#dev a {
     color: rgb(231, 92, 194);
     text-decoration: none;
     margin: 2px;
-  }
+}
 
-  #dev a:hover {
+#dev a:hover {
     text-decoration: underline;
-  }
+}
 
-  #not-allowed:hover {
+#not-allowed:hover {
     cursor: not-allowed;
+}
+
+.user-menu button:hover {
+    box-shadow: 0 0 2px rgba(10, 10, 10, 0.70);
+    box-shadow: 0px 0px 15px -5px;
 }

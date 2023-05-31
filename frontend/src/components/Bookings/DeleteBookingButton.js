@@ -19,7 +19,7 @@ const DeleteBookingButton = (prop) => {
           dispatch(getAllBookingUser())
         })
         .catch(async (res) => {
-          const data = await res
+          const data = await res.json()
           console.log("Checking data returning to form", data)
           if (data && data.errors) setErrors(data.errors)
           console.log("ERRORS", errors)
@@ -31,6 +31,7 @@ const DeleteBookingButton = (prop) => {
           <div className="delete-booking-button">
           <button
           onClick={removeIndex}><i className="fa-solid fa-trash-can"></i></button>
+          <ul style={{color: 'red'}}>{errors}</ul>
           </div>
       )
   }

@@ -150,6 +150,10 @@
     margin-bottom: 20px;
   }
 
+  .delete-booking-button {
+    display: flex;
+  }
+
   /* .User-Bookings-Container:first-child {
     margin-top: 0px;
   }

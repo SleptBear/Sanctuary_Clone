@@ -9,6 +9,7 @@ function UserBookings() {
     const user = useSelector((state) => state.session.user)
     const bookingsObj = useSelector((state) => state.bookings.userBookings)
     const bookings = Object.values(bookingsObj)
+    bookings.reverse()
 
     useEffect(() => {
         if (user && user.id) {
