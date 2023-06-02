@@ -59,23 +59,19 @@
 
 ### Checkout the illustrations below depicting how users can interact with basic CRUD functionality for specific features
 
+## login/sign-up
+![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/3952d9b2-59f4-4a4d-8ef0-02ce9544c049)
+
+
 ## Demo User/Log in
 ### Some functionality of site is locked behind a user needing to be logged in. Create a new one or use our demo user when trying to log in.
 ![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/55a010e0-3d7a-45b3-8b4e-cb5475e96c15)
 
-
-## Sign-up:
-![image](https://user-images.githubusercontent.com/107887726/229395219-d1012a7d-6518-4ccf-9408-328b624ab69d.png)
-
-## Splash Page:
-### Shows recent activity from users leaving reviews
-![image](https://user-images.githubusercontent.com/107887726/229396146-d4cc8502-2474-40ef-8c92-8bb2f63560f9.png)
-
-## List of all current listings (Maps integration coming soon)
+## List of all current listings
 ![image](https://user-images.githubusercontent.com/107887726/229395350-aeff7003-3da8-4c8e-b73b-4f5d4146851c.png)
 
-## Create your buisnesses listing on our site
-![image](https://user-images.githubusercontent.com/107887726/229395391-1f826983-2bbe-40c9-8f1c-75944a392968.png)
+## Create your sanctuary listing on our site
+![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/34914e4a-c85b-4ae7-9f23-18286445990d)
 
 ## View details of any location, start a review, and more to come.
 ![image](https://user-images.githubusercontent.com/107887726/229395550-4a91a6a8-541f-4cc7-b687-240e134fede1.png)
