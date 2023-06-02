@@ -51,6 +51,47 @@
 
    ```bash
    npm start
+   ```
+7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+
+
+# Features Directions:
+
+### Checkout the illustrations below depicting how users can interact with basic CRUD functionality for specific features
+
+## Demo User/Log in
+### Some functionality of site is locked behind a user needing to be logged in. Create a new one or use our demo user when trying to log in.
+![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/55a010e0-3d7a-45b3-8b4e-cb5475e96c15)
+
+
+## Sign-up:
+![image](https://user-images.githubusercontent.com/107887726/229395219-d1012a7d-6518-4ccf-9408-328b624ab69d.png)
+
+## Splash Page:
+### Shows recent activity from users leaving reviews
+![image](https://user-images.githubusercontent.com/107887726/229396146-d4cc8502-2474-40ef-8c92-8bb2f63560f9.png)
+
+## List of all current listings (Maps integration coming soon)
+![image](https://user-images.githubusercontent.com/107887726/229395350-aeff7003-3da8-4c8e-b73b-4f5d4146851c.png)
+
+## Create your buisnesses listing on our site
+![image](https://user-images.githubusercontent.com/107887726/229395391-1f826983-2bbe-40c9-8f1c-75944a392968.png)
+
+## View details of any location, start a review, and more to come.
+![image](https://user-images.githubusercontent.com/107887726/229395550-4a91a6a8-541f-4cc7-b687-240e134fede1.png)
+
+## Create your own review about a location.
+![image](https://user-images.githubusercontent.com/107887726/229395628-98d7952d-fa9e-440d-8c01-b5abb9e236a3.png)
+
+## Bonus Feature
+
+## User Profile Page can be used to manage reviews and update profile photo
+![image](https://user-images.githubusercontent.com/107887726/229395760-2bc30e39-b10b-4253-8595-5b0c1a30b493.png)
+
+# Features Coming Soon
+## Google maps api integration
+## Filtered Search on navbar and locations listing page.
+
 
 ## Current Spot Details Page on creation and no updates
 ![Alt text](frontend/images/spot_details_page.png)
