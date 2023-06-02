@@ -14,7 +14,7 @@
 - Database: PostgresSQL
 - Hosting: Render
 
-## Getting started
+# Getting started
 1. Clone this repository (only this branch)
 
 2. Install dependencies
