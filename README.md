@@ -74,7 +74,7 @@
 ![Alt text](frontend/images/spot_details_page.png)
 
 ## Create your own review about a location.
-![image](https://user-images.githubusercontent.com/107887726/229395628-98d7952d-fa9e-440d-8c01-b5abb9e236a3.png)
+![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/93ad30f1-c075-44b3-8b8b-f918a65ad4e6)
 
 ## User can create bookings on location details page
 ![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/24f31f30-4974-490f-a6c7-8fbd2ae77583)
