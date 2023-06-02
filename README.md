@@ -70,8 +70,8 @@
 ## Create your sanctuary listing on our site
 ![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/34914e4a-c85b-4ae7-9f23-18286445990d)
 
-## View details of any location, start a review, and more to come.
-![image](https://user-images.githubusercontent.com/107887726/229395550-4a91a6a8-541f-4cc7-b687-240e134fede1.png)
+## Current Spot Details Page on creation and no updates
+![Alt text](frontend/images/spot_details_page.png)
 
 ## Create your own review about a location.
 ![image](https://user-images.githubusercontent.com/107887726/229395628-98d7952d-fa9e-440d-8c01-b5abb9e236a3.png)
@@ -85,6 +85,3 @@
 # Features Coming Soon
 ## Filtered Search on navbar
 
-
-## Current Spot Details Page on creation and no updates
-![Alt text](frontend/images/spot_details_page.png)
