@@ -67,9 +67,6 @@
 ### Some functionality of site is locked behind a user needing to be logged in. Create a new one or use our demo user when trying to log in.
 ![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/55a010e0-3d7a-45b3-8b4e-cb5475e96c15)
 
-## List of all current listings
-![image](https://user-images.githubusercontent.com/107887726/229395350-aeff7003-3da8-4c8e-b73b-4f5d4146851c.png)
-
 ## Create your sanctuary listing on our site
 ![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/34914e4a-c85b-4ae7-9f23-18286445990d)
 
@@ -79,14 +76,14 @@
 ## Create your own review about a location.
 ![image](https://user-images.githubusercontent.com/107887726/229395628-98d7952d-fa9e-440d-8c01-b5abb9e236a3.png)
 
-## Bonus Feature
+## User can create bookings on location details page
+![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/24f31f30-4974-490f-a6c7-8fbd2ae77583)
 
-## User Profile Page can be used to manage reviews and update profile photo
-![image](https://user-images.githubusercontent.com/107887726/229395760-2bc30e39-b10b-4253-8595-5b0c1a30b493.png)
+## User can manage bookings (RD)
+![image](https://github.com/SleptBear/Sanctuary_Clone/assets/107887726/0e3b535b-7bc1-47bc-8998-ad3c68dbcc5b)
 
 # Features Coming Soon
-## Google maps api integration
-## Filtered Search on navbar and locations listing page.
+## Filtered Search on navbar
 
 
 ## Current Spot Details Page on creation and no updates
