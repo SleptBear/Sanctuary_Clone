@@ -48,7 +48,7 @@ export const getSpots = () => async dispatch => {
 
 }
 export const createSpot = (spot, imgData) => async dispatch => {
-
+    const formData = new FormData();
     const res = await csrfFetch('/api/spots', {
         method: 'POST',
         headers: {
@@ -59,13 +59,14 @@ export const createSpot = (spot, imgData) => async dispatch => {
 
 
 if (res.ok) {
+    if (imgData) formData.append("image", imgData);
     const data = await res.json()
     const res2 = await csrfFetch(`/api/spots/${data.id}/images`, {
         method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
         },
-        body: JSON.stringify(imgData)
+        body: formData
     })
     if(res2.ok) {
         const data2 = await res2.json();

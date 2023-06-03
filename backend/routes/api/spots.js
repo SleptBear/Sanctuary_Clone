@@ -6,6 +6,8 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { getCurrentUserById } = require('../../db/models/user');
 const user = require('../../db/models/user');
+const { singlePublicFileUpload } = require('../../awsS3')
+const { singleMulterUpload } = require('../../awsS3')
 
 
 //each check must pass only on .argument and .with message
@@ -262,11 +264,13 @@ router.post(
 //create and post image based on spotId
 router.post(
     '/:spotId/images',
+    singleMulterUpload("image"),
     // restoreUser,
     requireAuth,
     async (req, res) => {
         let spotId = req.params.spotId;
-        let url = req.body.url;
+        // let url = req.body.url;
+        let url = await singlePublicFileUpload(req.file);
         let preview = req.body.preview;
 
         let spot = await Spot.findByPk(spotId)

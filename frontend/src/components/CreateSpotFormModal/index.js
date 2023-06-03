@@ -19,7 +19,7 @@ const CreateSpotFormModal = () => {
     const [name ,setName] = useState('');
     const [description ,setDescription] = useState('');
     const [price ,setPrice] = useState('');
-    const [imgUrl ,setImgUrl] = useState('')
+    const [imgUrl ,setImgUrl] = useState(null)
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const { closeModal } = useModal();
@@ -181,13 +181,23 @@ const CreateSpotFormModal = () => {
           <label className='input-box'>
             Preview Image:
             <input
+                type='file'
+                className='custom-file-upload'
+                accept='image/*'
+                onChange={(e) => setImgUrl(e.target.files[0])}
+                title='Please add Image of location'
+                required
+                >
+                    {/* <i class="fa-solid fa-file-arrow-up"></i> */}
+                </input>
+            {/* <input
               className="input-fields"
               type="url"
               value={imgUrl}
               placeholder='Preview Image'
               onChange={e => setImgUrl(e.target.value)}
               required
-              />
+              /> */}
           </label>
           {/* <div className="home-submit-button"> */}
 
