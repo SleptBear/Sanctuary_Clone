@@ -68,9 +68,9 @@ const UpdateSpotFormModal = () => {
         })
         .catch(async (res) => {
             const data = await res;
-            console.log("Checking data returning to form", data)
+            // console.log("Checking data returning to form", data)
             if (data && data.errors) setErrors(data.errors)
-            console.log('ERRORS', errors)
+            // console.log('ERRORS', errors)
           });
     }
 //todo check if create validation inbackend works for upating spot errors rn no errors return.

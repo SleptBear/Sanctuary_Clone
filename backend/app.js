@@ -9,7 +9,6 @@ const routes = require('./routes');
 const { environment } = require('./config');
 const isProduction = environment === 'production';
 const app = express();
-// console.log(environment);
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));

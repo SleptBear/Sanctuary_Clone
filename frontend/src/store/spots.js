@@ -103,11 +103,11 @@ export const updateSpot = (spot, spotId, imgData) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spot)
     })
-    console.log("response", res)
+    // console.log("response", res)
     const data = await res.json();
-    console.log('updated spot', data)
-    console.log('res status', res.ok)
-    console.log(imgData)
+    // console.log('updated spot', data)
+    // console.log('res status', res.ok)
+    // console.log(imgData)
 
 
     if (res.ok) {

@@ -46,9 +46,9 @@ const SpotShow = () => {
               })
               .catch(async (res) => {
                 const data = await res.json();
-                console.log("data from api", data)
+                // console.log("data from api", data)
                 if (data && data.errors) setErrors(data.errors)
-                console.log('ERRORS', errors)
+                // console.log('ERRORS', errors)
               });
         }
     }
