@@ -59,7 +59,7 @@ export const createSpot = (spot, imgData) => async dispatch => {
 
 
 if (res.ok) {
-    if (imgData) formData.append("image", imgData);
+    if (imgData) formData.append("image", imgData.url);
     const data = await res.json()
     const res2 = await csrfFetch(`/api/spots/${data.id}/images`, {
         method: 'POST',
@@ -97,26 +97,40 @@ export const getSpot = (spotId) => async dispatch => {
 
 
 export const updateSpot = (spot, spotId, imgData) => async dispatch => {
+    const formData = new FormData();
     const res = await csrfFetch(`/api/spots/${spotId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spot)
     })
-    // console.log("response", res)
+    console.log("response", res)
     const data = await res.json();
-    // console.log('updated spot', data)
-    // console.log('res status', res.ok)
+    console.log('updated spot', data)
+    console.log('res status', res.ok)
+    console.log(imgData)
 
 
-    if (res.ok && imgData.url.length > 5) {
+    if (res.ok) {
         // data.Owner = spot.Owner
         // data.SpotImages = spot.SpotImages
+        if (imgData) formData.append("image", imgData.url);
 
-        const res2 = await csrfFetch(`/api/spots/${spotId}/images`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(imgData)
-        })
+    const res2 = await csrfFetch(`/api/spots/${spotId}/images`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData
+    })
+    // if(res2.ok) {
+    //     const data2 = await res2.json();
+    // }
+
+        // const res2 = await csrfFetch(`/api/spots/${spotId}/images`, {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(imgData)
+        // })
     }
     //todo dispatch update with correct data types and value instead of read
     if (res.ok) {
