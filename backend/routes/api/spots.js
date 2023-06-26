@@ -6,6 +6,8 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { getCurrentUserById } = require('../../db/models/user');
 const user = require('../../db/models/user');
+const { singlePublicFileUpload } = require('../../awsS3')
+const { singleMulterUpload } = require('../../awsS3')
 
 
 //each check must pass only on .argument and .with message
@@ -262,14 +264,27 @@ router.post(
 //create and post image based on spotId
 router.post(
     '/:spotId/images',
+    singleMulterUpload("image"),
     // restoreUser,
     requireAuth,
     async (req, res) => {
         let spotId = req.params.spotId;
-        let url = req.body.url;
-        let preview = req.body.preview;
+        console.log(req.body)
+        // let url = req.body.url;
+        let url = await singlePublicFileUpload(req.file);
+        let preview = false
 
-        let spot = await Spot.findByPk(spotId)
+        // let spot = await Spot.findByPk(spotId)
+        const spot = await Spot.findOne({
+            where: {
+                id: spotId
+            },
+            include: [
+                {
+                    model: SpotImage,
+                },
+            ],
+         } )
         if (!spot) {
             res.status(404)
             res.send({
@@ -279,28 +294,18 @@ router.post(
 
             })
         }
-
+        console.log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK", spot)
+        if (!spot.dataValues.SpotImages[0]) preview = true
         let image = await SpotImage.create({
             spotId,
             url,
             preview
         })
-
-        // let finder = await SpotImage.findAll({
-        //     where: {
-        //         spotId: spotId
-        //     },
-        // //         attributes: {
-        // //             exclude: ['spotId']
-        // //         }
-
-        // })
-
-        // console.log(image)
         let imageData = image.dataValues
         delete imageData.spotId;
         delete imageData.updatedAt;
         delete imageData.createdAt;
+        // console.log("OG request>>>>>>>>>>>>>>>", req)
 
         res.json(imageData);
         // res.json(finder)

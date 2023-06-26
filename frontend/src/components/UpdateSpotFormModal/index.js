@@ -23,7 +23,7 @@ const UpdateSpotFormModal = () => {
     const [name ,setName] = useState(stateSpot.name);
     const [description ,setDescription] = useState(stateSpot.description);
     const [price ,setPrice] = useState(stateSpot.price);
-    const [imgUrl ,setImgUrl] = useState('');
+    const [imgUrl ,setImgUrl] = useState(null);
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -67,10 +67,10 @@ const UpdateSpotFormModal = () => {
           closeModal()
         })
         .catch(async (res) => {
-            const data = await res.json();
-            console.log("Checking data returning to form", data)
+            const data = await res;
+            // console.log("Checking data returning to form", data)
             if (data && data.errors) setErrors(data.errors)
-            console.log('ERRORS', errors)
+            // console.log('ERRORS', errors)
           });
     }
 //todo check if create validation inbackend works for upating spot errors rn no errors return.
@@ -199,13 +199,23 @@ const UpdateSpotFormModal = () => {
           <label className="input-box">
             Image:
             <input
+                type='file'
+                className='custom-file-upload'
+                accept='image/*'
+                onChange={(e) => setImgUrl(e.target.files[0])}
+                title='Please add Image of location'
+                required
+                >
+                    {/* <i class="fa-solid fa-file-arrow-up"></i> */}
+                </input>
+            {/* <input
               className="input-fields"
               type="url"
               placeholder="Add New Image (optional)"
               value={imgUrl}
               onChange={e => setImgUrl(e.target.value)}
               // required
-              />
+              /> */}
           </label>
           <button type="submit">Update Home</button>
           {hasSubmitted && errors.length > 0 && (

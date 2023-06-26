@@ -46,9 +46,9 @@ const SpotShow = () => {
               })
               .catch(async (res) => {
                 const data = await res.json();
-                console.log("data from api", data)
+                // console.log("data from api", data)
                 if (data && data.errors) setErrors(data.errors)
-                console.log('ERRORS', errors)
+                // console.log('ERRORS', errors)
               });
         }
     }
@@ -62,7 +62,7 @@ const SpotShow = () => {
 
     function checkIfReview() {
         if (spot.numReviews === 0) {
-            return "Be the first to leave us a Review!"
+            return "No Reviews Yet!"
         } else {
             return ((Math.floor(spot.avgStarRating * 100)/100)).toLocaleString()
         }

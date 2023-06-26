@@ -1,12 +1,12 @@
-#modal {
+/* #modal {
   position: fixed;
   min-width: 500px;
   min-height: 400px;
   top: 50%;
   left: 52.5%;
-  margin-top: -200px; /* Negative half of height. */
-  margin-left: -250px; /* Negative half of width. */
-
+  margin-top: -200px;
+  margin-left: -250px;
+  z-index: 100;
   }
 
   #modal-background {
@@ -23,8 +23,52 @@
     background-color:white;
     width: fit-content;
     height: fit-content;
+    height: max-content;
+    height: 100vh;
+  } */
+
+
+
+  #modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    z-index: 100;
   }
 
+  #modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  #modal-content {
+    position: absolute;
+    background-color:white;
+    border-radius: .5rem;
+    width: fit-content;
+    height: fit-content;
+    max-width: 50%;
+    max-height: 70%;
+    display: flex;
+    justify-content: center;
+    /* z-index: 10; */
+    overflow-y: scroll;
+    /* background-color: black; */
+  }
+
+  #modal-content::-webkit-scrollbar{
+    display: none;
+  }
   .profile-dropdown {
     color: black;
   }

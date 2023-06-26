@@ -20,9 +20,9 @@ const DeleteBookingButton = (prop) => {
         })
         .catch(async (res) => {
           const data = await res.json()
-          console.log("Checking data returning to form", data)
+          // console.log("Checking data returning to form", data)
           if (data && data.errors) setErrors(data.errors)
-          console.log("ERRORS", errors)
+          // console.log("ERRORS", errors)
         });
     }
 

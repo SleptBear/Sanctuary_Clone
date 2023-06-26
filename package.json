@@ -23,5 +23,8 @@
     "url": "https://github.com/SleptBear/AirBnB_Clone/issues"
   },
   "homepage": "https://github.com/SleptBear/AirBnB_Clone#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2"
+  }
 }

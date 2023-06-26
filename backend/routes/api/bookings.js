@@ -68,7 +68,7 @@ router.get(
         // })
         // console.log(Bookings)
         let test = Bookings[0].dataValues
-        console.log(test)
+        // console.log(test)
 
         res.json({Bookings})
     }

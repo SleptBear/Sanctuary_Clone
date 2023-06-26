@@ -38,7 +38,7 @@ export const getAllBookings = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${id}/bookings`)
     if (response.ok) {
         const bookingData = await response.json()
-        console.log({bookingData})
+        // console.log({bookingData})
         dispatch(loadBookings(bookingData))
         return bookingData
     }
@@ -72,15 +72,15 @@ export const deleteBooking = (bookingId) => async (dispatch) => {
     const response = await csrfFetch(`/api/bookings/${bookingId}`, {
         method: 'DELETE'
     })
-    console.log(response)
+    // console.log(response)
     let data;
     if (response.ok) {
-        console.log(response)
+        // console.log(response)
         data = await response.json()
         dispatch(removeBooking(bookingId))
         return data
     }
-    console.log(response)
+    // console.log(response)
     return response
 }
 
