@@ -178,12 +178,13 @@ button:hover {
     justify-content: center;
     align-items: center;
     /* flex-wrap: wrap; */
-    width: 80%;
-    height: 85%;
+    /* width: 80%;
+    height: 85%; */
     max-height: 95%;
     background-color: white;
     box-shadow: 0 0 2px rgba(10, 0, 10, 0.30);
     object-fit: contain;
+    padding: 2%;
 }
 
 .error-lists {
