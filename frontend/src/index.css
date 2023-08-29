@@ -50,7 +50,8 @@ button:hover {
 .review-section {
     display: flex;
     justify-content: space-between;
-    /* width: 100vw; */
+    justify-content: center;
+    width: 100vw;
     /* max-width: 100%; */
     /* justify-content: center; */
     /* max-height: 100rem; */
@@ -61,15 +62,18 @@ button:hover {
 #review-section {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    align-items: center;
+    justify-content: center;
+    /* width: 100%; */
+    /* align-items: center; */
 }
 
 #spot-show-left {
     width: 50%;
 }
 #spot-show-right {
+    display: flex;
     width: 40%;
+    justify-content: center;
 }
 
 
