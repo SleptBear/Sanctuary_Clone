@@ -30,7 +30,7 @@ button:hover {
     /* min-width: 703px; */
     display: flex;
     flex-direction: row;
-    padding-left: 10%;
+    /* padding-left: 10%; */
     /* background-color: red; */
 }
 
@@ -38,6 +38,7 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    justify-content: center;
     /* background-color: blue; */
     /* padding-right: 10%; */
     /* max-width: 90%; */
