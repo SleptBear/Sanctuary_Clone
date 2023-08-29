@@ -436,7 +436,7 @@ form > button {
 .name {
     display: flex;
     flex-direction: row;
-    max-width: 1242px;
+    max-width: 1222px;
     width: 100%;
     font-weight:bolder;
     font-size:xx-large;
@@ -456,7 +456,7 @@ form > button {
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1242px;
+    max-width: 1222px;
     /* background-color: purple; */
     /* justify-items: flex-start; */
     justify-content: space-between
