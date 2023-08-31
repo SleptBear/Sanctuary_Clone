@@ -8,13 +8,13 @@ import Dummy from "../SampleUserButton/SampleUserButton";
 import Person from "../Icons/mainIcon";
 import Burger from "../Icons/hamburger";
 import { useHistory } from "react-router-dom";
-// import Logo from "../Icon.js/logo";
-// import { useModal } from "../../context/Modal";
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
+  const buttonRef = useRef();
   const ulRef = useRef();
   // const { closeModal } = useModal();
 
@@ -31,6 +31,11 @@ function ProfileButton({ user }) {
         setShowMenu(false);
       }
     };
+    // const closeMenu = (e) => {
+    //   if (!ulRef.current.contains(e.target) && !buttonRef.current.contains(e.target)) {
+    //     setShowMenu(false);
+    //   }
+    // };
 
     document.addEventListener('click', closeMenu);
 
