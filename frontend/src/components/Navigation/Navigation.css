@@ -115,10 +115,10 @@ li > button {
 
 .user-menu > button {
     font-size: normal;
-    color: #999999;
+    /* color: #999999; */
     background-color: white;
-    height: 35px;
-    width: 50px;
+    height: 50px;
+    width: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,6 +126,10 @@ li > button {
     border-style: none;
     box-shadow: 0px 0px 15px -5px;
     box-shadow: 0 0 2px rgba(10, 10, 10, 0.70);
+}
+
+.userButton {
+    size: 100px;
 }
 
  .profile-dropdown {
@@ -174,6 +178,10 @@ li > button {
 .fa-brands {
     color: #FF5A5F;
 
+}
+
+.fa-bars {
+    size: 500px;
 }
 
 /* removes underline from sanctury and logo */

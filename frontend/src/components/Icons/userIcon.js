@@ -1,6 +1,6 @@
 const Person = () => {
   return (
-    <div>
+    <div className="userButton">
       <i className="fa-solid fa-user"></i>
     </div>
   );

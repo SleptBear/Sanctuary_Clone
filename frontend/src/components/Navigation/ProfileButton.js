@@ -5,7 +5,7 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import Dummy from "../SampleUserButton/SampleUserButton";
-import Person from "../Icons/mainIcon";
+import Person from "../Icons/userIcon";
 import Burger from "../Icons/hamburger";
 import { useHistory } from "react-router-dom";
 

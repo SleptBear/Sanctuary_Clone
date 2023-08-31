@@ -92,10 +92,9 @@ button:hover {
 .bigger-review-container {
     display: grid;
     width: 100%;
+    justify-items: center;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
-    /* padding-bottom: 10px; */
-    /* gap: 20px; */
 
 }
 
@@ -104,8 +103,8 @@ button:hover {
     flex-direction: column;
     overflow: hidden;
     max-height: 100%;
+    width: 100%;
     max-width: 90%;
-
 
 }
 
@@ -144,22 +143,21 @@ button:hover {
     #spot-show-right {
         width: 100%;
     }
-    .bigger-review-container {
-        display: flex;
+    /* .bigger-review-container { */
+
+        /* display: flex;
         width: 100%;
         flex-direction: column;
         grid-auto-rows: auto;
         justify-items: center;
         margin-left: 20px;
-        margin-right: 20px;
-        /* padding-bottom: 10px; */
-        /* gap: 20px; */
-    }
+        margin-right: 20px; */
+    /* } */
 
-    .detailed-description {
+    /* .detailed-description {
         margin-left: 20px;
         margin-right: 20px;
-    }
+    } */
 }
 .p-review {
     font-size: medium;
@@ -314,6 +312,8 @@ div > button {
     transition: .5s;
     padding-top: .75rem;
     padding-bottom: .75rem;
+    /* color: #999999; */
+    font-size: large;
     /* box-shadow: 0px 0px 15px -5px; */
 }
 
@@ -325,6 +325,8 @@ form > button {
     bottom: 2rem;
     min-height: 2.5rem;
     padding-top: 5px;
+    font-size: large;
+    font-weight: bold;
     /* padding-left: 1rem; */
     /* padding-right: 1rem; */
 }
@@ -433,8 +435,8 @@ form > button {
     flex-direction: row;
     justify-items: flex-start;
     width: 50rem;
-    font-weight:bolder;
-    font-size: xx-large;
+    /* font-weight:bolder; */
+    /* font-size: xx-large; */
     gap: 5px;
     align-items: center;
 

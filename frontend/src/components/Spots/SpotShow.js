@@ -104,6 +104,7 @@ const SpotShow = () => {
                     {/* <h2>${spot.price} night</h2> */}
                     <div className="detailed-description">
                         {/* {console.log(spot.description.length)} */}
+                        <h1>Important Details</h1>
                         <p>{spot.description}</p>
                     </div>
                 </div>
@@ -121,10 +122,10 @@ const SpotShow = () => {
 <div id="below-card">
 
 </div>
-    <div className="rating-container">
-        <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} Review(s)
+    <h2 className="rating-container">
+        <i className="fa-solid fa-star"></i> {checkIfReview() + " · " + spot.numReviews} review(s)
 
-    </div>
+    </h2>
     <br></br>
     <br></br>
 
