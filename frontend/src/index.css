@@ -47,11 +47,19 @@ button:hover {
     max-width: 25%;
 } */
 
+#review-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    /* width: 100%; */
+    align-items: center;
+}
+
 .review-section {
     display: flex;
     justify-content: space-between;
-    justify-content: center;
-    width: 100vw;
+    /* justify-content: center; */
     /* max-width: 100%; */
     /* justify-content: center; */
     /* max-height: 100rem; */
@@ -59,16 +67,9 @@ button:hover {
     /* background-color: red; */
 }
 
-#review-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* width: 100%; */
-    /* align-items: center; */
-}
 
 #spot-show-left {
-    width: 50%;
+    width: 55%;
 }
 #spot-show-right {
     display: flex;
