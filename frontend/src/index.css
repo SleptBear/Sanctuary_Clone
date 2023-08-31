@@ -309,7 +309,7 @@ div > button {
     border-style: none;
     background-color: white;
     font-weight: bold;
-    transition: .5s;
+    transition: .25s;
     padding-top: .75rem;
     padding-bottom: .75rem;
     /* color: #999999; */
@@ -384,18 +384,22 @@ form > button {
 }
 
 .create-review-button button {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    background-color: lightgray;
-    transition: .5s;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    /* background-color: lightgray; */
+    transition: .25s;
+    margin-left: .5rem;
 }
 
 .create-review-button button:hover {
-    background-color: lightslategray;
+    /* background-color: lightslategray; */
+    /* background-color: #FF5A5F; */
+    background-color: rgba(211, 211, 211, 0.591);
 }
 
 .listing-part button:hover {
-    background-color: lightgray;
+    /* background-color: #ff5a60ae; */
+    background-color: rgba(211, 211, 211, 0.591);
     padding-top: .75rem;
     padding-bottom: .75rem;
 }
