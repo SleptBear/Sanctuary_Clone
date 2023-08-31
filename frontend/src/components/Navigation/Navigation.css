@@ -42,7 +42,7 @@ border-bottom: solid;
 .navbar {
     /* background-color: blue; */
     width: 100%;
-    max-width: 1250px ;
+    max-width: 1235px ;
     display: flex;
     align-items: center;
     /* align-content: center; */
@@ -195,21 +195,21 @@ a:link {
     align-items: center;
 }
 
-@media screen and (max-width: 1240px) {
+/* @media screen and (max-width: 1300px) {
     .navbar {
         padding-left: 0%;
         padding-right: 0%;
     }
 
-}
-@media screen and (min-width: 1261px) {
-    .navbar {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+} */
+@media screen and (min-width: 1300px) {
+    /* .navbar {
+        padding-left: 2rem;
+        padding-right: 4rem;
+    } */
     .profile-dropdown {
         left: 50%;
-        transform: translateX(400px);
+        transform: translateX(395px);
 
     }
 
