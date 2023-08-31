@@ -22,15 +22,22 @@ const ReserveModule = ({spot}) => {
     return (
 
     <div className="reserve-box">
-        <div className="reserve-info">
-            <div className="reserve-price" style={{width:'50%'}}>${checkPrice()} night</div>
-            <div className="rating">
+        {/* <div className="reserve-info"> */}
+            <div className="reserve-price">$
+                <div >
+                {checkPrice()}
+                </div>
+                <div id="post-price">
+                night
+                </div>
+                </div>
+            {/* <div className="rating">
                 <i className="fa-solid fa-star"></i>
                 <div>
                     {checkIfReview() + " · " + spot.numReviews} Review(s)
                 </div>
-            </div>
-        </div>
+            </div> */}
+        {/* </div> */}
 
         <div className="reserve-button-container">
             {/* <ReserveButton></ReserveButton> */}

@@ -481,6 +481,7 @@ form > button {
     /* width: 100vw; */
     height: 7.5rem;            /* Footer height */
     background-color: #f7f7f7;
+    background-color: #FF5A5F;
     color: black;
     /* margin-top: 20px; */
     padding-top: 20px;
@@ -516,6 +517,7 @@ form > button {
 
 #dev a {
     color: rgb(231, 92, 194);
+    color: white;
     text-decoration: none;
     margin: 2px;
 }
