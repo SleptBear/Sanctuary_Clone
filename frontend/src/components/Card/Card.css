@@ -230,6 +230,7 @@
 @media screen and (max-width: 960px) {
     .reserve-container {
         padding-top: 1rem;
+        padding-bottom: 1rem;
         min-width: 350px;
         max-width: 100%;
         display: flex;

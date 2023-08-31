@@ -2,6 +2,7 @@
 #root {
     /* min-width: 1080px; */
     max-width: 100vw;
+    overflow-x: hidden;
 }
 
 #page-container {

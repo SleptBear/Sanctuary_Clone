@@ -194,10 +194,10 @@ a:link {
     }
 
 }
-@media screen and (min-width: 1241px) {
+@media screen and (min-width: 1261px) {
     .navbar {
-        padding-left: 0%;
-        padding-right: 0%;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     .profile-dropdown {
         left: 50%;
