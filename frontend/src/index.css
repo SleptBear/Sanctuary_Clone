@@ -389,6 +389,8 @@ form > button {
     /* background-color: lightgray; */
     transition: .25s;
     margin-left: .5rem;
+    /* color: #FF5A5F; */
+    border-style: solid;
 }
 
 .create-review-button button:hover {
