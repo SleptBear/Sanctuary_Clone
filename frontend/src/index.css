@@ -40,6 +40,7 @@ button:hover {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    overflow: hidden;
     /* background-color: blue; */
     /* padding-right: 10%; */
     /* max-width: 90%; */
