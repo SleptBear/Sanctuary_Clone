@@ -27,6 +27,7 @@ button:hover {
 
 .body-container {
     width: 100%;
+    height: fit-content;
     /* max-width: 1460px; */
     /* min-width: 703px; */
     display: flex;
@@ -40,14 +41,22 @@ button:hover {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    overflow: hidden;
+    overflow-y: auto;
+    padding-top: 1.5rem;
+
+    /* overflow: hidden; */
     /* background-color: blue; */
     /* padding-right: 10%; */
     /* max-width: 90%; */
 }
-/* .body-container-items a {
-    max-width: 25%;
+
+/* .body-container::-webkit-scrollbar {
+    display: none;
 } */
+.body-container-items::-webkit-scrollbar {
+    display: none;
+}
+
 
 #review-section {
     display: flex;
