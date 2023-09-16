@@ -61,6 +61,7 @@ button:hover {
 .review-section {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 1rem;
     /* justify-content: center; */
     /* max-width: 100%; */
     /* justify-content: center; */
