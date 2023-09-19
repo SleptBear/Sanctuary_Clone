@@ -30,7 +30,6 @@ function App() {
           <Route path='/*' component={PageNotFound}></Route>
         </Switch>
       )}
-      {/* <SpotCard></SpotCard> */}
     </>
   );
 }
