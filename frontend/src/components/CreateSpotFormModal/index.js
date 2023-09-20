@@ -202,7 +202,7 @@ const CreateSpotFormModal = () => {
           {/* <div className="home-submit-button"> */}
 
           <br></br>
-          <button type="submit">Submit Home</button>
+          <button id='form-button' type="submit">Submit Home</button>
           <br></br>
         {hasSubmitted && errors.length > 0 && (
         <div className="error-lists">

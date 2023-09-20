@@ -328,6 +328,19 @@ div > button {
     /* box-shadow: 0px 0px 15px -5px; */
 }
 
+.update-button button:hover {
+    /* background-color: #ff5a60ae; */
+    background-color: rgba(211, 211, 211, 0.591);
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+#gray-button:hover {
+    /* background-color: #ff5a60ae; */
+    background-color: rgba(211, 211, 211, 0.591);
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+
 form > button {
     width: 90%;
     color: white;
