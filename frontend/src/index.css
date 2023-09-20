@@ -334,7 +334,7 @@ form > button {
     background-color: #FF5A5F;
     border-radius: .5rem;
     bottom: 2rem;
-    min-height: 2.5rem;
+    min-height: 3rem;
     padding-top: 5px;
     font-size: large;
     font-weight: bold;
@@ -348,12 +348,20 @@ form > button {
     background-color: #FF5A5F;
     border-radius: .5rem;
     bottom: 2rem;
-    min-height: 2.5rem;
+    min-height: 3rem;
     /* padding-top: 5px; */
-    border-width: 2px;
+    /* border-width: 2px; */
     border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
 
 }
+
+#form-button:hover {
+    background-color: #f3282f;
+  }
 
 .home-submit-button {
     display: flex;

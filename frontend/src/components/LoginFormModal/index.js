@@ -56,7 +56,7 @@ function LoginFormModal() {
         />
       </label>
       <br></br>
-      <button type="submit">Log In</button>
+      <button id='form-button' className="submit-button"type="submit">Log In</button>
     </form>
       <button id='form-button' className="submit-button" onClick={() => dispatch(sessionActions.login("john.smith@gmail.com", "secret password")).then(() => closeModal())}>Demo User</button>
       <br></br>
