@@ -101,9 +101,7 @@ const SpotShow = () => {
         <div className="spot-sub-info">
                 <div className="spot-body">
                     <h2>Hosted by {spot.Owner.firstName + ' ' + spot.Owner.lastName}</h2>
-                    {/* <h2>${spot.price} night</h2> */}
                     <div className="detailed-description">
-                        {/* {console.log(spot.description.length)} */}
                         <h1>Important Details</h1>
                         <p>{spot.description}</p>
                     </div>
